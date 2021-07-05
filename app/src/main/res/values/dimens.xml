@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- word size -->
+    <dimen name="topic_50">50sp</dimen>
+    <dimen name="English_topic_37">37sp</dimen>
+    <dimen name="word_30">30sp</dimen>
+    <dimen name="word_24">24sp</dimen>
+    <dimen name="buttonB_25">25sp</dimen>
+    <dimen name="buttonS_20">20sp</dimen>
+    <dimen name="hashtag_18">18sp</dimen>
+    <!-- typical spacing between two views -->
+    <dimen name="spacing_40">40dp</dimen>
+    <dimen name="spacing_24">24dp</dimen>
+    <dimen name="spacing_14">14dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_4">4dp</dimen>
+    <!-- typical sizes of views -->
+    <dimen name="login_button_height_45">45dp</dimen>
+    <dimen name="login_button_width_200">200dp</dimen>
+    <dimen name="articleBox_height_100">100dp</dimen>
+    <dimen name="articleBox_width_340">340dp</dimen>
+    <dimen name="buttonB_height_45">45dp</dimen>
+    <dimen name="buttonB_width_140">140dp</dimen>
+    <dimen name="buttonS_height_45">45dp</dimen>
+    <dimen name="buttonS_width_80">80dp</dimen>
+</resources>

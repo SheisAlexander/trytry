@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white"
+    >
+
+    <!--<TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="首頁"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /-->
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu_navigation" />
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="107dp"
+        android:layout_height="57dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="23dp"
+        android:text="首頁"
+        android:textSize="40dp"
+        android:gravity="top"
+        />
+
+    <!---<HorizontalScrollView
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="25dp"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:background="@color/green_a1"
+                android:text="推薦"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>-->
+    <ImageButton
+        android:id="@+id/settingbutton"
+        android:layout_width="44dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        app:srcCompat="@drawable/ic_settings"
+      />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推薦"
+                android:textColor="@color/black"
+
+                app:backgroundTint="@color/gray" />
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類A"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類B"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類C"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類D"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類E"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類F"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類G"
+                android:textColor="@color/black"/>
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分類H"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:fillViewport="false">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="Button One"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button Two"
+                android:background="@color/primary_green"
+                />
+            <TextView android:layout_width="340dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Button last"
+                android:background="@color/primary_green"
+                android:layout_marginBottom="70dp"
+
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

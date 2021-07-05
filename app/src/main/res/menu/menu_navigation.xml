@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/home"
+        android:title="首頁"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/analysis"
+        android:title = "分析"
+        android:icon="@drawable/ic_analytics"/>
+    <item
+        android:id="@+id/test"
+        android:title = "測驗"
+        android:icon="@drawable/ic_test"/>
+    <item
+        android:id="@+id/dictionary"
+        android:title = "字典"
+        android:icon="@drawable/ic_dictionary"/>
+
+
+
+</menu>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_green">#FF2B8C44</color>
+    <color name="active_green">#FF98C1A1</color>
+    <color name="primary_green">#FFBFD9C5</color>
+    <color name="gray">#FFE5E5E5</color>
+    <color name="O">#FF62AA75</color>
+    <color name="X">#FFC4C4C4</color>
+
+    <color name="green_a1">#FF2B8C44</color>
+    <color name="green_a2">#FF37D25E</color>
+    <color name="green_a3">#FF7AE194</color>
+    <color name="green_a4">#FFDEF7E4</color>
+    <color name="green_b1">#FF40916C</color>
+    <color name="green_b2">#FF52B788</color>
+    <color name="green_b3">#FFB5E48C</color>
+    <color name="green_b4">#FFC5EDAC</color>
+    <color name="green_b5">#FFDBFEB8</color>
+    <color name="green_c1">#FF2D6A4F</color>
+    <color name="green_c2">#FF7A918D</color>
+    <color name="green_c3">#FF93B1A7</color>
+    <color name="green_c4">#FF34A0A4</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
