@@ -14,6 +14,9 @@ import android.widget.ImageButton;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    String test = "測試";
+    int x = 1224;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
