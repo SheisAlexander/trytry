@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     void testPush() {
-        Log.d("test","測試用push上傳程式")
+        Log.d("test","測試用push上傳程式");
     }
 
 
