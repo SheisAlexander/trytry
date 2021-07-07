@@ -1,28 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Test">
-    <TextView
 
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="left"
         android:text="測驗"
-        android:textSize="40dp"
+        android:textSize="@dimen/topic_50"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="@dimen/buttonB_width_140"
+        android:layout_height="@dimen/buttonB_height_45"
+        android:layout_marginTop="44dp"
+        android:text="開始測驗"
+        android:textColor="@color/dark_green"
+        app:backgroundTint="@color/primary_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id = "@+id/bottom_navigation"
+        android:layout_alignParentBottom="true"
         app:itemBackground="@color/design_default_color_on_primary"
-        app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation"
-        android:layout_alignParentBottom="true"/>
+        tools:layout_editor_absoluteX="0dp" />
 
-</RelativeLayout>
+    <View
+        android:id="@+id/view"
+        android:layout_width="382dp"
+        android:layout_height="141dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="373dp"
+        android:layout_height="101dp"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="365dp"
+        android:layout_height="100dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="412dp" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="365dp"
+        android:layout_height="101dp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="538dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
