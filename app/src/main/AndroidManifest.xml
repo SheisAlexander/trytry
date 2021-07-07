@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.English">
-        <activity android:name=".TestArticle"></activity>
+        <activity android:name=".YourSort"></activity>
+        <activity android:name=".YourLevel" />
+        <activity android:name=".TestArticle" />
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
         <activity android:name=".Settings" />
