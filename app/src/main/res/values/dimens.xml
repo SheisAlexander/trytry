@@ -23,4 +23,5 @@
     <dimen name="buttonB_width_140">140dp</dimen>
     <dimen name="buttonS_height_45">45dp</dimen>
     <dimen name="buttonS_width_80">80dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
