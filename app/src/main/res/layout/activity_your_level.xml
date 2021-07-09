@@ -19,7 +19,7 @@
         android:layout_width="297dp"
         android:layout_height="34dp"
         tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="548dp" />
+        tools:layout_editor_absoluteY="546dp" />
 
     <Button
         android:id="@+id/button6"
