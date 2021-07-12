@@ -64,14 +64,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="18dp"
             android:layout_marginTop="190dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="18dp"
             android:text="Knowledge is one thing, virtue is another; good sense is not conscience, refinemKnowledge is one thing, virtue is another; good sense is not conscience, refinement is not humility nor is largeness and justness of view faith. Philosophy, however enlightened, however profound, gives no command over the passions, no influential motives, no vivifying principles. Liberal Education makes not ent is not humility nor is largeness and justness of view faith. Philosophy, however enlightened, however profound, gives no command over the passions, no influential motives, no vivifying principles. Liberal Education makes not"
             android:textColor="@color/green_c1"
             android:textSize="@dimen/word_30" />
 
-        <!----TextView
+        <!---TextView
                 android:layout_width="403dp"
                 android:layout_height="514dp"
                 android:gravity="center_horizontal"
@@ -80,9 +80,69 @@
                 android:textColor="@color/dark_green"
                 android:textSize="@dimen/word_30"
                 tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="204dp" >--->
+                tools:layout_editor_absoluteY="204dp" -->
 
     </ScrollView>
+
+    <!--
+    <Button
+        android:id="@+id/type_science"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginRight="107dp"
+
+        android:text="Science"
+        android:textSize="@dimen/hashtag_18"
+        app:backgroundTint="@color/green_b2" />
+
+    <Button
+        android:id="@+id/type_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+
+        android:text="Story"
+        android:textSize="@dimen/hashtag_18"
+        app:backgroundTint="@color/green_b1" />
+
+        -->
+
+    <com.google.android.material.chip.Chip
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:text="推薦" />
+
+    <com.google.android.material.chip.Chip
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="289dp"
+        android:layout_marginLeft="289dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="5dp"
+        android:text="Famous Brand" />
+
 
 </RelativeLayout>
 
