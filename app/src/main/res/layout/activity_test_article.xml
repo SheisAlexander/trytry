@@ -31,9 +31,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="472dp"
+        android:layout_height="518dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="150dp">
+        android:layout_marginBottom="104dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,29 +43,29 @@
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
-                android:layout_height="475dp"
+                android:layout_height="520dp"
                 android:text="TextView" />
         </LinearLayout>
     </ScrollView>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="146dp"
+        android:layout_height="101dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="2dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="290dp"
-                android:layout_marginRight="290dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
                 android:text="Button"
                 android:textColor="@color/dark_green"
                 app:backgroundTint="@color/primary_green" />
@@ -74,9 +74,9 @@
                 android:id="@+id/button13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="164dp"
-                android:layout_marginRight="164dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
                 android:text="Button"
                 android:textColor="@color/dark_green"
                 app:backgroundTint="@color/primary_green" />
@@ -85,9 +85,9 @@
                 android:id="@+id/button14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="35dp"
-                android:layout_marginRight="35dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
                 android:text="Button"
                 android:textColor="@color/dark_green"
                 app:backgroundTint="@color/primary_green" />
@@ -96,9 +96,9 @@
                 android:id="@+id/button15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="290dp"
-                android:layout_marginRight="290dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
                 android:text="Button"
                 android:textColor="@color/dark_green"
                 app:backgroundTint="@color/primary_green" />
@@ -107,9 +107,9 @@
                 android:id="@+id/button16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="164dp"
-                android:layout_marginRight="164dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
                 android:text="Button"
                 android:textColor="@color/dark_green"
                 app:backgroundTint="@color/primary_green" />
@@ -118,9 +118,9 @@
                 android:id="@+id/button17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="37dp"
-                android:layout_marginRight="37dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
                 android:text="Button"
                 android:textColor="@color/dark_green"
                 app:backgroundTint="@color/primary_green" />
