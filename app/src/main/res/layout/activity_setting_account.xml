@@ -203,5 +203,57 @@
         android:textSize="@dimen/buttonB_25"
         />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="419dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="528dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="257dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+
 
 </RelativeLayout>
