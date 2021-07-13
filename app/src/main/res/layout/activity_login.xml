@@ -154,23 +154,6 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="@dimen/login_button_width_200"
-        android:layout_height="@dimen/login_button_height_45"
-        android:layout_marginStart="97dp"
-        android:layout_marginLeft="97dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="96dp"
-        android:gravity="center"
-        android:text="Line登入"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="@dimen/login_button_width_200"
         android:layout_height="@dimen/login_button_height_45"
