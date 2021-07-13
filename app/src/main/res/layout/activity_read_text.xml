@@ -28,7 +28,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="355dp"
             android:background="@color/primary_green"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             />
         <ImageButton
             android:id="@+id/soundbutton"
@@ -48,7 +48,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:background="@color/primary_green"
-            app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+            android:src="@drawable/ic_baseline_favorite_border_24"
             />
 
         <!---滑動主頁面
@@ -148,7 +148,7 @@ Things are looking up. 情況在好轉。"
         android:layout_marginTop="350dp"
         android:layout_marginRight="25dp"
         android:background="@color/green_b2"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+        android:src="@drawable/ic_baseline_favorite_border_24"
         />
     <ImageButton
         android:id="@+id/closebutton_textbox"
@@ -158,7 +158,7 @@ Things are looking up. 情況在好轉。"
         android:layout_marginTop="350dp"
         android:layout_marginRight="0dp"
         android:background="@color/green_b2"
-        app:srcCompat="@drawable/ic_baseline_highlight_off_24"
+        android:src="@drawable/ic_baseline_highlight_off_24"
         />
     <ImageButton
         android:id="@+id/morebutton_textbox"
@@ -168,7 +168,7 @@ Things are looking up. 情況在好轉。"
         android:layout_marginTop="550dp"
         android:layout_marginRight="0dp"
         android:background="@color/green_b2"
-        app:srcCompat="@drawable/ic_baseline_zoom_in_24"
+        android:src="@drawable/ic_baseline_zoom_in_24"
         />
 
 
