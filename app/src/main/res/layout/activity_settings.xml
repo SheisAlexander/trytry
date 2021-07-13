@@ -84,7 +84,7 @@
     <EditText
         android:layout_width="378dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+
         android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
@@ -99,9 +99,9 @@
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
+
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
+
         android:layout_marginTop="252dp"
         android:gravity="center_vertical"
 
@@ -112,12 +112,12 @@
         />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/View_set"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_alignParentStart="true"
+
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
+
         android:layout_marginTop="316dp"
 
         android:gravity="center_vertical"
@@ -126,28 +126,54 @@
         android:textSize="@dimen/buttonB_25" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/daynight_set"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_alignParentStart="true"
+
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="-2dp"
+
+        android:layout_marginTop="361dp"
+
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:text="  日夜間模式"
+        android:textColor="@color/green_a1"
+        android:textSize="@dimen/buttonB_25" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginTop="415dp"
+
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:text="  字體大小"
+        android:textColor="@color/green_a1"
+        android:textSize="@dimen/buttonB_25" />
+
+
+    <TextView
+        android:id="@+id/remind_set"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="474dp"
-        android:layout_marginEnd="0dp"
 
         android:gravity="center_vertical"
         android:text="  提醒設定"
         android:textColor="@color/green_a1"
         android:textSize="@dimen/buttonB_25" />
 
+
+
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/remind"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
         android:layout_marginTop="524dp"
 
         android:background="@color/white"
@@ -156,35 +182,9 @@
         android:textColor="@color/green_a1"
         android:textSize="@dimen/buttonB_25" />
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="361dp"
 
-        android:gravity="center_vertical"
-        android:background="@color/white"
-        android:text="  每日提醒"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25" />
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginTop="415dp"
 
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:text="  每日提醒"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25" />
 
     <TextView
         android:id="@+id/textView18"
@@ -214,7 +214,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
-        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+        android:src="@drawable/ic_baseline_navigate_next_24"
+        />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -227,7 +228,8 @@
         android:layout_marginEnd="14dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
-        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+        android:src="@drawable/ic_baseline_navigate_next_24"
+        />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -240,7 +242,8 @@
         android:layout_marginEnd="12dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
-        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+        android:src="@drawable/ic_baseline_navigate_next_24"
+        />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -253,7 +256,8 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
-        app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
+        android:src="@drawable/ic_baseline_navigate_next_24"
+        />
 
 
 </RelativeLayout>
