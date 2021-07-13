@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.English">
-
-        <activity android:name=".Vocabulary_card" />
-        <activity android:name=".YourSort" />
+        <activity android:name=".YourSort"></activity>
         <activity android:name=".YourLevel" />
         <activity android:name=".TestArticle" />
         <activity android:name=".Signup" />
