@@ -48,93 +48,83 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="290dp"
-        android:layout_marginRight="290dp"
-        android:layout_marginBottom="80dp"
-        android:text="Button"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        />
+        android:layout_marginBottom="2dp">
 
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="164dp"
-        android:layout_marginRight="164dp"
-        android:layout_marginBottom="80dp"
-        android:text="Button"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="80dp"
-        android:text="Button"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        />
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="290dp"
+                android:layout_marginRight="290dp"
+                android:layout_marginBottom="80dp"
+                android:text="Button"
+                android:textColor="@color/dark_green"
+                app:backgroundTint="@color/primary_green" />
 
-    <Button
-        android:id="@+id/button15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="290dp"
-        android:layout_marginRight="290dp"
-        android:layout_marginBottom="15dp"
-        android:text="Button"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        />
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="164dp"
+                android:layout_marginRight="164dp"
+                android:layout_marginBottom="80dp"
+                android:text="Button"
+                android:textColor="@color/dark_green"
+                app:backgroundTint="@color/primary_green" />
 
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="164dp"
-        android:layout_marginRight="164dp"
-        android:layout_marginBottom="15dp"
-        android:text="Button"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        />
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="80dp"
+                android:text="Button"
+                android:textColor="@color/dark_green"
+                app:backgroundTint="@color/primary_green" />
 
-    <Button
-        android:id="@+id/button17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
-        android:layout_marginBottom="15dp"
-        android:text="Button"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        />
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="290dp"
+                android:layout_marginRight="290dp"
+                android:layout_marginBottom="15dp"
+                android:text="Button"
+                android:textColor="@color/dark_green"
+                app:backgroundTint="@color/primary_green" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="164dp"
+                android:layout_marginRight="164dp"
+                android:layout_marginBottom="15dp"
+                android:text="Button"
+                android:textColor="@color/dark_green"
+                app:backgroundTint="@color/primary_green" />
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="37dp"
+                android:layout_marginRight="37dp"
+                android:layout_marginBottom="15dp"
+                android:text="Button"
+                android:textColor="@color/dark_green"
+                app:backgroundTint="@color/primary_green" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
 </RelativeLayout>
