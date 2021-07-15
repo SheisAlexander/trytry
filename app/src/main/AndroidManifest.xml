@@ -9,10 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.English">
-        <activity
-            android:name=".Tab"
-            android:label="@string/title_activity_tab"
-            android:theme="@style/Theme.English.NoActionBar"></activity>
         <activity android:name=".YourSort" />
         <activity android:name=".YourLevel" />
         <activity android:name=".TestArticle" />
