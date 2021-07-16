@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings"
-    >
+    tools:context=".Settings">
 
     <TextView
         android:id="@+id/textView19"
@@ -202,7 +201,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="370dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_baseline_navigate_next_24"
@@ -216,21 +215,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="419dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="15dp"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_navigate_next_24"
-        />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="528dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_baseline_navigate_next_24"
@@ -248,6 +233,19 @@
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_baseline_navigate_next_24"
+        />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="166dp"
+        android:backgroundTint="@color/white"
         />
 
 
