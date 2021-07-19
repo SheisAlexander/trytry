@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Vocabulary_History">
 
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="29dp"
+        android:gravity="top"
+        android:text="收藏單字"
+        android:textSize="40dp" />
+
+
     <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="123dp"
+        android:layout_height="49dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/rectangle_shape_big"
+        android:gravity="center"
+        android:text="單字卡"
+        android:textSize="@dimen/buttonB_25" />
+
     <ScrollView
+        android:layout_marginTop="75dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
@@ -18,15 +47,87 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="Vocabulary"
+                android:text="vocabulary   單字"
                 android:background="@color/primary_green"
                 android:gravity="center"
-                android:textSize="30dp"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="vocabulary"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="vocabulary   單字"
                 android:background="@color/primary_green"
                 android:gravity="center"
                 android:textSize="30dp"
@@ -41,82 +142,12 @@
                 android:textSize="30dp"
                 android:layout_marginTop="30dp"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="vocabulary"
-                android:background="@color/primary_green"
-                android:gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
+
+
 
 
         </LinearLayout>
     </ScrollView>
 
 
-</FrameLayout>
+</RelativeLayout>

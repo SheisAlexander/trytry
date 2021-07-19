@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Article_History">
+    tools:context=".Vocabulary_History">
 
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="29dp"
+        android:gravity="top"
+        android:text="文章紀錄"
+        android:textSize="40dp" />
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
+        android:layout_marginTop="75dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fillViewport="false"
+        android:layout_height="match_parent"
+        android:padding="30dp"
         >
         <LinearLayout
             android:orientation="vertical"
@@ -76,4 +87,4 @@
         </LinearLayout>
     </ScrollView>
 
-</FrameLayout>
+</RelativeLayout>

@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:text="文章篇數"
+                android:text="文章紀錄"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -61,7 +61,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rectangle"
                 android:gravity="center"
-                android:text="100篇"
+                android:text="100"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
@@ -88,7 +88,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rectangle"
                 android:gravity="center"
-                android:text="100篇"
+                android:text="84"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
@@ -240,7 +240,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="260dp"
-            android:layout_marginLeft="260dp"
+            android:layout_marginLeft="250dp"
 
             app:cardBackgroundColor="@color/primary_green"
             app:cardCornerRadius="15dp">
@@ -269,7 +269,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="380dp"
-            android:text="收藏與喜愛"
+            android:text="收藏"
             android:textSize="30dp"/>
 
         <androidx.cardview.widget.CardView
@@ -283,7 +283,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:text="文章"
+                android:text="收藏文章"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -294,7 +294,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rectangle"
                 android:gravity="center"
-                android:text="100篇"
+                android:text="23"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
@@ -311,7 +311,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:text="單字"
+                android:text="收藏單字"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -322,7 +322,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rectangle"
                 android:gravity="center"
-                android:text="100篇"
+                android:text="65"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
