@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Vocabulary_History">
 
     <TextView
@@ -17,10 +18,10 @@
         android:text="Level1"
         android:textSize="40dp" />
 
-
-    <TextView
-        android:layout_width="123dp"
-        android:layout_height="49dp"
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="@dimen/buttonB_width_140"
+        android:layout_height="@dimen/buttonB_height_45"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -30,7 +31,10 @@
         android:background="@drawable/rectangle_shape_big"
         android:gravity="center"
         android:text="單字卡"
-        android:textSize="@dimen/buttonB_25" />
+        android:textSize="@dimen/buttonB_25"
+        android:textColor="@color/dark_green"
+        app:backgroundTint="@color/primary_green" />
+
 
     <ScrollView
         android:layout_marginTop="75dp"
@@ -146,6 +150,8 @@
 
         </LinearLayout>
     </ScrollView>
+
+
 
 
 </RelativeLayout>
