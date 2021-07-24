@@ -11,7 +11,6 @@
         android:id="@+id/some_id"
         android:layout_width="107dp"
         android:layout_height="57dp"
-        android:layout_alignParentLeft="true"
         android:layout_marginLeft="30dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="25dp"
@@ -32,30 +31,38 @@
         android:layout_alignParentBottom="true"
         />
 
-    <HorizontalScrollView
-        android:layout_width="382dp"
-        android:layout_height="598dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginRight="25dp"
-        android:fillViewport="true"
-        android:scrollbars="none">
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="1dp">
 
         <FrameLayout
-            android:layout_width="377dp"
-            android:layout_height="599dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="13dp"
-            android:layout_marginLeft="13dp"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="68dp">
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp">
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
@@ -121,6 +128,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+
                     android:gravity="center"
                     android:text="Level1"
                     android:textColor="@color/black"
@@ -318,8 +326,37 @@
                     android:textSize="24sp" />
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="440dp"
+                app:cardBackgroundColor="@color/primary_green"
+                app:cardCornerRadius="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="收藏單字"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rectangle"
+                    android:gravity="center"
+                    android:text="65"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+            </androidx.cardview.widget.CardView>
+
 
         </FrameLayout>
-    </HorizontalScrollView>
+    </ScrollView>
+
 
 </RelativeLayout>
