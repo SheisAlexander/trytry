@@ -109,80 +109,85 @@
     </HorizontalScrollView>
 
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="150dp"
-        android:fillViewport="false"
-       >
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:fillViewport="false">
 
-            <TextView android:layout_width="340dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
-                />
-            <TextView android:layout_width="340dp"
+                android:background="@drawable/rectangle_shape_big" />
+
+            <TextView
+                android:layout_width="340dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/rectangle_shape_big"
                 android:layout_marginBottom="70dp"
+                android:background="@drawable/rectangle_shape_big"
 
                 />
         </LinearLayout>
     </ScrollView>
-
-
-
 
 
 </RelativeLayout>
