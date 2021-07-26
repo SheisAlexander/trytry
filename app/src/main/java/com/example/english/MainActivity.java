@@ -2,6 +2,8 @@ package com.example.english;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +16,22 @@ import android.widget.ImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    //1- Widgets
+    RecyclerView recyclerView;
+    //Arraylist for title and tag
+    ArrayList<String> titles = new ArrayList<>();
+    ArrayList<String> tag = new ArrayList<>();
+
 
 
 
@@ -56,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
+        //Imagebutton -setting button
         ImageButton mainButton = (ImageButton)findViewById(R.id.settingbutton);
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +81,52 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Settings.class);
                 startActivity(intent);
             }});
+
+        //Recyclerview
+        recyclerView = findViewById(R.id.recyclerView);
+        //Recyclerview configuration
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        //getting json
+        try{
+            //getting json object from json file
+            JSONObject obj = new JSONObject(loadJSONfromAssets());
+            //Fetch JsonArray name
+            JSONArray userArray  = obj.getJSONArray("famousbrand");
+            //Implementation of loop for getting users list data
+            for(int i=0;i<userArray.length();i++){
+
+                //creating a json object for fetching single data
+                JSONObject userDetail = userArray.getJSONObject(i);
+                //Fetching title & tag and storing them in arraylist
+                titles.add(userDetail.getString("title"));
+                tag.add(userDetail.getString("category"));
+
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //Calling the CustomAdapter to send the reference and data to adapter
+        CustomAdapter customAdapter = new CustomAdapter(titles,tag);
+        recyclerView.setAdapter(customAdapter);
+
+    }
+    // method for loading Json from assets
+    private String loadJSONfromAssets() {
+        String json = null;
+        try{
+            InputStream is = getAssets().open("Article01.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        }catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+        return json;
 
     }
 }

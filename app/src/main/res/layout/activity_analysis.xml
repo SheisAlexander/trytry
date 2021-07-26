@@ -38,7 +38,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="60dp">
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true">
+
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="150dp"
@@ -329,7 +332,9 @@
 
 
 
+
     </FrameLayout>
+
 
 
 </RelativeLayout>
