@@ -17,8 +17,8 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         username = findViewById(R.id.editTextEmail);
-        password = findViewById(R.id.editTextPassword);
-        email = findViewById(R.id.editTextUserName);
+        password = findViewById(R.id.SignupPassword);
+        email = findViewById(R.id.SignupUserName);
         SignupBtn = findViewById(R.id.Signupbutton);
     }
 }
