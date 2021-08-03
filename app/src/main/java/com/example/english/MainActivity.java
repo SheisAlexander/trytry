@@ -24,13 +24,24 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
 
     //1- Widgets
     RecyclerView recyclerView;
     //Arraylist for title and tag
     ArrayList<String> titles = new ArrayList<>();
-    ArrayList<String> tag = new ArrayList<>();
+    ArrayList<String> keywords1 = new ArrayList<>();
+    ArrayList<String> keywords2 = new ArrayList<>();
+    ArrayList<String> keywords3 = new ArrayList<>();
+    ArrayList<String> keywords4 = new ArrayList<>();
+    ArrayList<String> keywords5 = new ArrayList<>();
+    ArrayList<String> keywords6 = new ArrayList<>();
+    ArrayList<String> articles = new ArrayList<>();
+
+
+
+
 
 
 
@@ -82,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }});
 
+
+
         //Recyclerview
         recyclerView = findViewById(R.id.recyclerView);
         //Recyclerview configuration
@@ -90,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
         //getting json
         try{
             //getting json object from json file
-            JSONObject obj = new JSONObject(loadJSONfromAssets());
+            //JSONObject obj = new JSONObject(loadJSONfromAssets());
             //Fetch JsonArray name
-            JSONArray userArray  = obj.getJSONArray("famousbrand");
+            JSONArray userArray  = new JSONArray(loadJSONfromAssets());
             //Implementation of loop for getting users list data
             for(int i=0;i<userArray.length();i++){
 
@@ -100,7 +113,18 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject userDetail = userArray.getJSONObject(i);
                 //Fetching title & tag and storing them in arraylist
                 titles.add(userDetail.getString("title"));
-                tag.add(userDetail.getString("category"));
+                articles.add(userDetail.getString("article"));
+
+
+                JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
+                keywords1.add(keywordArray.getString(0));
+                keywords2.add(keywordArray.getString(1));
+                keywords3.add(keywordArray.getString(2));
+                keywords4.add(keywordArray.getString(3));
+                keywords5.add(keywordArray.getString(4));
+                keywords6.add(keywordArray.getString(5));
+
+
 
 
             }
@@ -108,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         //Calling the CustomAdapter to send the reference and data to adapter
-        CustomAdapter customAdapter = new CustomAdapter(titles,tag);
+        CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles);
         recyclerView.setAdapter(customAdapter);
 
     }
@@ -116,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     private String loadJSONfromAssets() {
         String json = null;
         try{
-            InputStream is = getAssets().open("Article01.json");
+            InputStream is = getAssets().open("science_TFIDF.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

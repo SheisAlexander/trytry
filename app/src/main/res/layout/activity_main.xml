@@ -47,67 +47,6 @@
       />
 
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:scrollbars="none">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <com.google.android.material.chip.ChipGroup
-            android:layout_width="wrap_content"
-            app:singleLine="true"
-            app:singleSelection="true"
-            android:layout_height="wrap_content">
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="推薦"
-
-                    />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Famous Brand" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Feature" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Festivals" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Science" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Story" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Well Know Person" />
-
-        </com.google.android.material.chip.ChipGroup>
-
-    </LinearLayout>
-    </HorizontalScrollView>
-
     <LinearLayout
         android:layout_width="361dp"
         android:layout_height="537dp"
