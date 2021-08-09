@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.English">
-        <activity android:name=".article"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Level1" />
         <activity android:name=".Signup" />
         <activity android:name=".YourSort" />
@@ -23,7 +23,7 @@
             android:theme="@style/Theme.English.NoActionBar" />
         <activity android:name=".Test" />
         <activity android:name=".Analysis" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".article">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

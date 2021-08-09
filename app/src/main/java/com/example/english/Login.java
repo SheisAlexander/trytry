@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         Registerbutton.setOnClickListener(new View.OnClickListener(){
-            Intent i = new Intent(packageContext:Login_Activity.this, SignupActivity.class)
+            Intent i = new Intent(packageContext:Login.this, Signup.class)
             startActivity(i);
         })
 
