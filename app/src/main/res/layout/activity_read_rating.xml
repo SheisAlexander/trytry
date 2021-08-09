@@ -10,7 +10,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewLogin"
             android:layout_width="match_parent"
             android:layout_height="161dp"
             android:background="@color/primary_green"
@@ -36,15 +36,15 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="270dp"
-        android:layout_height="61dp"
+        android:layout_width="330dp"
+        android:layout_height="52dp"
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
 
-        android:layout_marginBottom="119dp"
+        android:layout_marginBottom="127dp"
         android:gravity="center"
-        android:text="推薦滿意度"
+        android:text="喜歡這篇文章的程度"
         android:textColor="@color/white"
         android:textSize="@dimen/word_30"
         android:textStyle="bold" />
