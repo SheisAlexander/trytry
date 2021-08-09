@@ -8,7 +8,6 @@
     tools:context=".article">
 
 
-
     <TextView
         android:id="@+id/title02"
         android:layout_width="match_parent"
@@ -22,35 +21,36 @@
 
     <ImageButton
         android:id="@+id/backbutton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="355dp"
         android:background="@color/primary_green"
         android:src="@drawable/ic_baseline_arrow_back_24"
-        />
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/soundbutton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="315dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="45dp"
         android:background="@color/primary_green"
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
-        />
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
     <ImageButton
         android:id="@+id/heartbutton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="357dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:background="@color/primary_green"
         android:src="@drawable/ic_baseline_favorite_border_24"
-        />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
     <ScrollView
