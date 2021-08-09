@@ -31,7 +31,7 @@
         android:background="@drawable/rectangle_shape_big"
         android:gravity="center"
         android:text="單字卡"
-        android:textSize="@dimen/buttonB_25"
+        android:textSize="@dimen/buttonS_20"
         android:textColor="@color/dark_green"
         app:backgroundTint="@color/primary_green" />
 
