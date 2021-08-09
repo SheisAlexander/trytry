@@ -141,16 +141,6 @@ Things are looking up. 情況在好轉。"
         android:textSize="@dimen/hashtag_18" />
 
     <ImageButton
-        android:id="@+id/heartbutton_textbox"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="285dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginRight="25dp"
-        android:background="@color/green_b2"
-        android:src="@drawable/ic_baseline_favorite_border_24"
-        />
-    <ImageButton
         android:id="@+id/closebutton_textbox"
         android:layout_width="35dp"
         android:layout_height="35dp"
