@@ -4,11 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class article extends AppCompatActivity {
 
     TextView title,article,keyword1,keyword2,keyword3,keyword4,keyword5,keyword6;
+    TextToSpeech textToSpeech;
+    ImageButton b1;
 
 
     @Override
@@ -32,8 +40,10 @@ public class article extends AppCompatActivity {
         Intent i = getIntent();
         String title0 = i.getStringExtra("title");
         title.setText(title0);
+
         String article0 =i.getStringExtra("article") ;
         article.setText(article0);
+
         String keyword01 = i.getStringExtra("keyword1");
         keyword1.setText(keyword01);
         String keyword02 = i.getStringExtra("keyword2");
@@ -46,5 +56,40 @@ public class article extends AppCompatActivity {
         keyword5.setText(keyword05);
         String keyword06 = i.getStringExtra("keyword6");
         keyword6.setText(keyword06);
+
+        //text to speech
+
+        b1 = findViewById(R.id.soundbutton);
+        // create an object textToSpeech and adding features into it
+
+        // Adding OnClickListener
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(int i) {
+
+                        // if No error is found then only it will run
+                        if(i!=TextToSpeech.ERROR){
+                            // To Choose language of speech
+                            textToSpeech.setLanguage(Locale.US);
+                            textToSpeech.speak("article", TextToSpeech.QUEUE_FLUSH, null);
+
+
+                        }
+
+
+                    }
+                });
+
+
+            }
+        });
+
+
+
+
+
     }
 }
