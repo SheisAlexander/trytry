@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,7 +27,7 @@ public class Signup extends AppCompatActivity {
     EditText email, password,username;
     Button SignupBtn;
 
-    //Firebase Auth
+    //Firebase Auth;
     //auth = FirebaseAuth.getInstance();
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -54,7 +55,7 @@ public class Signup extends AppCompatActivity {
                     RegisterNow(username_text,email_text,password_text);
                 }
             }
-        })
+        });
     }
 
     private void RegisterNow(final String username, String email,String password){
