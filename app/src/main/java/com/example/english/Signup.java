@@ -42,7 +42,7 @@ public class Signup extends AppCompatActivity {
         email     = findViewById(R.id.SignupEmailAddress);
         password  = findViewById(R.id.SignupPassword);
         username  = findViewById(R.id.SignupUserName);
-        SignupBtn = findViewById(R.id.Signupbutton);
+        SignupBtn = findViewById(R.id.LoginSignupbutton);
 
         SignupBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
