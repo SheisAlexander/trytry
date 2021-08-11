@@ -173,11 +173,8 @@
         android:textSize="@dimen/buttonB_25" />
 
 
-
-
-
-    <TextView
-        android:id="@+id/textView18"
+    <Button
+        android:id="@+id/signOut"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_alignParentTop="true"
@@ -189,9 +186,9 @@
         android:background="@color/white"
         android:gravity="center_vertical"
         android:text="  登出"
-        android:textColor="@color/green_a1"
+        android:textColor="@color/dark_green"
         android:textSize="@dimen/buttonB_25"
-        />
+        app:backgroundTint="@color/active_green" />
 
     <ImageButton
         android:id="@+id/imageButton"

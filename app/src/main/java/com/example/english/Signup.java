@@ -1,98 +1,126 @@
 package com.example.english;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
 
-public class Signup extends AppCompatActivity {
+public class Signup extends AppCompatActivity implements View.OnClickListener{
+    private TextView textViewSignup,registerUser;
+    private EditText editTextFullname,editTextEmail,editTextPassword;
+    private ProgressBar progressBar;
 
-    //Widgets;
-    EditText email, password,username;
-    Button SignupBtn;
+    private FirebaseAuth mAuth;
 
-    //Firebase Auth
-    //auth = FirebaseAuth.getInstance();
-
-    FirebaseAuth auth = FirebaseAuth.getInstance();
-    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        //Initializing Widgets;
-        email     = findViewById(R.id.SignupEmailAddress);
-        password  = findViewById(R.id.SignupPassword);
-        username  = findViewById(R.id.SignupUserName);
-        SignupBtn = findViewById(R.id.Signupbutton);
+        mAuth = FirebaseAuth.getInstance();
 
-        SignupBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                String username_text = username.getText().toString();
-                String email_text = email.getText().toString();
-                String password_text = password.getText().toString();
-                if(TextUtils.isEmpty(username_text) || TextUtils.isEmpty(email_text) || TextUtils.isEmpty(password_text)){
-                    Toast.makeText(Signup.this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();
-                }else{
-                    RegisterNow(username_text,email_text,password_text);
-                }
-            }
-        })
+        textViewSignup = (TextView) findViewById(R.id.textViewSignup);
+        textViewSignup.setOnClickListener(this);
+
+        registerUser = (Button) findViewById(R.id.Signupbutton);
+        registerUser.setOnClickListener(this);
+
+        editTextEmail=(EditText) findViewById(R.id.SignupEmailAddress);
+        editTextFullname=(EditText) findViewById(R.id.SignupUserName);
+        editTextPassword=(EditText) findViewById(R.id.SignupPassword);
+
+        progressBar=(ProgressBar) findViewById(R.id.progressBar);
+
+
     }
 
-    private void RegisterNow(final String username, String email,String password){
-        auth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
-                    public void onComplete(@NonNull Task<AuthResult> task){
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.textViewSignup:
+                startActivity(new Intent(this,MainActivity.class));
+                break;
+            case R.id.Signupbutton:
+                registerUser();
+                break;
+        }
 
+    }
+
+    private void registerUser() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+        String fullName = editTextFullname.getText().toString().trim();
+
+        if(fullName.isEmpty()){
+            editTextFullname.setError("請填入名稱!");
+            editTextFullname.requestFocus();
+            return;
+        }
+
+        if(email.isEmpty()){
+            editTextEmail.setError("請輸入信箱!");
+            editTextEmail.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editTextEmail.setError("請輸入正確格式的信箱!");
+            editTextEmail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            editTextPassword.setError("請輸入密碼");
+            editTextPassword.requestFocus();
+            return;
+        }
+        if(password.length() < 6){
+            editTextPassword.setError("密碼至少要有6位數!");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+        mAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            FirebaseUser firebaseUser = auth.getCurrentUser();
-                            String userid = firebaseUser.getUid();
+                            User user = new User(fullName,email);
 
-                            Object path;
-                            myRef = FirebaseDatabase.getInstance()
-                                    .getReference("MyUsers")
-                            .child(userid);
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>(){
 
-                            //HashMaps
-                            HashMap<String, String> haspMap = new HashMap<>();
-                            haspMap.put("id",userid);
-                            haspMap.put("username",username);
-                            haspMap.put("imageURL","default");
-
-
-                            //Opening
-                            myRef.setValue(haspMap).addOnCompleteListener(new OnCompleteListener<Void>(){
-                                public void onComplete(@NonNull Task<Void> task){
-
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Intent i = new Intent(Signup.this, MainActivity.class);
-                                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(i);
-                                        finish();
+                                        Toast.makeText(Signup.this,"註冊成功",Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
+                                    }else {
+                                        Toast.makeText(Signup.this,"註冊失敗，再試一次",Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
-                        }else{
-                            Toast.makeText(Signup.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(Signup.this,"此信箱已註冊過!!",Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
                         }
+
                     }
                 });
     }

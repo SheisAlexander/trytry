@@ -1,65 +1,111 @@
 package com.example.english;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity {
+import java.util.regex.Pattern;
 
-    EditText loginuser, loginpassword;
-    Button loginbutton,registerbutton;
+public class Login extends AppCompatActivity implements View.OnClickListener{
 
-    FirebaseAuth auth;
+    private TextView registerbutton,forgotPassword;
+    private EditText editTextEmail,editTextPassword;
+    private Button signIn;
+
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        loginuser = findViewById(R.id.LoginPersonName);
-        loginpassword = findViewById(R.id.LoginPassword);
-        loginbutton = findViewById(R.id.Loginbutton);
         registerbutton = findViewById(R.id.registerbutton);
+        registerbutton.setOnClickListener(this);
 
-        auth = FirebaseAuth.getInstance();
-        Registerbutton.setOnClickListener(new View.OnClickListener(){
-            Intent i = new Intent(packageContext:Login.this, Signup.class)
-            startActivity(i);
-        })
+        signIn = (Button) findViewById(R.id.Loginbutton);
+        signIn.setOnClickListener(this);
 
-        loginbutton.setOnClickListener(new View.OnClickListener() {
+        editTextEmail = (EditText) findViewById(R.id.LoginEmail);
+        editTextPassword = (EditText) findViewById(R.id.LoginPassword);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
+        forgotPassword.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.registerbutton:
+                startActivity(new Intent(this,Signup.class));
+                break;
+
+            case R.id.Loginbutton:
+                userLogin();
+                break;
+
+            case R.id.forgotPassword:
+                startActivity(new Intent(this,ForgotPassword.class));
+                break;
+        }
+    }
+
+    private void userLogin() {
+        String email= editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        if(email.isEmpty()){
+            editTextEmail.setError("請輸入信箱!");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editTextEmail.setError("請輸入正確的信箱格式!");
+            editTextEmail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            editTextPassword.setError("請輸入密碼!");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if(password.length()<6){
+            editTextPassword.setError("密碼至少6位數!");
+            editTextPassword.requestFocus();
+            return;
+        }
+        progressBar.setVisibility(View.GONE);
+
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View v) {
-                String user_text = loginuser.getText().toString();
-                String pass_text = loginpassword.getText().toString();
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    //跳到測驗那頁(尚未確定)
+                    startActivity(new Intent(Login.this,YourLevel.class));
 
-                if(TextUtils.isEmpty(user_text) || TextUtils.isEmpty(pass_text)){
-                    Toast.makeText(context:Login_Actitvity.this, text:"Please fill the Fields",Toast.LENGTH_SHORT).show();
                 }else{
-                    auth.signInWithEmailAndPassword(user_text, pass_text)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
-                                public void onComplete(@NonNull Task<AuthResult> task){
-                                    if(task.isSuccessful()){
-                                        Intent i = new Intent(packageContext: Login_Activity.this, MainActivity.class);
-                                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(i);
-                                        finish();
-                                    }
-                                    else{
-                                        Toast.makeText(context:)
-                                    }
-                                }
-                            }
-                })
+                    Toast.makeText(Login.this, "登入失敗!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

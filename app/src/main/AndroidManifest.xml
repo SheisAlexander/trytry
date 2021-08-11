@@ -9,13 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.English">
-        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".Level1" />
         <activity android:name=".Signup" />
         <activity android:name=".YourSort" />
         <activity android:name=".YourLevel" />
         <activity android:name=".TestArticle" />
-        <activity android:name=".Login" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Settings" />
         <activity
             android:name=".Dictionary"
@@ -23,13 +32,7 @@
             android:theme="@style/Theme.English.NoActionBar" />
         <activity android:name=".Test" />
         <activity android:name=".Analysis" />
-        <activity android:name=".article">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".article" />
     </application>
 
 </manifest>
