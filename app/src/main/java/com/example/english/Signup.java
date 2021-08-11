@@ -52,7 +52,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.textViewSignup:
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this,Login.class));
                 break;
             case R.id.Signupbutton:
                 registerUser();
