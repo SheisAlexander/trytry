@@ -6,6 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Settings">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:fillViewport="true"
+        android:tint="#52503A">
+
 
     <TextView
         android:id="@+id/textView19"
@@ -245,5 +252,10 @@
         android:backgroundTint="@color/white"
         />
 
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
