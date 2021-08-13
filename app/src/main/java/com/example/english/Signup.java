@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-
 public class Signup extends AppCompatActivity implements View.OnClickListener{
     private TextView textViewSignup,registerUser;
     private EditText editTextFullname,editTextEmail,editTextPassword;

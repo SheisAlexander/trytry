@@ -19,7 +19,7 @@
         android:gravity="top" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/Sortbutton"
         android:layout_width="@dimen/buttonB_width_140"
         android:layout_height="@dimen/buttonB_height_45"
         android:layout_marginLeft="180dp"
