@@ -3,28 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_article.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_forgot_password.xml" value="0.16530797101449277" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_main.xml" value="0.17447916666666666" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_signup.xml" value="0.264" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_vocabulary_card.xml" value="0.12864583333333332" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_your_level.xml" value="0.2" />
-        <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_your_sort.xml" value="0.12864583333333332" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_analysis.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_article.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_dictionary.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_forgot_password.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_level1.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_main.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_read.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_read_rating.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_settings.xml" value="0.14666666666666667" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_test_article.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_vocabulary_card.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/activity_your_level.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/fragment_article__heart.xml" value="0.161231884057971" />
-        <entry key="..\:/trytry__/app/src/main/res/layout/fragment_article__history.xml" value="0.161231884057971" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_dictionary.xml" value="0.1712962962962963" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_signup.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_your_level.xml" value="0.3596014492753623" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_analysis.xml" value="0.121875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_article.xml" value="0.121875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_forgot_password.xml" value="0.2" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_level1.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_read.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_read_rating.xml" value="0.121875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_read_text.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_settings.xml" value="0.13802083333333334" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_signup.xml" value="0.176" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_test.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_test_article.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_vocabulary_card.xml" value="0.121875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/trytry/app/src/main/res/menu/menu_navigation.xml" value="0.121875" />
       </map>
     </option>
   </component>
@@ -37,7 +34,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.16530797101449277" />
+        <option name="scale" value="0.176" />
       </ProjectState>
     </option>
   </component>
