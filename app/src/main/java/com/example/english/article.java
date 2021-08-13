@@ -74,7 +74,7 @@ public class article extends AppCompatActivity {
                         if(i!=TextToSpeech.ERROR){
                             // To Choose language of speech
                             textToSpeech.setLanguage(Locale.US);
-                            textToSpeech.speak("article", TextToSpeech.QUEUE_FLUSH, null);
+                            textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
 
 
                         }
