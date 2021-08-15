@@ -18,8 +18,6 @@ import java.util.Locale;
 
 public class Dictionary extends AppCompatActivity {
 
-    //texttospeech
-    TextToSpeech tts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,23 +54,7 @@ public class Dictionary extends AppCompatActivity {
             }
         });
 
-        EditText e1 = findViewById(R.id.edittext);
-        Button b1 = findViewById(R.id.button);
 
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-                    @Override
-                    public void onInit(int status) {
-                        if(status == TextToSpeech.SUCCESS){
-                            tts.setLanguage(Locale.US);
-                            tts.setSpeechRate(1.0f);
-                            tts.speak(e1.getText().toString(),TextToSpeech.QUEUE_ADD,null);
-                        }
-                    }
-                });
-            }
-        });
+
     }
 }
