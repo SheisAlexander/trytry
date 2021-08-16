@@ -24,8 +24,10 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/LoginEmail"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.727" />
 
     <EditText
         android:id="@+id/LoginPassword"
@@ -35,7 +37,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="136dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -58,7 +60,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/LoginPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -67,7 +69,7 @@
         android:layout_height="30dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="260dp"
         android:gravity="center"
         android:text="忘記密碼"
         android:textSize="15sp"
@@ -80,22 +82,22 @@
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="80dp"
         android:gravity="center"
         android:text="註冊"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/Loginbutton"
         app:layout_constraintEnd_toStartOf="@+id/forgotPassword"
-        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Loginbutton"
         android:layout_width="@dimen/login_button_width_200"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:layout_marginStart="97dp"
         android:layout_marginLeft="97dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="96dp"
         android:layout_marginRight="96dp"
         android:gravity="center"
@@ -106,6 +108,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
