@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 articles.add(userDetail.getString("article"));
 
 
+
                 JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
                 keywords1.add(keywordArray.getString(0));
                 keywords2.add(keywordArray.getString(1));
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     private String loadJSONfromAssets() {
         String json = null;
         try{
-            InputStream is = getAssets().open("science_TFIDF.json");
+            InputStream is = getAssets().open("all_article.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
