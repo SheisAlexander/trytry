@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 
@@ -84,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
         //Imagebutton -setting button
         ImageButton mainButton = (ImageButton)findViewById(R.id.settingbutton);
         mainButton.setOnClickListener(new View.OnClickListener() {

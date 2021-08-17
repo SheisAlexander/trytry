@@ -5,257 +5,238 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:fillViewport="true"
-        android:tint="#52503A">
+    tools:context=".Settings"
+    android:background="@color/green_a4">
 
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary_green"
-        />
 
-
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
     <TextView
-        android:id="@+id/setting"
-        android:layout_width="112dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+    android:id="@+id/setting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="30dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="26dp"
+    android:text="Settings"
+    android:textColor="@color/green_c4"
+    android:textSize="@dimen/topic_50"
+
+    />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="150dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="26dp"
-        android:text="設定"
-        android:textColor="@color/dark_green"
-        android:textSize="@dimen/topic_50"
-
-        />
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
 
 
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
 
-    <!--頭貼名稱設定-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/background"
+            android:paddingLeft="20dp"
+            android:paddingTop="90dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="10dp"
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="94dp"
-        android:background="@color/white" />
+            >
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="202dp"
-        android:background="@color/gray" />
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="match_parent"
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="93dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="101dp"
-        tools:srcCompat="@tools:sample/avatars" />
+                android:text="MAG34486"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                />
 
-    <EditText
-        android:layout_width="378dp"
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
-
         android:layout_alignParentTop="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="196dp"
-        android:text="mag"
-        android:textColor="@color/green_a1"
-        />
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
 
-    <!--提醒設定-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
 
-        android:layout_alignParentTop="true"
+                android:text="基本資料維護"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
 
-        android:layout_marginTop="252dp"
-        android:gravity="center_vertical"
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/spacing_10"
 
-        android:background="@color/white"
-        android:text="  基本資料維護"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25"
-        />
+                android:src="@drawable/ic_baseline_navigate_next_24" />
 
-    <TextView
-        android:id="@+id/View_set"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-
-        android:layout_alignParentTop="true"
-
-        android:layout_marginTop="316dp"
-
-        android:gravity="center_vertical"
-        android:text="  顯示設定"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25" />
-
-    <TextView
-        android:id="@+id/daynight_set"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-
-        android:layout_alignParentTop="true"
-
-        android:layout_marginTop="361dp"
-
-        android:gravity="center_vertical"
-        android:background="@color/white"
-        android:text="  日夜間模式"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentTop="true"
-
-        android:layout_marginTop="415dp"
-
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:text="  字體大小"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25" />
-
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/remind_set"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="474dp"
+        android:layout_marginTop="325dp"
+        android:layout_marginLeft="25dp"
 
         android:gravity="center_vertical"
-        android:text="  提醒設定"
-        android:textColor="@color/green_a1"
+        android:text="一般設定"
+        android:textColor="@color/green_c4"
         android:textSize="@dimen/buttonB_25" />
-
-
-
-    <TextView
-        android:id="@+id/remind"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="524dp"
-
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:text="  每日提醒"
-        android:textColor="@color/green_a1"
-        android:textSize="@dimen/buttonB_25" />
-
-
-    <Button
-        android:id="@+id/signOut"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="589dp"
-        android:layout_marginEnd="0dp"
-
-
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:text="  登出"
-        android:textColor="@color/dark_green"
-        android:textSize="@dimen/buttonB_25"
-        app:backgroundTint="@color/active_green" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="370dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_navigate_next_24"
-        />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="419dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_navigate_next_24"
-        />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="257dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_navigate_next_24"
-        />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="166dp"
-        android:backgroundTint="@color/white"
-        />
-
-    </ScrollView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:text="播放設定"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/spacing_10"
+                android:src="@drawable/ic_baseline_navigate_next_24" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="445dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:text="每日提醒"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
+
+            <Switch
+                android:id="@+id/switch6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="0.1dp"
+                android:layout_marginRight="@dimen/word_30"
+                android:textSize="@dimen/word_30"
+                android:textColor="@color/green_c1"
+                android:textStyle="bold"
+                android:textOff="Off"
+                android:textOn="On"
+                android:padding="15dp"
+                android:scaleX="1"
+                android:scaleY="1"
+
+                />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/signOut"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="530dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:text="登出"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>
