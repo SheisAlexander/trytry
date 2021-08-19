@@ -105,4 +105,33 @@
         android:layout_marginBottom="109dp"
         />
 
+
+    <Button
+        android:id="@+id/firstButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="click"
+        />
+
+    <TextView
+        android:id="@+id/firstTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:text="0"
+        />
+
 </RelativeLayout>
