@@ -56,16 +56,17 @@
         android:layout_marginBottom="64dp"
         android:orientation="vertical">
 
-       <Button
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="push!"
-           android:id="@+id/button"/>
-        <TextView
+
+            android:text="按下去!"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:id="@+id/textView"/>
+            android:layout_height="match_parent" />
+
+
+
+
+
     </LinearLayout>
 
 

@@ -33,8 +33,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView; // 把視圖的元件宣告成全域變數
-    Button button;
+    RecyclerView recyclerView;
+    ArrayList<String> titles = new ArrayList<>();
+    ArrayList<String> keywords1 = new ArrayList<>();
+    ArrayList<String> keywords2 = new ArrayList<>();
+    ArrayList<String> keywords3 = new ArrayList<>();
+    ArrayList<String> keywords4 = new ArrayList<>();
+    ArrayList<String> keywords5 = new ArrayList<>();
+    ArrayList<String> keywords6 = new ArrayList<>();
+    ArrayList<String> articles = new ArrayList<>();
+
+
+
     String result;
 
 
@@ -89,22 +99,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.button);
-        textView = findViewById(R.id.textView);
+
+        //Recyclerview
+        recyclerView = findViewById(R.id.recyclerView);
+        //Recyclerview configuration
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
 
         // 宣告按鈕的監聽器監聽按鈕是否被按下
         // 跟上次在 View 設定的方式並不一樣
         // 我只是覺得好像應該也教一下這種寫法
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            // 按鈕事件
-            public void onClick(View view) {
-                // 按下之後會執行的程式碼
-                // 宣告執行緒
-                Thread thread = new Thread(mutiThread);
-                thread.start(); // 開始執行
-            }
-        });
+        Thread thread = new Thread(mutiThread);
+        thread.start(); // 開始執行
     }
     /* ======================================== */
 
@@ -115,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         public void run()
         {
             try {
-                URL url = new URL("http://163.13.201.88/english/getarticle.php");
+                URL url = new URL("http://163.13.201.88/english/getenglish.php");
                 // 開始宣告 HTTP 連線需要的物件，這邊通常都是一綑的
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 // 建立 Google 比較挺的 HttpURLConnection 物件
@@ -149,6 +155,25 @@ public class MainActivity extends AppCompatActivity {
                 // 讀取輸入串流並存到字串的部分
                 // 取得資料後想用不同的格式
                 // 例如 Json 等等，都是在這一段做處理
+                JSONArray userArray  = new JSONArray(result);
+                for(int i=0;i<userArray.length();i++){
+
+                    //creating a json object for fetching single data
+                    JSONObject userDetail = userArray.getJSONObject(i);
+                    //Fetching title & tag and storing them in arraylist
+                    titles.add(userDetail.getString("title"));
+                    articles.add(userDetail.getString("article"));
+
+                    JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
+                    keywords1.add(keywordArray.getString(0));
+                    keywords2.add(keywordArray.getString(1));
+                    keywords3.add(keywordArray.getString(2));
+                    keywords4.add(keywordArray.getString(3));
+                    keywords5.add(keywordArray.getString(4));
+                    keywords6.add(keywordArray.getString(5));
+
+                }
+
 
             } catch(Exception e) {
                 result = e.toString(); // 如果出事，回傳錯誤訊息
@@ -157,7 +182,8 @@ public class MainActivity extends AppCompatActivity {
             // 當這個執行緒完全跑完後執行
             runOnUiThread(new Runnable() {
                 public void run() {
-                    textView.setText(result); // 更改顯示文字
+                    CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles);
+                    recyclerView.setAdapter(customAdapter); // 更改顯示文字
                 }
             });
         }
