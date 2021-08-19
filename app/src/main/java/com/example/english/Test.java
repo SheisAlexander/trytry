@@ -6,12 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Test extends AppCompatActivity {
+
+    TextView firstTextView;
+    Button firstButton;
+    int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +55,23 @@ public class Test extends AppCompatActivity {
                 return false;
             }
         });
+
+
+
+        firstButton = findViewById(R.id.firstButton);
+        firstTextView = findViewById(R.id.firstTextView);
+
+
+        firstButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                firstTextView.setText(String.valueOf(count));
+                Intent intent = new Intent();
+                intent.setClass(Test.this , article_view.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
