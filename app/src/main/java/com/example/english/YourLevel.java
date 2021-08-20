@@ -36,6 +36,13 @@ public class YourLevel extends AppCompatActivity {
                 if(progress == 0){
                     sorttextview.setText("The boy hears a sound. He looks up. He sees an airplane. The airplane is in the sky. It is a silver airplane. It has two wings. It has a tail. It has two jet engines. There is a pilot on the airplane. He flies the airplane. He lands the airplane.\n");
                     sortbutton.setText("Choose Level1");
+                    sortbutton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(YourLevel.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                 }
                 else if(progress == 1){
                     sorttextview.setText("Once, there was a Thief. He did not feel sorry for his bad deeds. He also believed that he was very smart. Often, he thought to himself, ‘I am the smartest of all. No one can trick me!’\\nOne day, the Thief was walking down the countryside, he saw a Boy. The Boy was sitting near a well. The Thief saw that the Boy was crying. \n");
@@ -43,7 +50,7 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, article_level2.class);
+                            Intent intent = new Intent(YourLevel.this, MainActivity.class);
                             startActivity(intent);
                         }
                     });
