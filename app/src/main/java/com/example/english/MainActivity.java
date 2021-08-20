@@ -103,7 +103,14 @@ public class MainActivity extends AppCompatActivity {
         //Recyclerview
         recyclerView = findViewById(R.id.recyclerView);
         //Recyclerview configuration
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+
+
+
 
 
         // 宣告按鈕的監聽器監聽按鈕是否被按下
@@ -111,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         // 我只是覺得好像應該也教一下這種寫法
         Thread thread = new Thread(mutiThread);
         thread.start(); // 開始執行
+
     }
     /* ======================================== */
 
@@ -129,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 // 設定連線方式為 POST
                 connection.setDoOutput(true); // 允許輸出
                 connection.setDoInput(true); // 允許讀入
-                connection.setUseCaches(false); // 不使用快取
+                connection.setUseCaches(true); // 不使用快取
                 connection.connect(); // 開始連線
 
                 int responseCode =
@@ -149,8 +157,9 @@ public class MainActivity extends AppCompatActivity {
                         box += line + "\n";
                         // 每當讀取出一列，就加到存放字串後面
                     }
-                    inputStream.close(); // 關閉輸入串流
+                    inputStream.close();
                     result = box; // 把存放用字串放到全域變數
+                     // 關閉輸入串流
                 }
                 // 讀取輸入串流並存到字串的部分
                 // 取得資料後想用不同的格式
@@ -172,7 +181,9 @@ public class MainActivity extends AppCompatActivity {
                     keywords5.add(keywordArray.getString(4));
                     keywords6.add(keywordArray.getString(5));
 
+
                 }
+
 
 
             } catch(Exception e) {
@@ -183,11 +194,18 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 public void run() {
                     CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles);
-                    recyclerView.setAdapter(customAdapter); // 更改顯示文字
+                    recyclerView.setAdapter(customAdapter);
+
+
+                    // 更改顯示文字
                 }
             });
+
         }
     };
+
+
+
 
 
 
