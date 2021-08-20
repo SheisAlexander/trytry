@@ -7,26 +7,27 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.Locale;
 
-public class article extends AppCompatActivity {
+public class article_view extends article {
+
 
     TextView title,article,keyword1,keyword2,keyword3,keyword4,keyword5,keyword6;
     TextToSpeech textToSpeech;
     ImageButton b1;
     Button btn_easy,btn_other,btn_hard;
     TextView txt_easy,txt_other,txt_hard;
-    int counts_easy,counts_other,counts_hard = 0;
+    int counts_easy,counts_other,counts_hard;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article);
+        setContentView(R.layout.activity_article_view);
 
 
         //set back button
@@ -106,20 +107,23 @@ public class article extends AppCompatActivity {
             public void onClick(View v) {
                 counts_easy++;
                 txt_easy.setText(String.valueOf(counts_easy));
+                Intent intent = new Intent();
+                intent.setClass(article_view.this , Test.class);
 
-
-
+                Bundle bundle = new Bundle();
+                bundle.putInt("counts_easy",counts_easy);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
+
+
 
         btn_other.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counts_other++;
                 txt_other.setText(String.valueOf(counts_other));
-                Intent intent = new Intent();
-                intent.setClass(article.this , article_view.class);
-                startActivity(intent);
             }
         });
         btn_hard.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +131,9 @@ public class article extends AppCompatActivity {
             public void onClick(View v) {
                 counts_hard++;
                 txt_hard.setText(String.valueOf(counts_hard));
+                Intent intent = new Intent();
+                intent.setClass(article_view.this , article.class);
+                startActivity(intent);
             }
         });
 
@@ -139,3 +146,5 @@ public class article extends AppCompatActivity {
 
     }
 }
+
+

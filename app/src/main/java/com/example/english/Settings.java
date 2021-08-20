@@ -6,16 +6,22 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class Settings extends AppCompatActivity {
     private CardView logout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_settings);
 
         logout = (CardView) findViewById(R.id.signOut);
@@ -26,5 +32,11 @@ public class Settings extends AppCompatActivity {
                 startActivity(new Intent(Settings.this,Login.class));
             }
         });
+
+
     }
+
+
+
+
 }
