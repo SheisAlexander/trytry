@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         public void run()
         {
             try {
-                URL url = new URL("http://163.13.201.88/english/level1.php");
+                URL url = new URL("http://163.13.201.88/article/level1.php");
                 // 開始宣告 HTTP 連線需要的物件，這邊通常都是一綑的
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 // 建立 Google 比較挺的 HttpURLConnection 物件
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     inputStream.close();
                     result = box; // 把存放用字串放到全域變數
-                     // 關閉輸入串流
+                    // 關閉輸入串流
                 }
                 // 讀取輸入串流並存到字串的部分
                 // 取得資料後想用不同的格式
