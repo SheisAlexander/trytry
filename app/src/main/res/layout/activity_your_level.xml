@@ -53,11 +53,11 @@
 
     <Button
         android:id="@+id/Sortbutton"
-        android:layout_width="@dimen/buttonB_width_140"
+        android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginBottom="48dp"
         android:gravity="center"
-        android:text="確認Level"
+        android:text=""
         android:textColor="@color/dark_green"
         app:backgroundTint="@color/primary_green"
         app:layout_constraintBottom_toBottomOf="parent"
