@@ -50,7 +50,7 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, MainActivity.class);
+                            Intent intent = new Intent(YourLevel.this, article_level2.class);
                             startActivity(intent);
                         }
                     });
