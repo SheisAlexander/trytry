@@ -89,19 +89,35 @@ public class Dictionary extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         String worddef = "";
-                        String wordSpeech = "";
+                        String wordpos = "";
                         try {
+                            //第一層
                             JSONObject wordInfo = response.getJSONObject(0);
+                            JSONArray word = wordInfo.getJSONArray("meanings");
+                            //第二層
+                            JSONObject meanings = word.getJSONObject(0);
 
-                            worddef = wordInfo.getString("meanings");
+                            //JSONObject wordmeanp = meanings.getJSONObject("partOfSpeech");
+                            //wordpos = wordmeanp.getString("partOfSpeech");
 
-                            //JSONObject wordMean = wordInfo.getJSONObject("meanings");
-                            //wordSpeech = wordMean.getString("partOfSpeech");
+                            JSONArray wordmean = meanings.getJSONArray("definitions");
+
+                            //第三層
+                            JSONObject worddefs = wordmean.getJSONObject(0);
+                            worddef = worddefs.getString("definition");
+
+
+
+                            //worddef = wordInfo.getString("meanings");
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
-                        Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                        dicText.append("詞性: "+"\n"+wordpos+"意思: "+"\n"+worddef);
+                        //dicText.setText("Part of Speech: "+wordpos+"\n" +"Mean:"+worddef+"\n");
+                        //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
                     @Override
