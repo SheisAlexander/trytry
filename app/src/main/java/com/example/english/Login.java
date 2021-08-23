@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
@@ -16,95 +17,90 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.regex.Pattern;
 
-public class Login extends AppCompatActivity implements View.OnClickListener{
+public class Login extends AppCompatActivity {
 
-    private TextView registerbutton,forgotPassword;
-    private EditText editTextEmail,editTextPassword;
-    private Button signIn;
+    TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
+    Button buttonLogin;
+    TextView textViewSignup;
+    ProgressBar progressBar;
 
-    private FirebaseAuth mAuth;
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        registerbutton = findViewById(R.id.registerbutton);
-        registerbutton.setOnClickListener(this);
 
-        signIn = (Button) findViewById(R.id.Loginbutton);
-        signIn.setOnClickListener(this);
+        textInputEditTextUsername=findViewById(R.id.username);
+        textInputEditTextPassword=findViewById(R.id.password);
+        buttonLogin=findViewById(R.id.buttonLogin);
+        textViewSignup=findViewById(R.id.signUpText);
+        progressBar=findViewById(R.id.progress);
 
-        editTextEmail = (EditText) findViewById(R.id.LoginEmail);
-        editTextPassword = (EditText) findViewById(R.id.LoginPassword);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-        mAuth = FirebaseAuth.getInstance();
-
-        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
-        forgotPassword.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.registerbutton:
-                startActivity(new Intent(this,Signup.class));
-                break;
-
-            case R.id.Loginbutton:
-                userLogin();
-                break;
-
-            case R.id.forgotPassword:
-                startActivity(new Intent(this,ForgotPassword.class));
-                break;
-        }
-    }
-
-    private void userLogin() {
-        String email= editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-
-        if(email.isEmpty()){
-            editTextEmail.setError("請輸入信箱!");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextEmail.setError("請輸入正確的信箱格式!");
-            editTextEmail.requestFocus();
-            return;
-        }
-        if(password.isEmpty()){
-            editTextPassword.setError("請輸入密碼!");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if(password.length()<6){
-            editTextPassword.setError("密碼至少6位數!");
-            editTextPassword.requestFocus();
-            return;
-        }
-        progressBar.setVisibility(View.GONE);
-
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        textViewSignup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    //跳到測驗那頁(尚未確定)
-                    startActivity(new Intent(Login.this,YourLevel.class));
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),Signup.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-                }else{
-                    Toast.makeText(Login.this, "登入失敗!", Toast.LENGTH_LONG).show();
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fullname, username, password, email;
+
+                username = String.valueOf(textInputEditTextUsername.getText());
+                password = String.valueOf(textInputEditTextPassword.getText());
+
+
+
+                if ( !username.equals("") && !password.equals("")) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    //Start ProgressBar first (Set visibility VISIBLE)
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Starting Write and Read data with URL
+                            //Creating array for parameters
+                            String[] field = new String[2];
+                            field[0] = "username";
+                            field[1] = "password";
+                            //Creating array for data
+                            String[] data = new String[2];
+                            data[0] = "username";
+                            data[1] = "password";
+                            PutData putData = new PutData("http://172.20.10.2/loginregister/login.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("Login Success")) {
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                            //End Write and Read data with URL
+                        }
+                    });
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
                 }
             }
         });
