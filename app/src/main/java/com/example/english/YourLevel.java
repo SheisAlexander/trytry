@@ -39,8 +39,14 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, MainActivity.class);
+                            Intent intent = new Intent();
+                            intent.setClass(YourLevel.this,MainActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("key","level1.json");
+                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
+
+                            
                         }
                     });
                 }
@@ -50,7 +56,11 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, article_level2.class);
+                            Intent intent = new Intent();
+                            intent.setClass(YourLevel.this,MainActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("key","level2.json");
+                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -61,7 +71,11 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, article_level3.class);
+                            Intent intent = new Intent();
+                            intent.setClass(YourLevel.this,MainActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("key","level3.json");
+                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -72,7 +86,11 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, article_level4.class);
+                            Intent intent = new Intent();
+                            intent.setClass(YourLevel.this,MainActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("key","level4.json");
+                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -83,7 +101,11 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(YourLevel.this, article_level5.class);
+                            Intent intent = new Intent();
+                            intent.setClass(YourLevel.this,MainActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("key","level5.json");
+                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -107,4 +129,4 @@ public class YourLevel extends AppCompatActivity {
 
     }
 
-    }
+}

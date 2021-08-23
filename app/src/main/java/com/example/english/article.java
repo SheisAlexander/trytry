@@ -75,13 +75,15 @@ public class article extends AppCompatActivity {
                     @Override
                     public void onInit(int i) {
 
-                        // if No error is found then only it will run
-                        if(i!=TextToSpeech.ERROR){
-                            // To Choose language of speech
-                            textToSpeech.setLanguage(Locale.US);
-                            textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
+                        if( textToSpeech.isSpeaking()){
+                            textToSpeech.stop();}else {
 
-
+                            // if No error is found then only it will run
+                            if (i != TextToSpeech.ERROR) {
+                                // To Choose language of speech
+                                textToSpeech.setLanguage(Locale.US);
+                                textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
+                            }
                         }
 
 
