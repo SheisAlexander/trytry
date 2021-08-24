@@ -54,39 +54,37 @@ public class Signup extends AppCompatActivity {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fullname, username, password, email;
+                 final String fullname, email, username, password;
                 fullname = String.valueOf(textInputEditTextFullname.getText());
+                email = String.valueOf(textInputEditTextEmail.getText());
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
-                email = String.valueOf(textInputEditTextEmail.getText());
 
 
-                if (!fullname.equals("") && !username.equals("") &&!password.equals("")&& !email.equals("")) {
+
+                if (!fullname.equals("")&& !email.equals("") && !username.equals("") &&!password.equals("")) {
                     progressBar.setVisibility(View.VISIBLE);
-                    //Start ProgressBar first (Set visibility VISIBLE)
                     Handler handler = new Handler();
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
                             String[] field = new String[4];
                             field[0] = "fullname";
-                            field[1] = "username";
-                            field[2] = "password";
-                            field[3] = "email";
-                            //Creating array for data
+                            field[1] = "email";
+                            field[2] = "username";
+                            field[3] = "password";
                             String[] data = new String[4];
                             data[0] = "fullname";
-                            data[1] = "username";
-                            data[2] = "password";
-                            data[3] = "email";
-                            PutData putData = new PutData("http://172.20.10.2/loginregister/signup.php", "POST", field, data);
+                            data[1] = "email";
+                            data[2] = "username";
+                            data[3] = "password";
+                            PutData putData = new PutData("http://163.13.201.116:8080/loginregister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if (result.equals("Sign Up Success")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), Login.class);
                                         startActivity(intent);
                                         finish();

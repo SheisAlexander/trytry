@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        textInputEditTextUsername=findViewById(R.id.username);
+        textInputEditTextUsername=findViewById(R.id.usernameLogin);
         textInputEditTextPassword=findViewById(R.id.password);
         buttonLogin=findViewById(R.id.buttonLogin);
         textViewSignup=findViewById(R.id.signUpText);
@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fullname, username, password, email;
+                String  username, password;
 
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
@@ -66,26 +66,23 @@ public class Login extends AppCompatActivity {
 
                 if ( !username.equals("") && !password.equals("")) {
                     progressBar.setVisibility(View.VISIBLE);
-                    //Start ProgressBar first (Set visibility VISIBLE)
                     Handler handler = new Handler();
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
                             String[] field = new String[2];
                             field[0] = "username";
                             field[1] = "password";
-                            //Creating array for data
                             String[] data = new String[2];
                             data[0] = "username";
                             data[1] = "password";
-                            PutData putData = new PutData("http://172.20.10.2/loginregister/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://163.13.201.116:8080/loginregister/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if (result.equals("Login Success")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -94,7 +91,6 @@ public class Login extends AppCompatActivity {
                                     }
                                 }
                             }
-                            //End Write and Read data with URL
                         }
                     });
 
@@ -107,3 +103,4 @@ public class Login extends AppCompatActivity {
 
     }
 }
+

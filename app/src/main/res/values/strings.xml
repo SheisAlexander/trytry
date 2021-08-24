@@ -15,5 +15,15 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_collection_vocab">Collection_vocab</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="login">Login</string>
+    <string name="signuphere">signuphere</string>
+    <string name="Signup">Signup</string>
+    <string name="fullname">fullname</string>
+    <string name="Fullname">Fullname</string>
+    <string name="email">Email</string>
+    <string name="Email">Email</string>
+    <string name="Loginhere">Loginhere</string>
 
 </resources>
