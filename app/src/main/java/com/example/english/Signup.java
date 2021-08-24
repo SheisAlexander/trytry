@@ -12,12 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 
@@ -34,9 +30,10 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         textInputEditTextFullname = findViewById(R.id.fullname);
+        textInputEditTextEmail = findViewById(R.id.email);
         textInputEditTextUsername = findViewById(R.id.username);
         textInputEditTextPassword = findViewById(R.id.password);
-        textInputEditTextEmail = findViewById(R.id.email);
+
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewLogin = findViewById(R.id.loginText);
         progressBar = findViewById(R.id.progress);
@@ -74,10 +71,10 @@ public class Signup extends AppCompatActivity {
                             field[2] = "username";
                             field[3] = "password";
                             String[] data = new String[4];
-                            data[0] = "fullname";
-                            data[1] = "email";
-                            data[2] = "username";
-                            data[3] = "password";
+                            data[0] = fullname;
+                            data[1] = email;
+                            data[2] = username;
+                            data[3] = password;
                             PutData putData = new PutData("http://163.13.201.116:8080/loginregister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {

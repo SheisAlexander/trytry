@@ -15,11 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.regex.Pattern;
@@ -37,7 +35,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        textInputEditTextUsername=findViewById(R.id.usernameLogin);
+        textInputEditTextUsername=findViewById(R.id.username);
         textInputEditTextPassword=findViewById(R.id.password);
         buttonLogin=findViewById(R.id.buttonLogin);
         textViewSignup=findViewById(R.id.signUpText);
@@ -57,7 +55,7 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String  username, password;
+            final  String  username, password;
 
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
@@ -74,8 +72,8 @@ public class Login extends AppCompatActivity {
                             field[0] = "username";
                             field[1] = "password";
                             String[] data = new String[2];
-                            data[0] = "username";
-                            data[1] = "password";
+                            data[0] = username;
+                            data[1] = password;
                             PutData putData = new PutData("http://163.13.201.116:8080/loginregister/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {

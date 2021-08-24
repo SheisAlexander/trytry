@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         tools:targetApi="jelly_bean"
         android:fontFamily="@font/poppinsmedium"
-        android:id="@+id/usernameLogin"
+        android:id="@+id/username"
         android:drawableRight="@drawable/ic_user"
         android:drawableEnd="@drawable/ic_user"/>
 
