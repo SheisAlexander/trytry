@@ -1,15 +1,14 @@
 package com.example.english;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
@@ -17,10 +16,10 @@ public class article extends AppCompatActivity {
 
     TextView title,article,keyword1,keyword2,keyword3,keyword4,keyword5,keyword6;
     TextToSpeech textToSpeech;
+
     ImageButton b1;
     Button btn_easy,btn_other,btn_hard;
-    TextView txt_easy,txt_other,txt_hard;
-    int counts_easy,counts_other,counts_hard = 0;
+
 
 
     @Override
@@ -98,16 +97,11 @@ public class article extends AppCompatActivity {
         btn_easy = findViewById(R.id.button_easy);
         btn_other = findViewById(R.id.button_other);
         btn_hard = findViewById(R.id.button_hard);
-        txt_easy = findViewById(R.id.textView_easy);
-        txt_other = findViewById(R.id.textView_other);
-        txt_hard = findViewById(R.id.textView_hard);
-
 
         btn_easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counts_easy++;
-                txt_easy.setText(String.valueOf(counts_easy));
+
 
 
 
@@ -117,18 +111,13 @@ public class article extends AppCompatActivity {
         btn_other.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counts_other++;
-                txt_other.setText(String.valueOf(counts_other));
-                Intent intent = new Intent();
-                intent.setClass(article.this , article_view.class);
-                startActivity(intent);
+
             }
         });
         btn_hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counts_hard++;
-                txt_hard.setText(String.valueOf(counts_hard));
+
             }
         });
 

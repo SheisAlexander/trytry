@@ -45,7 +45,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="542dp"
         android:layout_marginTop="170dp"
         android:fillViewport="true"
         android:tint="#52503A">
@@ -70,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:text="Keyword:"
                 android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
+                android:textSize="@dimen/word_24"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:id="@+id/keyword01"
@@ -113,100 +114,52 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/green_a1"
                 android:textSize="@dimen/word_24" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="選擇下一篇文章程度:"
+                android:textSize="@dimen/word_24"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/primary_green"
+                    android:text="Easier"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/button_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/primary_green"
+                    android:text="Same"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/button_hard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/primary_green"
+                    android:text="Harder"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
 
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_easy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-
-            android:background="@color/primary_green"
-            android:textColor="@color/white"
-            android:text="Easy" />
-
-        <Button
-            android:id="@+id/button_other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-
-            android:background="@color/primary_green"
-            android:textColor="@color/white"
-            android:text="Other" />
-
-        <Button
-            android:id="@+id/button_hard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-
-            android:background="@color/primary_green"
-            android:textColor="@color/white"
-            android:text="Hard"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/textView_easy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginBottom="50dp"
-        android:layout_weight="1"
-        android:text="0" />
-    <TextView
-        android:id="@+id/textView_other"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginBottom="50dp"
-        android:layout_weight="1"
-        android:text="0" />
-    <TextView
-        android:id="@+id/textView_hard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginBottom="50dp"
-        android:layout_weight="1"
-        android:text="0" />
-
-    </LinearLayout>
-
 
 </RelativeLayout>
 
