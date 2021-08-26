@@ -2,6 +2,7 @@ package com.example.english;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
@@ -10,16 +11,19 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
 import java.util.Locale;
 
 public class article extends AppCompatActivity {
 
-    TextView title,article,keyword1,keyword2,keyword3,keyword4,keyword5,keyword6;
+    TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
     TextToSpeech textToSpeech;
+    String english_ids;
+
 
     ImageButton b1;
-    Button btn_easy,btn_other,btn_hard;
-
+    Button btn_easy, btn_other, btn_hard;
 
 
     @Override
@@ -40,12 +44,13 @@ public class article extends AppCompatActivity {
         keyword4 = findViewById(R.id.keyword04);
         keyword5 = findViewById(R.id.keyword05);
         keyword6 = findViewById(R.id.keyword06);
+        english_id = findViewById(R.id.english_id);
 
         Intent i = getIntent();
         String title0 = i.getStringExtra("title");
         title.setText(title0);
 
-        String article0 =i.getStringExtra("article") ;
+        String article0 = i.getStringExtra("article");
         article.setText(article0);
 
         String keyword01 = i.getStringExtra("keyword1");
@@ -61,6 +66,9 @@ public class article extends AppCompatActivity {
         String keyword06 = i.getStringExtra("keyword6");
         keyword6.setText(keyword06);
 
+        english_ids = i.getStringExtra("english_id");
+        english_id.setText(english_ids);
+
         //text to speech
 
         b1 = findViewById(R.id.soundbutton);
@@ -74,8 +82,9 @@ public class article extends AppCompatActivity {
                     @Override
                     public void onInit(int i) {
 
-                        if( textToSpeech.isSpeaking()){
-                            textToSpeech.stop();}else {
+                        if (textToSpeech.isSpeaking()) {
+                            textToSpeech.stop();
+                        } else {
 
                             // if No error is found then only it will run
                             if (i != TextToSpeech.ERROR) {
@@ -104,7 +113,6 @@ public class article extends AppCompatActivity {
 
 
 
-
             }
         });
 
@@ -121,12 +129,9 @@ public class article extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
     }
+
+
+
 }
+
