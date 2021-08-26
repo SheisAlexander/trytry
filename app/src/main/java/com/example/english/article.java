@@ -2,7 +2,6 @@ package com.example.english;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
@@ -10,8 +9,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.Locale;
 
