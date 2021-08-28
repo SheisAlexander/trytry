@@ -9,24 +9,16 @@
 
     <TextView
         android:id="@+id/some_id"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/WordText"
-        android:layout_alignParentStart="true"
+        android:layout_width="107dp"
+        android:layout_height="57dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginRight="71dp"
-        android:layout_marginBottom="28dp"
-        android:layout_toStartOf="@+id/soundButton"
-        android:layout_toLeftOf="@+id/soundButton"
-        android:gravity="top"
+        android:layout_marginTop="25dp"
         android:text="字典"
-        android:textSize="40sp"
-        tools:visibility="visible" />
+        android:textSize="40dp"
+        android:gravity="top"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -40,83 +32,88 @@
         android:layout_alignParentBottom="true"
         />
 
-    <TextView
-        android:id="@+id/DictionaryText"
-        android:layout_width="wrap_content"
-        android:layout_height="460dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="75dp"
-        android:background="@color/primary_green"
-        android:text=""
-        android:textSize="20dp" />
-
-    <ImageButton
-        android:id="@+id/heartButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginRight="58dp"
-        android:background="@color/primary_green"
-        android:src="@drawable/ic_baseline_favorite_border_24" />
-
-    <ImageButton
-        android:id="@+id/soundButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_toStartOf="@+id/heartButton"
-        android:layout_toLeftOf="@+id/heartButton"
-        android:background="@color/primary_green"
-        android:src="@drawable/ic_baseline_volume_up_24" />
-
-    <EditText
-        android:id="@+id/WordText"
-        android:layout_width="217dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:layout_above="@+id/DictionaryText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="30dp"
-        android:layout_toStartOf="@+id/DictionaryButton"
-        android:layout_toLeftOf="@+id/DictionaryButton"
-        android:ems="10"
-        android:hint="Type a word"
-        android:inputType="textPersonName"
-        android:textSize="18sp" />
+        android:layout_marginTop="90dp"
+        android:orientation="horizontal">
 
-    <Button
+
+        <EditText
+        android:id="@+id/WordText"
+        android:layout_marginLeft="25dp"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:hint="Type a word"
+            android:inputType="textPersonName"
+
+        android:textSize="18sp" />
+        <Button
         android:id="@+id/DictionaryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="563dp"
-        android:text="Go"
+            android:text="Go"
         android:textColor="@color/dark_green"
         android:textSize="18dp"
-        app:backgroundTint="@color/primary_green" />
+        app:backgroundTint="@color/primary_green"
+            android:layout_marginRight="25dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_marginBottom="60dp"
+        >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="170dp"
+        android:fillViewport="true"
+        >
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/primary_green">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right">
+                    <ImageButton
+                    android:id="@+id/heartButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:backgroundTint="@color/primary_green"/>
+                    <ImageButton
+                android:id="@+id/soundButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_volume_up_24"
+                android:backgroundTint="@color/primary_green"/>
+                </LinearLayout>
+                <TextView
+            android:id="@+id/DictionaryText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary_green"
+            android:textSize="@dimen/word_24" />
+            </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+    </LinearLayout>
 
 
 </RelativeLayout>
