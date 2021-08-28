@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> keywords5 = new ArrayList<>();
     ArrayList<String> keywords6 = new ArrayList<>();
     ArrayList<String> articles = new ArrayList<>();
-    ArrayList<String> english_ids = new ArrayList<>();
 
 
 
@@ -169,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
                     //Fetching title & tag and storing them in arraylist
                     titles.add(userDetail.getString("title"));
                     articles.add(userDetail.getString("article"));
-                    english_ids.add(userDetail.getString("english_id"));
 
                     JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
                     keywords1.add(keywordArray.getString(0));
@@ -191,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
             // 當這個執行緒完全跑完後執行
             runOnUiThread(new Runnable() {
                 public void run() {
-                    CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles,english_ids);
+                    CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles);
                     recyclerView.setAdapter(customAdapter);
 
 
