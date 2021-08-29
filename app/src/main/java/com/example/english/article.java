@@ -1,23 +1,30 @@
 package com.example.english;
 
 import android.content.Intent;
-import android.os.Build;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.style.BackgroundColorSpan;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.Locale;
 
-@RequiresApi(api = Build.VERSION_CODES.M)
 public class article extends AppCompatActivity {
 
     TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
@@ -27,7 +34,6 @@ public class article extends AppCompatActivity {
 
     ImageButton b1;
     Button btn_easy, btn_other, btn_hard;
-    //  ActionMode.Callback2 textSelectionActionModeCallback;
 
 
     @Override
@@ -175,12 +181,53 @@ public class article extends AppCompatActivity {
 
             }
         });
+        /* ======================================== */
+        //螢光筆、儲存
+        TextView article = findViewById(R.id.article01) ;
+        article.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater menuInflater = mode.getMenuInflater();
+                menuInflater.inflate(R.menu.selection_action_menu,menu);
+                return true;//返回false则不会显示弹窗
+            }
 
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                MenuInflater menuInflater = mode.getMenuInflater();
+                menu.clear();
+                menuInflater.inflate(R.menu.selection_action_menu,menu);
+                return true;//隱藏所有非本app的item
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                //根据item的ID处理点击事件
+                int start = article.getSelectionStart();
+                int end = article.getSelectionEnd();
+                SpannableStringBuilder ssb = new SpannableStringBuilder(article.getText());
+                switch (item.getItemId()){
+                    case R.id.lookup:
+                        Toast.makeText(article.this, "字典", Toast.LENGTH_SHORT).show();
+                        mode.finish();//收起操作菜单
+                        break;
+                    case R.id.highlight:
+                        Toast.makeText(article.this, "螢光筆", Toast.LENGTH_SHORT).show();
+                        ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                        article.setText(ssb);
+
+                        mode.finish();
+                        break;
+                }
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+            }
+        });
 
     }
-
-
-
 
 
 
