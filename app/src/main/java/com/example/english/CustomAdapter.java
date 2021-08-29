@@ -59,6 +59,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
 
 
+
     }
 
     @Override
@@ -94,8 +95,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                     v.getContext().startActivity(i);
 
 
+
                 }
             });
+
 
 
             title = itemView.findViewById(R.id.title01);

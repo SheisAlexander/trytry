@@ -1,40 +1,96 @@
 package com.example.english;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.speech.tts.TextToSpeech;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.vishnusivadas.advanced_httpurlconnection.FetchData;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import java.util.Locale;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-@RequiresApi(api = Build.VERSION_CODES.M)
-public class article extends AppCompatActivity {
+import java.util.Random;
+
+public class article2 extends AppCompatActivity {
 
     TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
-    TextToSpeech textToSpeech;
-    String english_ids;
-
-
+    String result;
+    String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s;
     ImageButton b1;
-    Button btn_easy, btn_other, btn_hard;
-  //  ActionMode.Callback2 textSelectionActionModeCallback;
 
+    Button btn_easy, btn_other, btn_hard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
+        Handler handler1 = new Handler(Looper.getMainLooper());
+        handler1.post(new Runnable() {
+            @Override
+            public void run() {
+
+                Bundle bundle = getIntent().getExtras();
+                String h = bundle.getString("url" );
+                FetchData fetchData = new FetchData(h);
+                if (fetchData.startFetch()) {
+                    if (fetchData.onComplete()) {
+                        result = fetchData.getResult();
+                        //End ProgressBar (Set visibility to GONE)
+                        Log.i("FetchData", result);
+                    }
+                }
+                try {
+
+
+                    JSONArray userArray = new JSONArray(result);
+                    Random r = new Random();
+                    int a = r.nextInt(userArray.length())+0;
+
+                    for (int i = a; i < a+1; i++) {
+
+                        //creating a json object for fetching single data
+                        JSONObject userDetail = userArray.getJSONObject(i);
+                        //Fetching title & tag and storing them in arraylist
+                        titles = userDetail.getString("title");
+                        articles=userDetail.getString("article");
+                        english_ids=userDetail.getString("english_id");
+
+                        JSONArray keywordArray = new JSONArray(userDetail.getString("keyword"));
+                        keywords1s =keywordArray.getString(0);
+                        keywords2s =keywordArray.getString(1);
+                        keywords3s =keywordArray.getString(2);
+                        keywords4s =keywordArray.getString(3);
+                        keywords5s =keywordArray.getString(4);
+                        keywords6s =keywordArray.getString(5);
+
+                        title.setText(titles);
+                        article.setText(articles);
+                        english_id.setText(english_ids);
+                        keyword1.setText(keywords1s);
+                        keyword2.setText(keywords2s);
+                        keyword3.setText(keywords3s);
+                        keyword4.setText(keywords4s);
+                        keyword5.setText(keywords5s);
+                        keyword6.setText(keywords6s);
+
+
+
+                    }
+                }catch (Exception e) {
+                    result = e.toString(); // 如果出事，回傳錯誤訊息
+                }
+            }
+        });
+
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -53,16 +109,12 @@ public class article extends AppCompatActivity {
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
-                        Log.i("TAG1", result);
 
                     }
                 }
                 //End Write and Read data with URL
             }
         });
-
-        //set back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         title = findViewById(R.id.title02);
@@ -75,61 +127,9 @@ public class article extends AppCompatActivity {
         keyword6 = findViewById(R.id.keyword06);
         english_id = findViewById(R.id.english_id);
 
-        Intent i = getIntent();
-        String title0 = i.getStringExtra("title");
-        title.setText(title0);
-
-        String article0 = i.getStringExtra("article");
-        article.setText(article0);
-
-        String keyword01 = i.getStringExtra("keyword1");
-        keyword1.setText(keyword01);
-        String keyword02 = i.getStringExtra("keyword2");
-        keyword2.setText(keyword02);
-        String keyword03 = i.getStringExtra("keyword3");
-        keyword3.setText(keyword03);
-        String keyword04 = i.getStringExtra("keyword4");
-        keyword4.setText(keyword04);
-        String keyword05 = i.getStringExtra("keyword5");
-        keyword5.setText(keyword05);
-        String keyword06 = i.getStringExtra("keyword6");
-        keyword6.setText(keyword06);
-
-        english_ids = i.getStringExtra("english_id");
-        english_id.setText(english_ids);
-
-        //text to speech
-
-        b1 = findViewById(R.id.soundbutton);
-        // create an object textToSpeech and adding features into it
-
-        // Adding OnClickListener
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-                    @Override
-                    public void onInit(int i) {
-
-                        if (textToSpeech.isSpeaking()) {
-                            textToSpeech.stop();
-                        } else {
-
-                            // if No error is found then only it will run
-                            if (i != TextToSpeech.ERROR) {
-                                // To Choose language of speech
-                                textToSpeech.setLanguage(Locale.US);
-                                textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
-                            }
-                        }
 
 
-                    }
-                });
 
-
-            }
-        });
 
 
         btn_easy = findViewById(R.id.button_easy);
@@ -140,7 +140,7 @@ public class article extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(article.this,article2.class);
+                intent.setClass(article2.this,article2.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("url","http://163.13.201.116:8080/english/select1.php");
                 intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
@@ -155,7 +155,7 @@ public class article extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(article.this,article2.class);
+                intent.setClass(article2.this,article2.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("url","http://163.13.201.116:8080/english/select2.php");
                 intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
@@ -168,7 +168,7 @@ public class article extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(article.this,article2.class);
+                intent.setClass(article2.this,article2.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("url","http://163.13.201.116:8080/english/select3.php");
                 intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
@@ -180,11 +180,4 @@ public class article extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
 }
-

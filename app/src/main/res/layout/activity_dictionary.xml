@@ -40,23 +40,26 @@
 
 
         <EditText
-        android:id="@+id/WordText"
-        android:layout_marginLeft="25dp"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:hint="Type a word"
+            android:id="@+id/WordText"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:hint="Type a word"
             android:inputType="textPersonName"
 
-        android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
         <Button
-        android:id="@+id/DictionaryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:id="@+id/DictionaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
             android:text="Go"
-        android:textColor="@color/dark_green"
-        android:textSize="18dp"
-        app:backgroundTint="@color/primary_green"
-            android:layout_marginRight="25dp"/>
+            android:textColor="@color/dark_green"
+            android:textSize="18dp"
+            app:backgroundTint="@color/primary_green"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -89,18 +92,22 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="right">
+
                     <ImageButton
-                    android:id="@+id/heartButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                android:backgroundTint="@color/primary_green"/>
+                        android:id="@+id/heartButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/primary_green"
+                        android:src="@drawable/ic_baseline_favorite_border_24"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
                     <ImageButton
-                android:id="@+id/soundButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_volume_up_24"
-                android:backgroundTint="@color/primary_green"/>
+                        android:id="@+id/soundButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/primary_green"
+                        android:src="@drawable/ic_baseline_volume_up_24"
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </LinearLayout>
                 <TextView
             android:id="@+id/DictionaryText"
