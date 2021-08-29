@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     // creating  arraylists
@@ -25,12 +23,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     ArrayList<String> keywords5;
     ArrayList<String> keywords6;
     ArrayList<String> articles;
+    ArrayList<String> english_ids;
 
 
     //constructor
 
 
-    public CustomAdapter(ArrayList<String> titles, ArrayList<String> keywords1, ArrayList<String> keywords2, ArrayList<String> keywords3, ArrayList<String> keywords4, ArrayList<String> keywords5, ArrayList<String> keywords6, ArrayList<String> articles) {
+    public CustomAdapter(ArrayList<String> titles, ArrayList<String> keywords1, ArrayList<String> keywords2, ArrayList<String> keywords3, ArrayList<String> keywords4, ArrayList<String> keywords5, ArrayList<String> keywords6, ArrayList<String> articles, ArrayList<String> english_ids) {
         this.titles = titles;
         this.keywords1 = keywords1;
         this.keywords2 = keywords2;
@@ -39,6 +38,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.keywords5 = keywords5;
         this.keywords6 = keywords6;
         this.articles = articles;
+        this.english_ids = english_ids;
     }
 
     // ViewHolders
@@ -89,6 +89,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                     i.putExtra("keyword4",keywords4.get(getAdapterPosition()));
                     i.putExtra("keyword5",keywords5.get(getAdapterPosition()));
                     i.putExtra("keyword6",keywords6.get(getAdapterPosition()));
+                    i.putExtra("english_id",english_ids.get(getAdapterPosition()));
 
                     //starting next activity from view "v"
                     v.getContext().startActivity(i);

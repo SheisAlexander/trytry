@@ -1,21 +1,13 @@
 package com.example.english;
 
 import android.content.Intent;
-import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
-import android.widget.Toast;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,8 +25,6 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-
-@RequiresApi(api = Build.VERSION_CODES.M)
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -46,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> keywords5 = new ArrayList<>();
     ArrayList<String> keywords6 = new ArrayList<>();
     ArrayList<String> articles = new ArrayList<>();
+    ArrayList<String> english_ids = new ArrayList<>();
+
 
 
     String result;
@@ -123,8 +115,6 @@ public class MainActivity extends AppCompatActivity {
         Thread thread = new Thread(mutiThread);
         thread.start(); // 開始執行
 
-
-
     }
     /* ======================================== */
 
@@ -180,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                     //Fetching title & tag and storing them in arraylist
                     titles.add(userDetail.getString("title"));
                     articles.add(userDetail.getString("article"));
+                    english_ids.add(userDetail.getString("english_id"));
 
                     JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
                     keywords1.add(keywordArray.getString(0));
@@ -201,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             // 當這個執行緒完全跑完後執行
             runOnUiThread(new Runnable() {
                 public void run() {
-                    CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles);
+                    CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles,english_ids);
                     recyclerView.setAdapter(customAdapter);
 
 
@@ -211,7 +202,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
-    /* ======================================== */
+
+
 
 
 
