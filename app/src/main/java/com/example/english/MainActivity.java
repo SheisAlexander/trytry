@@ -1,13 +1,21 @@
 package com.example.english;
 
 import android.content.Intent;
+import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +33,8 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
+
+@RequiresApi(api = Build.VERSION_CODES.M)
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -36,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> keywords5 = new ArrayList<>();
     ArrayList<String> keywords6 = new ArrayList<>();
     ArrayList<String> articles = new ArrayList<>();
-
 
 
     String result;
@@ -112,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
         // 我只是覺得好像應該也教一下這種寫法
         Thread thread = new Thread(mutiThread);
         thread.start(); // 開始執行
+
+
 
     }
     /* ======================================== */
@@ -199,8 +210,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
-
-
+    /* ======================================== */
 
 
 

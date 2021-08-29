@@ -62,16 +62,17 @@
                 android:id="@+id/article01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textIsSelectable="true"
                 android:textColor="@color/black"
                 android:textSize="@dimen/word_24" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Keyword:"
                 android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24"
-                android:layout_marginTop="10dp"/>
+                android:textSize="@dimen/word_24" />
 
             <TextView
                 android:id="@+id/keyword01"
@@ -114,12 +115,13 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/green_a1"
                 android:textSize="@dimen/word_24" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="選擇下一篇文章程度:"
-                android:textSize="@dimen/word_24"
-                android:layout_marginTop="15dp"/>
+                android:textSize="@dimen/word_24" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,13 +156,14 @@
                     android:textColor="@color/white" />
 
             </LinearLayout>
+
             <TextView
+                android:id="@+id/english_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/english_id"
 
-                android:textSize="@dimen/word_24"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/word_24" />
 
 
         </LinearLayout>
