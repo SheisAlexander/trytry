@@ -90,24 +90,28 @@
                     android:orientation="horizontal"
                     android:gravity="right">
                     <ImageButton
-                    android:id="@+id/heartButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                android:backgroundTint="@color/primary_green"/>
+                        android:id="@+id/heartButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_favorite_border_24"
+                        android:backgroundTint="@color/primary_green"/>
                     <ImageButton
-                android:id="@+id/soundButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_volume_up_24"
-                android:backgroundTint="@color/primary_green"/>
+                        android:id="@+id/soundButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_volume_up_24"
+                        android:backgroundTint="@color/primary_green"/>
                 </LinearLayout>
+
                 <TextView
-            android:id="@+id/DictionaryText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/primary_green"
-            android:textSize="@dimen/word_24" />
+                    android:id="@+id/DictionaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/primary_green"
+                    android:textSize="@dimen/word_24"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ffee32"/>
             </LinearLayout>
 
     </androidx.cardview.widget.CardView>
