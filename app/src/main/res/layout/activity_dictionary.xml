@@ -34,89 +34,98 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
         android:layout_marginTop="90dp"
         android:orientation="horizontal">
 
 
         <EditText
-        android:id="@+id/WordText"
-        android:layout_marginLeft="25dp"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:hint="Type a word"
+            android:id="@+id/WordText"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:hint="Type a word"
             android:inputType="textPersonName"
+            android:textSize="18sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        android:textSize="18sp" />
         <Button
-        android:id="@+id/DictionaryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:id="@+id/DictionaryButton"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="50dp"
             android:text="Go"
-        android:textColor="@color/dark_green"
-        android:textSize="18dp"
-        app:backgroundTint="@color/primary_green"
-            android:layout_marginRight="25dp"/>
+            android:textColor="@color/dark_green"
+            android:textSize="18dp"
+            app:backgroundTint="@color/primary_green" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
         android:orientation="vertical"
         android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:layout_marginBottom="60dp"
-        >
+        android:paddingRight="25dp">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="170dp"
-        android:fillViewport="true"
-        >
-
-
-        <androidx.cardview.widget.CardView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/primary_green">
-            <LinearLayout
+            android:layout_marginTop="170dp"
+            android:layout_marginBottom="20dp"
+            android:fillViewport="true">
+
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:backgroundTint="@color/primary_green">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="right">
-                    <ImageButton
-                        android:id="@+id/heartButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_baseline_favorite_border_24"
-                        android:backgroundTint="@color/primary_green"/>
-                    <ImageButton
-                        android:id="@+id/soundButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_baseline_volume_up_24"
-                        android:backgroundTint="@color/primary_green"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/heartButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:backgroundTint="@color/primary_green"
+                            android:src="@drawable/ic_baseline_favorite_border_24"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                        <ImageButton
+                            android:id="@+id/soundButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:backgroundTint="@color/primary_green"
+                            android:src="@drawable/ic_baseline_volume_up_24"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/DictionaryText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@color/primary_green"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="#ffee32"
+                        android:textIsSelectable="true"
+                        android:textSize="@dimen/word_24"
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/DictionaryText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/primary_green"
-                    android:textSize="@dimen/word_24"
-                    android:textColor="@color/black"
-                    android:textIsSelectable="true"
-                    android:textColorHighlight="#ffee32"/>
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
-
-    </ScrollView>
+        </ScrollView>
     </LinearLayout>
 
 

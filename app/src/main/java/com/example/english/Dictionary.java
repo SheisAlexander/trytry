@@ -102,7 +102,7 @@ public class Dictionary extends AppCompatActivity {
                             JSONObject meanings = word.getJSONObject(0);
 
                             //JSONObject wordmeanp = meanings.getJSONObject("partOfSpeech");
-                            //wordpos = wordmeanp.getString("partOfSpeech");
+                            wordpos = meanings.getString("partOfSpeech");
 
                             JSONArray wordmean = meanings.getJSONArray("definitions");
 
@@ -117,7 +117,7 @@ public class Dictionary extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        dicText.append("詞性: "+"\n"+wordpos+"意思: "+"\n"+worddef);
+                        dicText.append("詞性: "+"\n"+wordpos+"\n"+"意思: "+"\n"+worddef);
 
                         //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
                     }
@@ -128,25 +128,6 @@ public class Dictionary extends AppCompatActivity {
                     }
                 });
                 queue.add(request);
-
-                // Request a string response from the provided URL.
-//                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                                Toast.makeText(Dictionary.this, response, Toast.LENGTH_SHORT).show();
-//                            }
-//                        }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(Dictionary.this, "Error!", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-
-                // Add the request to the RequestQueue.
-
-
-                //Toast.makeText(Dictionary.this, ":)", Toast.LENGTH_SHORT).show();
             }
         });
         
