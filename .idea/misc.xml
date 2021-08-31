@@ -3,12 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.16614583333333333" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_volume_up_24.xml" value="0.16614583333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_analysis.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article_view.xml" value="0.25104166666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_dictionary.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_level1.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_login.xml" value="0.1" />
