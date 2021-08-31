@@ -55,26 +55,26 @@
         逐個單字分textbox 觸動事件，底色+下顯示
         -->
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:fillViewport="false"
-        android:tint="#52503A">
-
-
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="190dp"
-            android:layout_marginRight="18dp"
-            android:text="Knowledge is one thing, virtue is another; good sense is not conscience, refinemKnowledge is one thing, virtue is another; good sense is not conscience, refinement is not humility nor is largeness and justness of view faith. Philosophy, however enlightened, however profound, gives no command over the passions, no influential motives, no vivifying principles. Liberal Education makes not ent is not humility nor is largeness and justness of view faith. Philosophy, however enlightened, however profound, gives no command over the passions, no influential motives, no vivifying principles. Liberal Education makes not"
-            android:textColor="@color/green_c1"
-            android:textSize="@dimen/word_30" />
+            android:layout_marginTop="170dp"
+            android:fillViewport="false"
+            android:tint="#52503A">
 
-        <!---TextView
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="190dp"
+                android:layout_marginRight="18dp"
+                android:text="Knowledge is one thing, virtue is another; good sense is not conscience, refinemKnowledge is one thing, virtue is another; good sense is not conscience, refinement is not humility nor is largeness and justness of view faith. Philosophy, however enlightened, however profound, gives no command over the passions, no influential motives, no vivifying principles. Liberal Education makes not ent is not humility nor is largeness and justness of view faith. Philosophy, however enlightened, however profound, gives no command over the passions, no influential motives, no vivifying principles. Liberal Education makes not"
+                android:textColor="@color/green_c1"
+                android:textSize="@dimen/word_30" />
+
+            <!---TextView
                     android:layout_width="403dp"
                     android:layout_height="514dp"
                     android:gravity="center_horizontal"
@@ -85,7 +85,7 @@
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="204dp" >-->
 
-    </ScrollView>
+        </ScrollView>
 
     <!---#標籤設定-->
 
@@ -150,7 +150,6 @@ Things are looking up. 情況在好轉。"
         android:background="@color/green_b2"
         android:src="@drawable/ic_baseline_favorite_border_24"
         />
-
     <ImageButton
         android:id="@+id/closebutton_textbox"
         android:layout_width="35dp"
@@ -159,7 +158,8 @@ Things are looking up. 情況在好轉。"
         android:layout_marginTop="350dp"
         android:layout_marginRight="0dp"
         android:background="@color/green_b2"
-        android:src="@drawable/ic_baseline_highlight_off_24" />
+        android:src="@drawable/ic_baseline_highlight_off_24"
+        />
     <ImageButton
         android:id="@+id/morebutton_textbox"
         android:layout_width="35dp"
