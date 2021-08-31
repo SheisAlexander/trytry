@@ -1,30 +1,23 @@
 package com.example.english;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.SpannableStringBuilder;
 import android.text.style.BackgroundColorSpan;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -41,7 +34,6 @@ import org.json.JSONObject;
 
 import java.util.Locale;
 
-@RequiresApi(api = Build.VERSION_CODES.M)
 public class article extends AppCompatActivity {
 
     TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
@@ -51,7 +43,6 @@ public class article extends AppCompatActivity {
 
     ImageButton b1;
     Button btn_easy, btn_other, btn_hard;
-  //  ActionMode.Callback2 textSelectionActionModeCallback;
 
 
     @Override
@@ -76,7 +67,6 @@ public class article extends AppCompatActivity {
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
-                        Log.i("TAG1", result);
 
                     }
                 }
@@ -312,4 +302,3 @@ public class article extends AppCompatActivity {
 
 
 }
-
