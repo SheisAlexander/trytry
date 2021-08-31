@@ -8,90 +8,235 @@
     tools:context=".Settings"
     android:background="@color/green_a4">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/textView19"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="15dp">
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+    <TextView
+    android:id="@+id/setting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="30dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="26dp"
+    android:text="Settings"
+    android:textColor="@color/green_c4"
+    android:textSize="@dimen/topic_50"
+
+    />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
 
 
-        <TextView
-            android:id="@+id/setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Settings"
-            android:textColor="@color/green_c4"
-            android:textSize="@dimen/topic_50"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
 
-            />
-
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/background"
+            android:paddingLeft="20dp"
+            android:paddingTop="90dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="10dp"
+
+            >
+
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="match_parent"
+
+                android:text="MAG34486"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 
-            android:layout_marginTop="30dp"
-            app:cardCornerRadius="@dimen/buttonS_20">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/articlelevel"
-                    android:layout_width="@dimen/login_button_width_200"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="30dp"
-                    android:text="更改文章程度"
-                    android:textColor="@color/green_a1"
-                    android:textSize="30sp" />
-
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/spacing_10"
-
-                    android:src="@drawable/ic_baseline_navigate_next_24" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/signOut"
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
 
-            app:cardCornerRadius="@dimen/buttonS_20">
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
+                android:text="基本資料維護"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
 
-                <TextView
-                    android:layout_width="@dimen/login_button_width_200"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="30dp"
-                    android:text="登出"
-                    android:textColor="@color/green_a1"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/spacing_10"
+
+                android:src="@drawable/ic_baseline_navigate_next_24" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/remind_set"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="325dp"
+        android:layout_marginLeft="25dp"
+
+        android:gravity="center_vertical"
+        android:text="一般設定"
+        android:textColor="@color/green_c4"
+        android:textSize="@dimen/buttonB_25" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:text="播放設定"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/spacing_10"
+                android:src="@drawable/ic_baseline_navigate_next_24" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="445dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:text="每日提醒"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
+
+            <Switch
+                android:id="@+id/switch6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="0.1dp"
+                android:layout_marginRight="@dimen/word_30"
+                android:textSize="@dimen/word_30"
+                android:textColor="@color/green_c1"
+                android:textStyle="bold"
+                android:textOff="Off"
+                android:textOn="On"
+                android:padding="15dp"
+                android:scaleX="1"
+                android:scaleY="1"
+
+                />
 
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/signOut"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="530dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="@dimen/buttonS_20"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/login_button_width_200"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:text="登出"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/green_a1"
+                />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
 

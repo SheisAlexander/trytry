@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--頂部設定，icon+標題-->
+
+    <TextView
+        android:id="@+id/textView80"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_text_wordbox"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/hashtag_18" />
+
+    <ImageButton
+        android:id="@+id/heartbutton1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/green_b2"
+        android:src="@drawable/ic_baseline_favorite_border_24" />
+
+    <ImageButton
+        android:id="@+id/closebutton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/green_b2"
+        android:src="@drawable/ic_baseline_highlight_off_24" />
+
+</RelativeLayout>
