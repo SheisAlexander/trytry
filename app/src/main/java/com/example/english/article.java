@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -28,7 +27,7 @@ public class article extends AppCompatActivity {
 
     ImageButton b1;
     Button btn_easy, btn_other, btn_hard;
-  //  ActionMode.Callback2 textSelectionActionModeCallback;
+    //  ActionMode.Callback2 textSelectionActionModeCallback;
 
 
     @Override
@@ -53,7 +52,6 @@ public class article extends AppCompatActivity {
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
-                        Log.i("TAG1", result);
 
                     }
                 }
