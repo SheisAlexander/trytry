@@ -11,14 +11,15 @@
         android:id="@+id/analysis"
         android:title = "分析"
         android:icon="@drawable/ic_analytics"/>
-    <item
-        android:id="@+id/test"
-        android:title = "測驗"
-        android:icon="@drawable/ic_test"/>
+
     <item
         android:id="@+id/dictionary"
         android:title = "字典"
         android:icon="@drawable/ic_dictionary"/>
+    <item
+        android:id="@+id/settings"
+        android:title = "設定"
+        android:icon="@drawable/ic_settings"/>
 
 
 

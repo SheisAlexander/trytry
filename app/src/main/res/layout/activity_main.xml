@@ -35,17 +35,6 @@
         />
 
 
-    <ImageButton
-        android:id="@+id/settingbutton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="340dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/white"
-        android:src="@drawable/ic_settings" />
-
-
     <LinearLayout
         android:layout_width="398dp"
         android:layout_height="634dp"

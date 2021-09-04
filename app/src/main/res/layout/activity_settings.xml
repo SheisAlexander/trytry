@@ -8,6 +8,18 @@
     tools:context=".Settings"
     android:background="@color/green_a4">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/white"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom="true"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,8 +69,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="@dimen/spacing_10"
-
-                    android:src="@drawable/ic_baseline_navigate_next_24" />
+                    />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

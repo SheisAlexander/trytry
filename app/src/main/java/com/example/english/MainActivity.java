@@ -1,18 +1,11 @@
 package com.example.english;
 
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
-import android.widget.ImageButton;
-import android.widget.Toast;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -59,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
         getSupportActionBar().hide(); // hide the title bar
+        Log.d("MainActivity", "onCreate");
 
         setContentView(R.layout.activity_main);
 
@@ -78,12 +72,13 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), Analysis.class));
                         overridePendingTransition(0, 0);
                         return true;
-                    case R.id.test:
-                        startActivity(new Intent(getApplicationContext(), Test.class));
-                        overridePendingTransition(0, 0);
-                        return true;
                     case R.id.dictionary:
                         startActivity(new Intent(getApplicationContext(), Dictionary.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.settings:
+                        startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
                         return true;
                 }
@@ -93,16 +88,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //Imagebutton -setting button
-        ImageButton mainButton = (ImageButton) findViewById(R.id.settingbutton);
-        mainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Settings.class);
-                startActivity(intent);
-            }
-        });
 
 
         //Recyclerview
@@ -214,6 +200,37 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     /* ======================================== */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+        Log.d("MainActivity", "onStart");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+        Log.d("MainActivity", "onResume");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+        Log.d("MainActivity", "onPause");
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+        Log.d("MainActivity", "onStop");
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // The activity is about to be destroyed.
+        Log.d("MainActivity", "onDestroy");
+    }
+
 
 
 

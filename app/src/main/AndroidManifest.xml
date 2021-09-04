@@ -14,17 +14,19 @@
         android:theme="@style/Theme.English"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".article2"
+            android:name=".Vocabulary_heart1"
             android:exported="true" />
         <activity
-            android:name=".ForgotPassword"
+            android:name=".Article_heart1"
+            android:exported="true" />
+        <activity
+            android:name=".article2"
             android:exported="true" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Level1" />
         <activity
             android:name=".Signup"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity android:name=".YourSort" />
         <activity android:name=".YourLevel" />
         <activity android:name=".TestArticle" />
         <activity android:name=".Login">

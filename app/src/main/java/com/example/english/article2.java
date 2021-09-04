@@ -1,21 +1,38 @@
 package com.example.english;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.SpannableStringBuilder;
+import android.text.style.BackgroundColorSpan;
 import android.util.Log;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.vishnusivadas.advanced_httpurlconnection.FetchData;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Random;
@@ -32,6 +49,8 @@ public class article2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+        getSupportActionBar().hide(); // hide the title bar
         setContentView(R.layout.activity_article);
         Handler handler1 = new Handler(Looper.getMainLooper());
         handler1.post(new Runnable() {
@@ -179,6 +198,116 @@ public class article2 extends AppCompatActivity {
         });
 
 
+        /* ======================================== */
+        //螢光筆、儲存
+        // TextView article = findViewById(R.id.article01);
+        article.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater menuInflater = mode.getMenuInflater();
+                menuInflater.inflate(R.menu.selection_action_menu,menu);
+                return true;//return false則不會顯示menu
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                MenuInflater menuInflater = mode.getMenuInflater();
+                menu.clear();
+                menuInflater.inflate(R.menu.selection_action_menu,menu);
+                return true;//隱藏所有非本app的item
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                //根據item的ID處理點擊事件
+                int start = article.getSelectionStart();
+                int end = article.getSelectionEnd();
+                SpannableStringBuilder ssb = new SpannableStringBuilder(article.getText());
+                String selectedText = article.getText().toString().substring(start,end);
+                switch (item.getItemId()){
+                    case R.id.lookup:
+                        AlertDialog.Builder builder = new AlertDialog.Builder(article2.this,R.style.TransparentDialog);
+
+                        builder.setCancelable(false);//這邊是設定使用者可否點擊空白處返回
+                        View v = getLayoutInflater().inflate(R.layout.set_custom_dialog_layout_with_button,null);
+                        builder.setView(v);
+                        ImageButton close = v.findViewById(R.id.closebutton);
+                        ImageButton heart  = v.findViewById(R.id.heartbutton1);
+                        AlertDialog dialog = builder.create();
+                        TextView dicText2 = v.findViewById(R.id.textView80);
+                        // Instantiate the RequestQueue.
+                        RequestQueue queue = Volley.newRequestQueue(article2.this);
+
+                        String url ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
+
+                        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null,new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+                                String worddef = "";
+                                String wordpos = "";
+                                try {
+                                    //第一層
+                                    JSONObject wordInfo = response.getJSONObject(0);
+                                    JSONArray word = wordInfo.getJSONArray("meanings");
+                                    //第二層
+                                    JSONObject meanings = word.getJSONObject(0);
+
+                                    //JSONObject wordmeanp = meanings.getJSONObject("partOfSpeech");
+                                    wordpos = meanings.getString("partOfSpeech");
+
+                                    JSONArray wordmean = meanings.getJSONArray("definitions");
+
+                                    //第三層
+                                    JSONObject worddefs = wordmean.getJSONObject(0);
+                                    worddef = worddefs.getString("definition");
+
+                                    //worddef = wordInfo.getString("meanings");
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                                dicText2.append( "詞性: "+"\n"+wordpos+"\n"+"意思: "+"\n"+worddef);
+
+                                //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(article2.this, "Wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        queue.add(request);
+                        dialog.show();
+                        close.setOnClickListener((v1 -> {
+                            dialog.dismiss();
+                        }));
+                        heart.setOnClickListener((v1 -> {
+                            ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                            article.setText(ssb);
+                            dialog.dismiss();
+                        }));
+                        mode.finish();//收起menu
+                        break;
+
+                    case R.id.highlight:
+                        Toast.makeText(article2.this, "螢光筆", Toast.LENGTH_SHORT).show();
+                        ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                        article.setText(ssb);
+                        mode.finish();
+                        break;
+                }
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+            }
+        });
+
+
     }
-    //有沒有commoit 到?
+
+
 }

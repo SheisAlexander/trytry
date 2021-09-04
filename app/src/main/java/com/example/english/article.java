@@ -121,6 +121,7 @@ public class article extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
                     @Override
                     public void onInit(int i) {
 
@@ -192,7 +193,7 @@ public class article extends AppCompatActivity {
         });
         /* ======================================== */
         //螢光筆、儲存
-        TextView article = findViewById(R.id.article01);
+       // TextView article = findViewById(R.id.article01);
         article.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -218,7 +219,8 @@ public class article extends AppCompatActivity {
                 String selectedText = article.getText().toString().substring(start,end);
                 switch (item.getItemId()){
                     case R.id.lookup:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(article.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(article.this,R.style.TransparentDialog);
+
                         builder.setCancelable(false);//這邊是設定使用者可否點擊空白處返回
                         View v = getLayoutInflater().inflate(R.layout.set_custom_dialog_layout_with_button,null);
                         builder.setView(v);
