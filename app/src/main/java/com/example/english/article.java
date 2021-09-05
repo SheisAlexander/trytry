@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Locale;
 
 public class article extends AppCompatActivity {
@@ -39,7 +45,8 @@ public class article extends AppCompatActivity {
     TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
     TextToSpeech textToSpeech;
     String english_ids;
-
+    String Word ;
+    //ProgressBar progressBar;
 
     ImageButton b1;
     Button btn_easy, btn_other, btn_hard;
@@ -217,6 +224,7 @@ public class article extends AppCompatActivity {
                 int end = article.getSelectionEnd();
                 SpannableStringBuilder ssb = new SpannableStringBuilder(article.getText());
                 String selectedText = article.getText().toString().substring(start,end);
+
                 switch (item.getItemId()){
                     case R.id.lookup:
                         AlertDialog.Builder builder = new AlertDialog.Builder(article.this,R.style.TransparentDialog);
@@ -228,6 +236,7 @@ public class article extends AppCompatActivity {
                         ImageButton heart  = v.findViewById(R.id.heartbutton1);
                         AlertDialog dialog = builder.create();
                         TextView dicText2 = v.findViewById(R.id.textView80);
+
                         // Instantiate the RequestQueue.
                         RequestQueue queue = Volley.newRequestQueue(article.this);
 
@@ -238,30 +247,28 @@ public class article extends AppCompatActivity {
                             public void onResponse(JSONArray response) {
                                 String worddef = "";
                                 String wordpos = "";
+
                                 try {
                                     //第一層
                                     JSONObject wordInfo = response.getJSONObject(0);
                                     JSONArray word = wordInfo.getJSONArray("meanings");
                                     //第二層
                                     JSONObject meanings = word.getJSONObject(0);
-
                                     //JSONObject wordmeanp = meanings.getJSONObject("partOfSpeech");
                                     wordpos = meanings.getString("partOfSpeech");
-
                                     JSONArray wordmean = meanings.getJSONArray("definitions");
 
                                     //第三層
                                     JSONObject worddefs = wordmean.getJSONObject(0);
                                     worddef = worddefs.getString("definition");
 
-                                    //worddef = wordInfo.getString("meanings");
-
+                                    Word = wordInfo.getString("word");
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
 
-                                dicText2.append( "詞性: "+"\n"+wordpos+"\n"+"意思: "+"\n"+worddef);
+                                dicText2.append("單字： "+Word+"\n"+"詞性: "+wordpos+"\n"+"意思: "+"\n"+worddef);
 
                                 //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
                             }
@@ -279,14 +286,100 @@ public class article extends AppCompatActivity {
                         heart.setOnClickListener((v1 -> {
                             ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
                             article.setText(ssb);
+                            //儲存至資料庫
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "user_id";
+                                    field[1] = "word";
+                                    String[] data = new String[2];
+                                    data[0] = "12";
+                                    data[1] = Word;
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                            if (result.equals("儲存成功")) {
+                                                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
                             dialog.dismiss();
+
                         }));
                         mode.finish();//收起menu
                         break;
-
                     case R.id.highlight:
-                        Toast.makeText(article.this, "螢光筆", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(article.this, "螢光筆", Toast.LENGTH_SHORT).show();
                         ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                        article.setText(ssb);
+                        RequestQueue queue2 = Volley.newRequestQueue(article.this);
+
+                        String url2 ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
+
+                        JsonArrayRequest request2 = new JsonArrayRequest(Request.Method.GET,url2,null,new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+                                String worddef = "";
+                                String wordpos = "";
+
+                                try {
+                                    //第一層
+                                    JSONObject wordInfo = response.getJSONObject(0);
+
+                                    Word = wordInfo.getString("word");
+                                    Handler handler = new Handler();
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String[] field = new String[2];
+                                            field[0] = "user_id";
+                                            field[1] = "word";
+                                            String[] data = new String[2];
+                                            data[0] = "12";
+                                            data[1] = Word;
+                                            PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
+                                            if (putData.startPut()) {
+                                                if (putData.onComplete()) {
+                                                    //progressBar.setVisibility(View.GONE);
+                                                    String result = putData.getResult();
+                                                    if (result.equals("儲存成功")) {
+                                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                        finish();
+                                                    } else {
+                                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            }
+                                            //End Write and Read data with URL
+                                        }
+                                    });
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(article.this, "Wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        queue2.add(request2);
+                        mode.finish();
+                        break;
+                    case R.id.unhighlight:
+                        Toast.makeText(article.this, "取消螢光筆", Toast.LENGTH_SHORT).show();
+                        ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                         article.setText(ssb);
                         mode.finish();
                         break;
