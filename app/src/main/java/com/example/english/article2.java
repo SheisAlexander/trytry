@@ -70,7 +70,9 @@ public class article2 extends AppCompatActivity {
                 try {
 
 
+
                     JSONArray userArray = new JSONArray(result);
+
                     Random r = new Random();
                     int a = r.nextInt(userArray.length())+0;
 
@@ -105,7 +107,8 @@ public class article2 extends AppCompatActivity {
 
                     }
                 }catch (Exception e) {
-                    result = e.toString(); // 如果出事，回傳錯誤訊息
+                    result = e.toString();//如果出事，回傳錯誤訊息
+
                 }
             }
         });

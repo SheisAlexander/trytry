@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -48,6 +49,8 @@ public class article extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+        getSupportActionBar().hide(); // hide the title bar
         setContentView(R.layout.activity_article);
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -268,7 +271,7 @@ public class article extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(article.this, "Wrong", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(article.this, "一次只能點選一個字", Toast.LENGTH_SHORT).show();
                             }
                         });
                         queue.add(request);

@@ -15,7 +15,7 @@
         android:layout_marginLeft="30dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="25dp"
-        android:text="分析"
+        android:text="紀錄"
         android:textSize="40dp"
         android:gravity="top"
         />

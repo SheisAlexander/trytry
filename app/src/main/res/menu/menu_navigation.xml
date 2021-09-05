@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/analysis"
-        android:title = "分析"
+        android:title = "紀錄"
         android:icon="@drawable/ic_analytics"/>
 
     <item

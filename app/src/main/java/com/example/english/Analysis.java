@@ -61,6 +61,7 @@ public class Analysis extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         // The activity has become visible (it is now "resumed").
         Log.d("Analysis", "onResume");
     }
