@@ -7,4 +7,8 @@
     <item
         android:id="@+id/highlight"
         android:title="螢光筆" />
+    <item
+        android:id="@+id/unhighlight"
+        android:title="取消螢光筆" />
+
 </menu>
