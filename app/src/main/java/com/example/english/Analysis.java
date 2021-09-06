@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Analysis extends AppCompatActivity {
+
+    CardView vocabheart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,15 @@ public class Analysis extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        vocabheart = findViewById(R.id.vocabulary);
+        vocabheart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Analysis.this,Vocabulary_heart1.class);
+                startActivity(intent);
             }
         });
     }

@@ -103,6 +103,7 @@
             app:cardCornerRadius="15dp"
             app:contentPadding="10dp"
             android:layout_marginTop="15dp"
+            android:id="@+id/vocabulary"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -110,16 +111,9 @@
                 android:text="收藏單字"
                 android:textColor="@color/black"
                 android:textSize="25sp"
+
                 />
-            <TextView
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="@drawable/rectangle"
-                android:gravity="center"
-                android:text="23"
-                android:textColor="@color/black"
-                android:textSize="@dimen/word_24" />
+
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
