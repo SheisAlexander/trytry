@@ -40,6 +40,14 @@
         android:src="@drawable/ic_baseline_volume_up_24"
         />
 
+     <ImageButton
+         android:id="@+id/stopbutton"
+         android:layout_width="60dp"
+         android:layout_height="60dp"
+         android:background="@color/white"
+         android:src="@drawable/ic_baseline_stop_24"
+         />
+
     <ImageButton
         android:id="@+id/heartbutton"
         android:layout_width="60dp"

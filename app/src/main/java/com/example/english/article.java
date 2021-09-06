@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,10 +33,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Locale;
 
 public class article extends AppCompatActivity {
@@ -49,7 +43,7 @@ public class article extends AppCompatActivity {
     String Word ;
     //ProgressBar progressBar;
 
-    ImageButton b1;
+    ImageButton sound,stop;
     Button btn_easy, btn_other, btn_hard;
 
 
@@ -123,35 +117,39 @@ public class article extends AppCompatActivity {
 
         //text to speech
 
-        b1 = findViewById(R.id.soundbutton);
+        sound = findViewById(R.id.soundbutton);
+        stop = findViewById(R.id.stopbutton);
         // create an object textToSpeech and adding features into it
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+            @Override
+            public void onInit(int i) {
+
+                    // if No error is found then only it will run
+                    if (i != TextToSpeech.ERROR) {
+                        // To Choose language of speech
+                        textToSpeech.setLanguage(Locale.US);
+
+                }
+            }
+        });
 
         // Adding OnClickListener
-        b1.setOnClickListener(new View.OnClickListener() {
+        sound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+                textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
 
-                    @Override
-                    public void onInit(int i) {
+            }
+        });
 
-                        if (textToSpeech.isSpeaking()) {
-                            textToSpeech.stop();
-                        } else {
-
-                            // if No error is found then only it will run
-                            if (i != TextToSpeech.ERROR) {
-                                // To Choose language of speech
-                                textToSpeech.setLanguage(Locale.US);
-                                textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
-                            }
-                        }
-
-
-                    }
-                });
-
-
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(textToSpeech!= null){
+                    textToSpeech.stop();
+                    textToSpeech.shutdown();
+                }
             }
         });
 
