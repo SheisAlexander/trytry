@@ -125,10 +125,10 @@ public class article extends AppCompatActivity {
             @Override
             public void onInit(int i) {
 
-                    // if No error is found then only it will run
-                    if (i != TextToSpeech.ERROR) {
-                        // To Choose language of speech
-                        textToSpeech.setLanguage(Locale.US);
+                // if No error is found then only it will run
+                if (i != TextToSpeech.ERROR) {
+                    // To Choose language of speech
+                    textToSpeech.setLanguage(Locale.US);
 
                 }
             }
@@ -147,8 +147,8 @@ public class article extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    textToSpeech.stop();
-                    textToSpeech.shutdown();
+                textToSpeech.stop();
+                textToSpeech.shutdown();
 
             }
         });
@@ -201,7 +201,7 @@ public class article extends AppCompatActivity {
         });
         /* ======================================== */
         //螢光筆、儲存
-       // TextView article = findViewById(R.id.article01);
+        // TextView article = findViewById(R.id.article01);
         article.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {

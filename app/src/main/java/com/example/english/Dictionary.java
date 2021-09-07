@@ -98,32 +98,54 @@ public class Dictionary extends AppCompatActivity {
                 JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null,new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        String wordkk = "";
+                        String wordorg = "";
                         String worddef = "";
+                        String worddef2 = "";
                         String wordpos = "";
+                        String wordpos2 = "";
                         try {
                             //第一層
                             JSONObject wordInfo = response.getJSONObject(0);
-                            JSONArray word = wordInfo.getJSONArray("meanings");
+                            wordkk = wordInfo.getString("phonetic");
+                            wordorg = wordInfo.getString("origin");
+                            JSONArray wordmeanings = wordInfo.getJSONArray("meanings");
                             //第二層
-                            JSONObject meanings = word.getJSONObject(0);
-
-                            //JSONObject wordmeanp = meanings.getJSONObject("partOfSpeech");
+                            JSONObject meanings = wordmeanings.getJSONObject(0);
                             wordpos = meanings.getString("partOfSpeech");
 
-                            JSONArray wordmean = meanings.getJSONArray("definitions");
+                            //JSONObject meanings2 = wordmeanings.getJSONObject(1);
+                            //wordpos2 = meanings2.getString("partOfSpeech");
+
+                            JSONArray worddefinitions = meanings.getJSONArray("definitions");
+                            //JSONArray worddefinitions2 = meanings2.getJSONArray("definitions");
 
                             //第三層
-                            JSONObject worddefs = wordmean.getJSONObject(0);
+                            JSONObject worddefs = worddefinitions.getJSONObject(0);
                             worddef = worddefs.getString("definition");
 
-                            //worddef = wordInfo.getString("meanings");
+                            //JSONObject worddefs2 = worddefinitions2.getJSONObject(0);
+                            //worddef2 = worddefs2.getString("definition");
 
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
-                        dicText.append("詞性: "+"\n"+wordpos+"\n"+"意思: "+"\n"+worddef);
+                        dicText.append(
+                                "念法: "+"\n"+
+                                wordkk+"\n"+
+                                "來源: "+"\n"+
+                                wordorg+"\n"+
+                                "詞性: "+"\n"+
+                                wordpos+"\n"+
+                                "意思: "+"\n"
+                                +worddef+ "\n");
+                                //"詞性: "+ "\n"
+                                //+wordpos2+ "\n"+
+                                //"意思: "+ "\n"+
+                                //worddef2
+
 
                         //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
                     }
