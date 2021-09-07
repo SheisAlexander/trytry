@@ -23,12 +23,12 @@ android:background="@color/white"
 
 <LinearLayout
     android:layout_width="398dp"
-    android:layout_height="634dp"
+    android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_marginStart="26dp"
     android:layout_marginLeft="26dp"
     android:layout_marginTop="130dp"
-    android:layout_marginBottom="64dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
 
@@ -36,6 +36,8 @@ android:background="@color/white"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false"
 
         />
 

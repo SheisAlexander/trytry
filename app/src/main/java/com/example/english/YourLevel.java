@@ -39,7 +39,7 @@ public class YourLevel extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if(progress == 0){
                     sorttextview.setText("The boy hears a sound. He looks up. He sees an airplane. The airplane is in the sky. It is a silver airplane. It has two wings. It has a tail. It has two jet engines. There is a pilot on the airplane. He flies the airplane. He lands the airplane.\n");
-                    sortbutton.setText("Choose Vocabulary_level");
+                    sortbutton.setText("Choose Level1");
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
