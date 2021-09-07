@@ -146,10 +146,10 @@ public class article extends AppCompatActivity {
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(textToSpeech!= null){
+
                     textToSpeech.stop();
                     textToSpeech.shutdown();
-                }
+
             }
         });
 
