@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +39,7 @@ public class Dictionary extends AppCompatActivity {
     ImageButton soundButton;
     EditText wordText;
     TextView dicText;
+    ImageButton d_like;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,7 @@ public class Dictionary extends AppCompatActivity {
         wordText    = findViewById(R.id.WordText);
         dicText     = findViewById(R.id.DictionaryText);
         soundButton = findViewById(R.id.soundButton);
+        d_like = findViewById(R.id.heartButton);
 
         dicButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,5 +191,39 @@ public class Dictionary extends AppCompatActivity {
 
             }
         });
+
+        d_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[2];
+                        field[0] = "user_id";
+                        field[1] = "word";
+                        String[] data = new String[2];
+                        data[0] = "12";
+                        data[1] = wordText.getText().toString();
+                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                //progressBar.setVisibility(View.GONE);
+                                String result = putData.getResult();
+                                if (result.equals("儲存成功")) {
+                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                        //End Write and Read data with URL
+                    }
+                });
+            }
+
+        });
     }
+
 }
