@@ -397,6 +397,39 @@ public class article2 extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+        Log.d("article2", "onStart");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+        Log.d("article2", "onResume");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Another activity is taking focus (this activity is about to be "paused").
+        Log.d("article2", "onPause");
+
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+        Log.d("article2", "onStop");
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // The activity is about to be destroyed.
+        Log.d("article2", "onDestroy");
+    }
+
 
 
 }

@@ -11,14 +11,13 @@ android:background="@color/white"
 
 
     <TextView
-        android:id="@+id/some_id"
+        android:id="@+id/title"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:gravity="top"
-        android:text="單字收藏"
         android:textSize="40sp" />
 
 

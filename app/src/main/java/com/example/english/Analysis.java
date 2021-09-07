@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Analysis extends AppCompatActivity {
 
-    CardView vocabheart;
+    CardView vocabheart,level1,level2,level3,level4,level5,level6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,90 @@ public class Analysis extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Analysis.this,Vocabulary_heart1.class);
                 startActivity(intent);
+            }
+        });
+        level1 = findViewById(R.id.level1);
+        level2 = findViewById(R.id.level2);
+        level3 = findViewById(R.id.level3);
+        level4 = findViewById(R.id.level4);
+        level5 = findViewById(R.id.level5);
+        level6 = findViewById(R.id.level6);
+        level1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Vocabulary_level.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Level1");
+                bundle.putString("url","http://163.13.201.116:8080/english/level1word.php");
+                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                startActivity(intent);
+
+            }
+        });
+        level2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Vocabulary_level.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Level2");
+                bundle.putString("url","http://163.13.201.116:8080/english/level2word.php");
+                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                startActivity(intent);
+
+            }
+        });
+        level3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Vocabulary_level.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Level3");
+                bundle.putString("url","http://163.13.201.116:8080/english/level3word.php");
+                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                startActivity(intent);
+
+            }
+        });
+        level4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Vocabulary_level.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Level4");
+                bundle.putString("url","http://163.13.201.116:8080/english/level4word.php");
+                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                startActivity(intent);
+
+            }
+        });
+        level5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Vocabulary_level.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Level5");
+                bundle.putString("url","http://163.13.201.116:8080/english/level5word.php");
+                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                startActivity(intent);
+
+            }
+        });
+        level6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Vocabulary_level.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Level");
+                bundle.putString("url","http://163.13.201.116:8080/english/leve61word.php");
+                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                startActivity(intent);
+
             }
         });
     }

@@ -382,6 +382,57 @@ public class article extends AppCompatActivity {
                         Toast.makeText(article.this, "取消螢光筆", Toast.LENGTH_SHORT).show();
                         ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                         article.setText(ssb);
+                        RequestQueue queue3 = Volley.newRequestQueue(article.this);
+
+                        String url3 ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
+
+                        JsonArrayRequest request3 = new JsonArrayRequest(Request.Method.GET,url3,null,new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+
+                                try {
+                                    //第一層
+                                    JSONObject wordInfo = response.getJSONObject(0);
+
+                                    Word = wordInfo.getString("word");
+                                    Handler handler = new Handler();
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String[] field = new String[2];
+                                            field[0] = "user_id";
+                                            field[1] = "word";
+                                            String[] data = new String[2];
+                                            data[0] = "12";
+                                            data[1] = Word;
+                                            PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                                            if (putData.startPut()) {
+                                                if (putData.onComplete()) {
+                                                    //progressBar.setVisibility(View.GONE);
+                                                    String result = putData.getResult();
+                                                    if (result.equals("刪除成功")) {
+                                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                        finish();
+                                                    } else {
+                                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            }
+                                            //End Write and Read data with URL
+                                        }
+                                    });
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(article.this, "Wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        queue3.add(request3);
                         mode.finish();
                         break;
                 }
@@ -394,6 +445,43 @@ public class article extends AppCompatActivity {
         });
 
     }
+    /*
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+        //if( textToSpeech != null ) textToSpeech.shutdown();
+        Log.d("article", "onStart");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+        Log.d("article", "onResume");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+        Log.d("article", "onPause");
+    }
+    @Override
+    protected void onStop() {
+        if( textToSpeech!= null ) textToSpeech.shutdown();
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+        Log.d("article", "onStop");
+    }
+    @Override
+    protected void onDestroy() {
+        if( textToSpeech!= null ) textToSpeech.shutdown();
+        super.onDestroy();
+        // The activity is about to be destroyed.
+        Log.d("article", "onDestroy");
+    }
+
+     */
+
 
 
 

@@ -23,7 +23,7 @@
             android:name=".article2"
             android:exported="true" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Level1" />
+        <activity android:name=".Vocabulary_level" />
         <activity
             android:name=".Signup"
             android:theme="@style/Theme.Design.Light.NoActionBar" />

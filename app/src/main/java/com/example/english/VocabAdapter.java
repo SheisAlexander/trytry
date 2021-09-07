@@ -31,7 +31,7 @@ public class VocabAdapter extends RecyclerView.Adapter<VocabAdapter.MyViewHolder
     @Override
     public MyViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         //Inflate the item layout
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowlayout,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.vocablayout,parent,false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
