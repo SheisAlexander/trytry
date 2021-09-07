@@ -122,8 +122,8 @@ public class Vocabulary_heart1 extends AppCompatActivity {
                 switch (direction) {
 
                     case ItemTouchHelper.LEFT:
-                        choose.remove(position);
-                        vocabAdapter.notifyItemRemoved(position);
+
+
                         Handler handler = new Handler();
                         handler.post(new Runnable() {
                             @Override
@@ -147,6 +147,8 @@ public class Vocabulary_heart1 extends AppCompatActivity {
                                         }
                                     }
                                 }
+                                vocabAdapter.notifyItemRemoved(position);
+                                choose.remove(position);
                                 //End Write and Read data with URL
                             }
                         });
