@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         //Recyclerview
         recyclerView = findViewById(R.id.recyclerView);
         //Recyclerview configuration

@@ -43,7 +43,7 @@ public class article extends AppCompatActivity {
     String Word ;
     //ProgressBar progressBar;
 
-    ImageButton sound,stop;
+    ImageButton sound,stop,article_heart;
     Button btn_easy, btn_other, btn_hard;
 
 
@@ -119,6 +119,44 @@ public class article extends AppCompatActivity {
 
         sound = findViewById(R.id.soundbutton);
         stop = findViewById(R.id.stopbutton);
+        article_heart = findViewById(R.id.heartbutton);
+        article_heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[2];
+                        field[0] = "user_id";
+                        field[1] = "english_id";
+
+
+                        String[] data = new String[2];
+                        data[0] = "12";
+                        data[1] = english_ids;
+
+
+                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectarticle.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                //progressBar.setVisibility(View.GONE);
+                                String result = putData.getResult();
+                                if (result.equals("儲存成功")) {
+                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                        //End Write and Read data with URL
+                    }
+                });
+
+
+            }
+        });
         // create an object textToSpeech and adding features into it
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 

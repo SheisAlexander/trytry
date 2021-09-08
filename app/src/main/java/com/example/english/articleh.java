@@ -4,17 +4,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
+import android.speech.tts.TextToSpeech;
 import android.text.SpannableStringBuilder;
 import android.text.style.BackgroundColorSpan;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,116 +26,34 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.vishnusivadas.advanced_httpurlconnection.FetchData;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Random;
+import java.util.Locale;
 
-public class article2 extends AppCompatActivity {
+public class articleh extends AppCompatActivity {
 
     TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
-    String result;
-    String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s;
-
+    TextToSpeech textToSpeech;
+    String english_ids;
     String Word ;
-    ImageButton article_heart;
-    Button btn_easy, btn_other, btn_hard;
+    //ProgressBar progressBar;
+
+    ImageButton sound,stop,article_heart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
         getSupportActionBar().hide(); // hide the title bar
-        setContentView(R.layout.activity_article);
-        Handler handler1 = new Handler(Looper.getMainLooper());
-        handler1.post(new Runnable() {
-            @Override
-            public void run() {
+        setContentView(R.layout.activity_articleh);
 
-                Bundle bundle = getIntent().getExtras();
-                String h = bundle.getString("url" );
-                FetchData fetchData = new FetchData(h);
-                if (fetchData.startFetch()) {
-                    if (fetchData.onComplete()) {
-                        result = fetchData.getResult();
-                        //End ProgressBar (Set visibility to GONE)
-                        Log.i("FetchData", result);
-                    }
-                }
-                try {
-
-
-
-                    JSONArray userArray = new JSONArray(result);
-
-                    Random r = new Random();
-                    int a = r.nextInt(userArray.length())+0;
-
-                    for (int i = a; i < a+1; i++) {
-
-                        //creating a json object for fetching single data
-                        JSONObject userDetail = userArray.getJSONObject(i);
-                        //Fetching title & tag and storing them in arraylist
-                        titles = userDetail.getString("title");
-                        articles=userDetail.getString("article");
-                        english_ids=userDetail.getString("english_id");
-
-                        JSONArray keywordArray = new JSONArray(userDetail.getString("keyword"));
-                        keywords1s =keywordArray.getString(0);
-                        keywords2s =keywordArray.getString(1);
-                        keywords3s =keywordArray.getString(2);
-                        keywords4s =keywordArray.getString(3);
-                        keywords5s =keywordArray.getString(4);
-                        keywords6s =keywordArray.getString(5);
-
-                        title.setText(titles);
-                        article.setText(articles);
-                        english_id.setText(english_ids);
-                        keyword1.setText(keywords1s);
-                        keyword2.setText(keywords2s);
-                        keyword3.setText(keywords3s);
-                        keyword4.setText(keywords4s);
-                        keyword5.setText(keywords5s);
-                        keyword6.setText(keywords6s);
-
-
-
-                    }
-                }catch (Exception e) {
-                    result = e.toString();//如果出事，回傳錯誤訊息
-
-                }
-            }
-        });
-
-        Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                String[] field = new String[2];
-                field[0] = "username";
-                field[1] = "english_id";
-
-
-                String[] data = new String[2];
-                data[0] = "A";
-                data[1] = english_ids;
-
-
-                PutData putData = new PutData("http://163.13.201.116:8080/english/update2.php", "POST", field, data);
-                if (putData.startPut()) {
-                    if (putData.onComplete()) {
-                        String result = putData.getResult();
-
-                    }
-                }
-                //End Write and Read data with URL
-            }
-        });
+        //set back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         title = findViewById(R.id.title02);
@@ -150,96 +66,67 @@ public class article2 extends AppCompatActivity {
         keyword6 = findViewById(R.id.keyword06);
         english_id = findViewById(R.id.english_id);
 
+        Intent i = getIntent();
+        String title0 = i.getStringExtra("title");
+        title.setText(title0);
+
+        String article0 = i.getStringExtra("article");
+        article.setText(article0);
+
+        String keyword01 = i.getStringExtra("keyword1");
+        keyword1.setText(keyword01);
+        String keyword02 = i.getStringExtra("keyword2");
+        keyword2.setText(keyword02);
+        String keyword03 = i.getStringExtra("keyword3");
+        keyword3.setText(keyword03);
+        String keyword04 = i.getStringExtra("keyword4");
+        keyword4.setText(keyword04);
+        String keyword05 = i.getStringExtra("keyword5");
+        keyword5.setText(keyword05);
+        String keyword06 = i.getStringExtra("keyword6");
+        keyword6.setText(keyword06);
 
 
+        //text to speech
 
+        sound = findViewById(R.id.soundbutton);
+        stop = findViewById(R.id.stopbutton);
 
+        // create an object textToSpeech and adding features into it
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
-        btn_easy = findViewById(R.id.button_easy);
-        btn_other = findViewById(R.id.button_other);
-        btn_hard = findViewById(R.id.button_hard);
-        article_heart = findViewById(R.id.heartbutton);
-        article_heart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Handler handler = new Handler();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] field = new String[2];
-                        field[0] = "user_id";
-                        field[1] = "english_id";
+            public void onInit(int i) {
 
+                // if No error is found then only it will run
+                if (i != TextToSpeech.ERROR) {
+                    // To Choose language of speech
+                    textToSpeech.setLanguage(Locale.US);
 
-                        String[] data = new String[2];
-                        data[0] = "12";
-                        data[1] = english_ids;
+                }
+            }
+        });
 
-
-                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectarticle.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                //progressBar.setVisibility(View.GONE);
-                                String result = putData.getResult();
-                                if (result.equals("儲存成功")) {
-                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    finish();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-                        //End Write and Read data with URL
-                    }
-                });
-
-
-
+        // Adding OnClickListener
+        sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textToSpeech.speak(article0, TextToSpeech.QUEUE_FLUSH, null);
 
             }
         });
 
-        btn_easy.setOnClickListener(new View.OnClickListener() {
+        stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(article2.this,article2.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url","http://163.13.201.116:8080/english/select1.php");
-                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
-                startActivity(intent);
-                finish();
 
+                textToSpeech.stop();
+                textToSpeech.shutdown();
 
             }
         });
 
-        btn_other.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(article2.this,article2.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url","http://163.13.201.116:8080/english/select2.php");
-                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
-                startActivity(intent);
-                finish();
 
-            }
-        });
-        btn_hard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(article2.this,article2.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url","http://163.13.201.116:8080/english/select3.php");
-                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
-                startActivity(intent);
-                finish();
-
-            }
-        });
 
         /* ======================================== */
         //螢光筆、儲存
@@ -270,7 +157,7 @@ public class article2 extends AppCompatActivity {
 
                 switch (item.getItemId()){
                     case R.id.lookup:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(article2.this,R.style.TransparentDialog);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(articleh.this,R.style.TransparentDialog);
 
                         builder.setCancelable(false);//這邊是設定使用者可否點擊空白處返回
                         View v = getLayoutInflater().inflate(R.layout.set_custom_dialog_layout_with_button,null);
@@ -281,7 +168,7 @@ public class article2 extends AppCompatActivity {
                         TextView dicText2 = v.findViewById(R.id.textView80);
 
                         // Instantiate the RequestQueue.
-                        RequestQueue queue = Volley.newRequestQueue(article2.this);
+                        RequestQueue queue = Volley.newRequestQueue(articleh.this);
 
                         String url ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
 
@@ -318,7 +205,7 @@ public class article2 extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(article2.this, "一次只能點選一個字", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(articleh.this, "一次只能點選一個字", Toast.LENGTH_SHORT).show();
                             }
                         });
                         queue.add(request);
@@ -365,7 +252,7 @@ public class article2 extends AppCompatActivity {
                         //Toast.makeText(article.this, "螢光筆", Toast.LENGTH_SHORT).show();
                         ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
                         article.setText(ssb);
-                        RequestQueue queue2 = Volley.newRequestQueue(article2.this);
+                        RequestQueue queue2 = Volley.newRequestQueue(articleh.this);
 
                         String url2 ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
 
@@ -414,16 +301,67 @@ public class article2 extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(article2.this, "Wrong", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(articleh.this, "Wrong", Toast.LENGTH_SHORT).show();
                             }
                         });
                         queue2.add(request2);
                         mode.finish();
                         break;
                     case R.id.unhighlight:
-                        Toast.makeText(article2.this, "取消螢光筆", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(articleh.this, "取消螢光筆", Toast.LENGTH_SHORT).show();
                         ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                         article.setText(ssb);
+                        RequestQueue queue3 = Volley.newRequestQueue(articleh.this);
+
+                        String url3 ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
+
+                        JsonArrayRequest request3 = new JsonArrayRequest(Request.Method.GET,url3,null,new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+
+                                try {
+                                    //第一層
+                                    JSONObject wordInfo = response.getJSONObject(0);
+
+                                    Word = wordInfo.getString("word");
+                                    Handler handler = new Handler();
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String[] field = new String[2];
+                                            field[0] = "user_id";
+                                            field[1] = "word";
+                                            String[] data = new String[2];
+                                            data[0] = "12";
+                                            data[1] = Word;
+                                            PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                                            if (putData.startPut()) {
+                                                if (putData.onComplete()) {
+                                                    //progressBar.setVisibility(View.GONE);
+                                                    String result = putData.getResult();
+                                                    if (result.equals("刪除成功")) {
+                                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                        finish();
+                                                    } else {
+                                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            }
+                                            //End Write and Read data with URL
+                                        }
+                                    });
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(articleh.this, "Wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        queue3.add(request3);
                         mode.finish();
                         break;
                 }
@@ -435,40 +373,44 @@ public class article2 extends AppCompatActivity {
             }
         });
 
-
     }
+    /*
     @Override
     protected void onStart() {
         super.onStart();
         // The activity is about to become visible.
-        Log.d("article2", "onStart");
+        //if( textToSpeech != null ) textToSpeech.shutdown();
+        Log.d("article", "onStart");
     }
     @Override
     protected void onResume() {
         super.onResume();
         // The activity has become visible (it is now "resumed").
-        Log.d("article2", "onResume");
+        Log.d("article", "onResume");
     }
     @Override
     protected void onPause() {
         super.onPause();
-
         // Another activity is taking focus (this activity is about to be "paused").
-        Log.d("article2", "onPause");
-
+        Log.d("article", "onPause");
     }
     @Override
     protected void onStop() {
+        if( textToSpeech!= null ) textToSpeech.shutdown();
         super.onStop();
         // The activity is no longer visible (it is now "stopped")
-        Log.d("article2", "onStop");
+        Log.d("article", "onStop");
     }
     @Override
     protected void onDestroy() {
+        if( textToSpeech!= null ) textToSpeech.shutdown();
         super.onDestroy();
         // The activity is about to be destroyed.
-        Log.d("article2", "onDestroy");
+        Log.d("article", "onDestroy");
     }
+
+     */
+
 
 
 

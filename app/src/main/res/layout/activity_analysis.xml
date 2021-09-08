@@ -48,21 +48,7 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:cardBackgroundColor="@color/primary_green"
-                app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="文章瀏覽紀錄"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -70,12 +56,13 @@
                 android:layout_marginTop="15dp"
                 app:cardBackgroundColor="@color/primary_green"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+               android:id="@+id/article_heart">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="收藏文章"
+                    android:text="文章收藏"
                     android:textColor="@color/black"
                     android:textSize="25sp" />
 
@@ -93,7 +80,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="收藏單字"
+                    android:text="單字收藏"
                     android:textColor="@color/black"
                     android:textSize="25sp"
 

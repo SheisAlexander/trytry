@@ -1,6 +1,5 @@
 package com.example.english;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -64,6 +62,7 @@ public class Dictionary extends AppCompatActivity {
                     case R.id.analysis:
                         startActivity(new Intent(getApplicationContext(),Analysis.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.dictionary:
@@ -71,6 +70,7 @@ public class Dictionary extends AppCompatActivity {
                     case R.id.settings:
                         startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
+                        finish();
                         return true;
                 }
                 return false;

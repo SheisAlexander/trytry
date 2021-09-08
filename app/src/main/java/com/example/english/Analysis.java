@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Analysis extends AppCompatActivity {
 
-    CardView vocabheart,level1,level2,level3,level4,level5,level6;
+    CardView vocabheart,level1,level2,level3,level4,level5,level6,articleheart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +46,12 @@ public class Analysis extends AppCompatActivity {
                     case R.id.dictionary:
                         startActivity(new Intent(getApplicationContext(),Dictionary.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                     case R.id.settings:
                         startActivity(new Intent(getApplicationContext(),Settings.class));
                         overridePendingTransition(0, 0);
+                        finish();
                         return true;
                 }
                 return false;
@@ -148,6 +150,17 @@ public class Analysis extends AppCompatActivity {
 
             }
         });
+
+        articleheart =findViewById(R.id.article_heart);
+        articleheart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Analysis.this,Article_heart1.class);
+                startActivity(intent);
+            }
+        });
+
     }
     @Override
     protected void onStart() {

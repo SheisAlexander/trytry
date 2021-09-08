@@ -11,10 +11,13 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_arrow_back_24__.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.11722972972972973" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.10574324324324325" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.16614583333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_highlight_off_24.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.11722972972972973" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.15472972972972973" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_stop_24.xml" value="0.15472972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_volume_up_24.xml" value="0.16614583333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_zoom_in_24.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_dictionary.xml" value="0.11722972972972973" />
@@ -29,6 +32,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/rectangle_shape_big.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/rectangle_shape_small_2.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/shape_text_wordbox.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/vocabadapter.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_analysis.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article_heart1.xml" value="0.10675675675675676" />
@@ -46,6 +50,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_test.xml" value="0.129981884057971" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_test_article.xml" value="0.129981884057971" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_vocabulary_card.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_vocabulary_heart1.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_your_level.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_your_sort.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/fragment_article__heart.xml" value="0.13541666666666666" />
@@ -53,6 +58,8 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/fragment_vocabulary_heart.xml" value="0.27898550724637683" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/fragment_vocabulary_history.xml" value="0.129981884057971" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/set_custom_dialog_layout_with_button.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/vocabadapter.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/vocablayout.xml" value="0.10641891891891891" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
         <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_article.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/layout/activity_dictionary.xml" value="0.18020833333333333" />
@@ -82,8 +89,6 @@
         <entry key="..\:/trytry__/app/src/main/res/layout/article_view.xml" value="0.16259057971014493" />
         <entry key="..\:/trytry__/app/src/main/res/layout/fragment_article__heart.xml" value="0.161231884057971" />
         <entry key="..\:/trytry__/app/src/main/res/layout/fragment_article__history.xml" value="0.161231884057971" />
-        <entry key="app/src/main/res/drawable/ic_dictionary.xml" value="0.3260416666666667" />
-        <entry key="app/src/main/res/layout/activity_dictionary.xml" value="0.15070921985815602" />
       </map>
     </option>
   </component>

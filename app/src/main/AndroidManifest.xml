@@ -45,6 +45,7 @@
         <activity android:name=".Test" />
         <activity android:name=".Analysis" />
         <activity android:name=".article" />
+        <activity android:name=".articleh" />
     </application>
 
 </manifest>

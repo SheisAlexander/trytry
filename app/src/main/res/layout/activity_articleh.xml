@@ -16,46 +16,39 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:orientation="vertical">
-        <TextView
-            android:id="@+id/title02"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            <TextView
+                android:id="@+id/title02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
 
-            android:background="@color/white"
-            android:gravity="center"
-            android:textColor="@color/green_c1"
-            android:textSize="@dimen/word_30"
-            android:textStyle="bold" />
+                android:background="@color/white"
+                android:gravity="center"
+                android:textColor="@color/green_c1"
+                android:textSize="@dimen/word_30"
+                android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="right">
-    <ImageButton
-        android:id="@+id/soundbutton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:src="@drawable/ic_baseline_volume_up_24"
-        />
+                <ImageButton
+                    android:id="@+id/soundbutton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_baseline_volume_up_24"
+                    />
 
-     <ImageButton
-         android:id="@+id/stopbutton"
-         android:layout_width="60dp"
-         android:layout_height="60dp"
-         android:background="@color/white"
-         android:src="@drawable/ic_baseline_stop_24"
-         />
+                <ImageButton
+                    android:id="@+id/stopbutton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_baseline_stop_24"
+                    />
 
-    <ImageButton
-        android:id="@+id/heartbutton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:src="@drawable/ic_baseline_favorite_border_24"
-        android:layout_gravity="right"
-        />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -137,53 +130,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/green_a1"
                 android:textSize="@dimen/word_24" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="選擇下一篇文章程度:"
-                android:textSize="@dimen/word_24"
-                android:layout_marginTop="15dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_easy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/primary_green"
-                    android:text="Easier"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/button_other"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/primary_green"
-                    android:text="Same"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/button_hard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/primary_green"
-                    android:text="Harder"
-                    android:textColor="@color/white" />
-
-            </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/english_id"
-
-                android:textSize="@dimen/word_24"
-                android:layout_marginTop="15dp"/>
 
 
         </LinearLayout>
