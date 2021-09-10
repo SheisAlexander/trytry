@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,9 +45,11 @@ public class article2 extends AppCompatActivity {
     String result;
     String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s;
 
-    String Word ;
+    String Word  ;
     ImageButton article_heart;
-    Button btn_easy, btn_other, btn_hard;
+    Button next;
+    RadioButton interesting,easy,boring,difficult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +63,7 @@ public class article2 extends AppCompatActivity {
             public void run() {
 
                 Bundle bundle = getIntent().getExtras();
-                String h = bundle.getString("url" );
+                String h = bundle.getString("url");
                 FetchData fetchData = new FetchData(h);
                 if (fetchData.startFetch()) {
                     if (fetchData.onComplete()) {
@@ -97,14 +101,8 @@ public class article2 extends AppCompatActivity {
                         title.setText(titles);
                         article.setText(articles);
                         english_id.setText(english_ids);
-                        keyword1.setText(keywords1s);
-                        keyword2.setText(keywords2s);
-                        keyword3.setText(keywords3s);
-                        keyword4.setText(keywords4s);
-                        keyword5.setText(keywords5s);
-                        keyword6.setText(keywords6s);
 
-
+                        keyword1.setText(keywords1s+" , "+keywords2s+" , "+keywords3s+" , "+keywords4s+" , "+keywords5s+" , "+keywords6s);
 
                     }
                 }catch (Exception e) {
@@ -155,9 +153,10 @@ public class article2 extends AppCompatActivity {
 
 
 
-        btn_easy = findViewById(R.id.button_easy);
-        btn_other = findViewById(R.id.button_other);
-        btn_hard = findViewById(R.id.button_hard);
+
+
+
+
         article_heart = findViewById(R.id.heartbutton);
         article_heart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,46 +198,63 @@ public class article2 extends AppCompatActivity {
             }
         });
 
-        btn_easy.setOnClickListener(new View.OnClickListener() {
+        //選擇喜好
+        interesting=findViewById(R.id.interesting);
+        easy = findViewById(R.id.easy);
+        difficult = findViewById(R.id.difficult);
+        boring = findViewById(R.id.boring);
+        next =findViewById(R.id.next);
+
+        //使用者選擇
+        RadioGroup radgroup = (RadioGroup) findViewById(R.id.radioGroup);
+        int id = radgroup.getCheckedRadioButtonId();
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(article2.this,article2.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url","http://163.13.201.116:8080/english/select1.php");
-                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
-                startActivity(intent);
-                finish();
 
+                switch (id) {
+                    case R.id.interesting:
+                        Intent intent = new Intent();
+                        intent.setClass(article2.this, article2.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("url", "http://163.13.201.116:8080/english/select4.php");
+                        intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case R.id.easy:
 
+                        Intent intent2 = new Intent();
+                        intent2.setClass(article2.this, article2.class);
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString("url", "http://163.13.201.116:8080/english/select2.php");
+                        intent2.putExtras(bundle2);   // 記得put進去，不然資料不會帶過去哦
+                        startActivity(intent2);
+                        finish();
+                        break;
+                    case R.id.difficult:
+
+                        Intent intent3 = new Intent();
+                        intent3.setClass(article2.this, article2.class);
+                        Bundle bundle3 = new Bundle();
+                        bundle3.putString("url", "http://163.13.201.116:8080/english/select1.php");
+                        intent3.putExtras(bundle3);   // 記得put進去，不然資料不會帶過去哦
+                        startActivity(intent3);
+                        finish();
+                        break;
+                    case R.id.boring:
+
+                        Intent intent4 = new Intent();
+                        intent4.setClass(article2.this, article2.class);
+                        Bundle bundle4 = new Bundle();
+                        bundle4.putString("url","http://163.13.201.116:8080/english/select3.php");
+                        intent4.putExtras(bundle4);   // 記得put進去，不然資料不會帶過去哦
+                        startActivity(intent4);
+                        finish();
+                        break;
+                }
             }
-        });
 
-        btn_other.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(article2.this,article2.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url","http://163.13.201.116:8080/english/select2.php");
-                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
-                startActivity(intent);
-                finish();
-
-            }
-        });
-        btn_hard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(article2.this,article2.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url","http://163.13.201.116:8080/english/select3.php");
-                intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
-                startActivity(intent);
-                finish();
-
-            }
         });
 
         /* ======================================== */
@@ -437,6 +453,7 @@ public class article2 extends AppCompatActivity {
 
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();

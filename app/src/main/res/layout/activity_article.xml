@@ -91,7 +91,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keyword:"
+                android:text="Keywords:"
                 android:textColor="@color/green_a1"
                 android:textSize="@dimen/word_24"
                 android:layout_marginTop="10dp"/>
@@ -104,43 +104,9 @@
                 android:textSize="@dimen/word_24" />
 
             <TextView
-                android:id="@+id/keyword02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword04"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword05"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword06"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="選擇下一篇文章程度:"
+                android:text="你覺得這篇文章....?"
                 android:textSize="@dimen/word_24"
                 android:layout_marginTop="15dp"/>
 
@@ -149,34 +115,45 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button_easy"
+                <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/primary_green"
-                    android:text="Easier"
-                    android:textColor="@color/white" />
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button_other"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/primary_green"
-                    android:text="Same"
-                    android:textColor="@color/white" />
+                    <RadioButton
+                        android:id="@+id/interesting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="有趣"
+                        android:checked="true"/>
 
-                <Button
-                    android:id="@+id/button_hard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/primary_green"
-                    android:text="Harder"
-                    android:textColor="@color/white" />
+                    <RadioButton
+                        android:id="@+id/easy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="簡單"/>
+                    <RadioButton
+                        android:id="@+id/boring"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="無聊"/>
+
+                    <RadioButton
+                        android:id="@+id/difficult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="困難"
+                        />
+                </RadioGroup>
 
             </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/next"
+                    android:text="下一篇文章"
+                    />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,6 +161,8 @@
 
                 android:textSize="@dimen/word_24"
                 android:layout_marginTop="15dp"/>
+
+
 
 
         </LinearLayout>

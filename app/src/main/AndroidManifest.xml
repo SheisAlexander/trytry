@@ -28,7 +28,6 @@
             android:name=".Signup"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity android:name=".YourLevel" />
-        <activity android:name=".TestArticle" />
         <activity android:name=".Login">
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
@@ -42,7 +41,6 @@
             android:name=".Dictionary"
             android:label="@string/title_activity_dictionary"
             android:theme="@style/Theme.English.NoActionBar" />
-        <activity android:name=".Test" />
         <activity android:name=".Analysis" />
         <activity android:name=".article" />
         <activity android:name=".articleh" />
