@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,7 +25,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
+import java.util.Random;
 
 
 @RequiresApi(api = Build.VERSION_CODES.M)
@@ -160,7 +161,10 @@ public class MainActivity extends AppCompatActivity {
                 // 取得資料後想用不同的格式
                 // 例如 Json 等等，都是在這一段做處理
                 JSONArray userArray  = new JSONArray(result);
+                shuffleJsonArray(userArray);
+
                 for(int i=0;i<userArray.length();i++){
+
 
                     //creating a json object for fetching single data
                     JSONObject userDetail = userArray.getJSONObject(i);
@@ -199,6 +203,19 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+    public static JSONArray shuffleJsonArray (JSONArray array) throws JSONException {
+        // Implementing Fisher–Yates shuffle
+        Random rnd = new Random();
+        for (int i = array.length() - 1; i >= 0; i--)
+        {
+            int j = rnd.nextInt(i + 1);
+            // Simple swap
+            Object object = array.get(j);
+            array.put(j, array.get(i));
+            array.put(i, object);
+        }
+        return array;
+    }
     /* ======================================== */
     @Override
     protected void onStart() {

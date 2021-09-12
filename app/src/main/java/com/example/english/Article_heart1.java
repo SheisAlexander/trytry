@@ -106,7 +106,7 @@ public class Article_heart1 extends AppCompatActivity {
         });
 
         //Recyclerview
-        recyclerView = findViewById(R.id.recyclerView);
+
         //Recyclerview configuration
 
 

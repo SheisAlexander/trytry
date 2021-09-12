@@ -75,7 +75,8 @@ public class Vocabulary_heart1 extends AppCompatActivity {
 
                     JSONArray userArray = new JSONArray(result);
 
-                    for (int i = 0; i < userArray.length(); i++) {
+
+                    for (int i = userArray.length()-1; i>=0; i--) {
 
                         //creating a json object for fetching single data
                         JSONObject userDetail = userArray.getJSONObject(i);
@@ -239,5 +240,6 @@ public class Vocabulary_heart1 extends AppCompatActivity {
         });
         helper.attachToRecyclerView(recyclerView);
     }
+
 }
 
