@@ -52,6 +52,7 @@
 
         <Button
             android:id="@+id/DictionaryButton"
+            android:onClick="sendRequestOnClick"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginRight="50dp"
@@ -114,7 +115,6 @@
                         android:id="@+id/DictionaryText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
                         android:background="@color/primary_green"
                         android:textColor="@color/black"
                         android:textColorHighlight="#ffee32"

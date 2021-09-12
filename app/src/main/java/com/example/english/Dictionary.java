@@ -39,10 +39,11 @@ public class Dictionary extends AppCompatActivity {
     TextView dicText;
     ImageButton d_like;
 
+    String url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_dictionary);
 
         //Initialize and Assign Variable
@@ -83,81 +84,9 @@ public class Dictionary extends AppCompatActivity {
         soundButton = findViewById(R.id.soundButton);
         d_like = findViewById(R.id.heartButton);
 
-        dicButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dicText.setText("");
+        url = dictionaryEntries();
 
 
-                final TextView textView = (TextView) findViewById(R.id.text);
-
-                // Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(Dictionary.this);
-                String url ="https://api.dictionaryapi.dev/api/v2/entries/en/" + wordText.getText().toString();
-
-                JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null,new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        String wordkk = "";
-                        String wordorg = "";
-                        String worddef = "";
-                        String worddef2 = "";
-                        String wordpos = "";
-                        String wordpos2 = "";
-                        try {
-                            //第一層
-                            JSONObject wordInfo = response.getJSONObject(0);
-                            wordkk = wordInfo.getString("phonetic");
-                            wordorg = wordInfo.getString("origin");
-                            JSONArray wordmeanings = wordInfo.getJSONArray("meanings");
-                            //第二層
-                            JSONObject meanings = wordmeanings.getJSONObject(0);
-                            wordpos = meanings.getString("partOfSpeech");
-
-                            //JSONObject meanings2 = wordmeanings.getJSONObject(1);
-                            //wordpos2 = meanings2.getString("partOfSpeech");
-
-                            JSONArray worddefinitions = meanings.getJSONArray("definitions");
-                            //JSONArray worddefinitions2 = meanings2.getJSONArray("definitions");
-
-                            //第三層
-                            JSONObject worddefs = worddefinitions.getJSONObject(0);
-                            worddef = worddefs.getString("definition");
-
-                            //JSONObject worddefs2 = worddefinitions2.getJSONObject(0);
-                            //worddef2 = worddefs2.getString("definition");
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                        dicText.append(
-                                "念法: "+"\n"+
-                                wordkk+"\n"+
-                                "來源: "+"\n"+
-                                wordorg+"\n"+
-                                "詞性: "+"\n"+
-                                wordpos+"\n"+
-                                "意思: "+"\n"
-                                +worddef+ "\n");
-                                //"詞性: "+ "\n"
-                                //+wordpos2+ "\n"+
-                                //"意思: "+ "\n"+
-                                //worddef2
-
-
-                        //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Dictionary.this, "Wrong", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                queue.add(request);
-            }
-        });
 
         soundButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,6 +175,28 @@ public class Dictionary extends AppCompatActivity {
             }
 
         });
+
+
+    }
+
+//    public void requestApiButtonClick(View v){
+//        MyDictionaryRequest myDictionaryRequest = new MyDictionaryRequest(this,dicText);
+//        myDictionaryRequest.execute(url);
+//    }
+
+    private String dictionaryEntries() {
+        final String language = "en-gb";
+        final String word = wordText.getText().toString();  //wordText.getText().toString()
+        final String fields = "definitions";//definitions pronunciations
+        final String strictMatch = "false";
+        final String word_id = word.toLowerCase();
+        return "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id + "?" + "fields=" + fields + "&strictMatch=" + strictMatch;
+    }
+
+    public void sendRequestOnClick(View v){
+        MyDictionaryRequest dR = new MyDictionaryRequest(this,dicText);
+        url = dictionaryEntries();
+        dR.execute(url);
     }
 
 }
