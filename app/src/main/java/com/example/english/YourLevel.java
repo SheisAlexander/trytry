@@ -2,19 +2,24 @@ package com.example.english;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class YourLevel extends AppCompatActivity {
 
     private TextView sorttextview;
     private SeekBar seekbar;
     private Button sortbutton;
+    public String level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +48,38 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "1";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                            if (result.equals("儲存成功")) {
+                                                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level1.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
 
                             
@@ -60,12 +92,35 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "2";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level2.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
+
                         }
                     });
                 }
@@ -75,11 +130,33 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "3";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level3.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -90,11 +167,33 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "4";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level4.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -105,11 +204,33 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "5";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level5.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -121,11 +242,34 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "6";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level6.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -137,11 +281,33 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "7";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level7.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -153,11 +319,33 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "8";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level8.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -169,11 +357,33 @@ public class YourLevel extends AppCompatActivity {
                     sortbutton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String[] field = new String[2];
+                                    field[0] = "username";
+                                    field[1] = "currentlevel";
+
+
+                                    String[] data = new String[2];
+                                    data[0] = "A";
+                                    data[1] = "9";
+
+
+                                    PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            //progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                        }
+                                    }
+                                    //End Write and Read data with URL
+                                }
+                            });
+
                             Intent intent = new Intent();
                             intent.setClass(YourLevel.this,MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("key","http://163.13.201.116:8080/english/level9.php");
-                            intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                             startActivity(intent);
                         }
                     });
@@ -196,9 +406,38 @@ public class YourLevel extends AppCompatActivity {
         });
 
 
+    }
+    /*public static void  Yourcurrentlevel (String level) throws JSONException {
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                String[] field = new String[2];
+                field[0] = "username";
+                field[1] = "currentlevel";
 
+
+                String[] data = new String[2];
+                data[0] = "A";
+                data[1] = level;
+
+
+                PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        //progressBar.setVisibility(View.GONE);
+                        String result = putData.getResult();
+                    }
+                }
+                //End Write and Read data with URL
+            }
+        });
 
 
     }
+
+     */
+
+
 
 }

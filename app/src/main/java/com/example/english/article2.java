@@ -41,9 +41,9 @@ import java.util.Random;
 
 public class article2 extends AppCompatActivity {
 
-    TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
+    TextView title, article, keyword1, english_id;
     String result;
-    String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s;
+    String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s,levels;
 
     String Word  ;
     ImageButton article_heart;
@@ -89,6 +89,7 @@ public class article2 extends AppCompatActivity {
                         titles = userDetail.getString("title");
                         articles=userDetail.getString("article");
                         english_ids=userDetail.getString("english_id");
+                        levels = userDetail.getString("level");
 
                         JSONArray keywordArray = new JSONArray(userDetail.getString("keyword"));
                         keywords1s =keywordArray.getString(0);
@@ -130,6 +131,31 @@ public class article2 extends AppCompatActivity {
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
+                        Log.i("Currentid", english_ids);
+
+                    }
+                }
+                //End Write and Read data with URL
+            }
+        });
+        Handler handler2 = new Handler();
+        handler2.post(new Runnable() {
+            @Override
+            public void run() {
+                String[] field = new String[2];
+                field[0] = "username";
+                field[1] = "english_id";
+
+
+                String[] data = new String[2];
+                data[0] = "A";
+                data[1] = levels;
+
+
+                PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        Log.i("Currentlevel", levels);
 
                     }
                 }
@@ -138,14 +164,11 @@ public class article2 extends AppCompatActivity {
         });
 
 
+
         title = findViewById(R.id.title02);
         article = findViewById(R.id.article01);
         keyword1 = findViewById(R.id.keyword01);
-        keyword2 = findViewById(R.id.keyword02);
-        keyword3 = findViewById(R.id.keyword03);
-        keyword4 = findViewById(R.id.keyword04);
-        keyword5 = findViewById(R.id.keyword05);
-        keyword6 = findViewById(R.id.keyword06);
+
         english_id = findViewById(R.id.english_id);
 
 
@@ -217,7 +240,7 @@ public class article2 extends AppCompatActivity {
                         Intent intent = new Intent();
                         intent.setClass(article2.this, article2.class);
                         Bundle bundle = new Bundle();
-                        bundle.putString("url", "http://163.13.201.116:8080/english/select4.php");
+                        bundle.putString("url", "http://163.13.201.116:8080/english/interesting.php");
                         intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                         startActivity(intent);
                         finish();
@@ -227,7 +250,7 @@ public class article2 extends AppCompatActivity {
                         Intent intent2 = new Intent();
                         intent2.setClass(article2.this, article2.class);
                         Bundle bundle2 = new Bundle();
-                        bundle2.putString("url", "http://163.13.201.116:8080/english/select2.php");
+                        bundle2.putString("url", "http://163.13.201.116:8080/english/easy.php");
                         intent2.putExtras(bundle2);   // 記得put進去，不然資料不會帶過去哦
                         startActivity(intent2);
                         finish();
@@ -237,7 +260,7 @@ public class article2 extends AppCompatActivity {
                         Intent intent3 = new Intent();
                         intent3.setClass(article2.this, article2.class);
                         Bundle bundle3 = new Bundle();
-                        bundle3.putString("url", "http://163.13.201.116:8080/english/select1.php");
+                        bundle3.putString("url", "http://163.13.201.116:8080/english/difficult.php");
                         intent3.putExtras(bundle3);   // 記得put進去，不然資料不會帶過去哦
                         startActivity(intent3);
                         finish();
@@ -247,7 +270,7 @@ public class article2 extends AppCompatActivity {
                         Intent intent4 = new Intent();
                         intent4.setClass(article2.this, article2.class);
                         Bundle bundle4 = new Bundle();
-                        bundle4.putString("url","http://163.13.201.116:8080/english/select3.php");
+                        bundle4.putString("url","http://163.13.201.116:8080/english/boring.php");
                         intent4.putExtras(bundle4);   // 記得put進去，不然資料不會帶過去哦
                         startActivity(intent4);
                         finish();

@@ -55,22 +55,19 @@ public class Dictionary extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.home:
-                        Intent intent = new Intent(Dictionary.this,MainActivity.class);
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         overridePendingTransition(0,0);
-                        finish();
                         return true;
                     case R.id.analysis:
                         startActivity(new Intent(getApplicationContext(),Analysis.class));
                         overridePendingTransition(0,0);
-                        finish();
                         return true;
 
                     case R.id.dictionary:
                         return true;
                     case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
-                        overridePendingTransition(0, 0);
-                        finish();
+                        startActivity(new Intent(getApplicationContext(),Settings.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

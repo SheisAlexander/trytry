@@ -84,48 +84,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keyword:"
+                android:text="Keywords:"
                 android:textColor="@color/green_a1"
                 android:textSize="@dimen/word_24"
                 android:layout_marginTop="10dp"/>
 
             <TextView
                 android:id="@+id/keyword01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword04"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword05"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
-                android:textSize="@dimen/word_24" />
-
-            <TextView
-                android:id="@+id/keyword06"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/green_a1"

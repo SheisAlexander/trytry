@@ -38,19 +38,16 @@ public class Settings extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        Intent intent = new Intent(Settings.this,MainActivity.class);
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         overridePendingTransition(0,0);
-                        finish();
                         return true;
                     case R.id.analysis:
-                        startActivity(new Intent(getApplicationContext(), Analysis.class));
-                        overridePendingTransition(0, 0);
-                        finish();
+                        startActivity(new Intent(getApplicationContext(),Analysis.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.dictionary:
-                        startActivity(new Intent(getApplicationContext(), Dictionary.class));
-                        overridePendingTransition(0, 0);
-                        finish();
+                        startActivity(new Intent(getApplicationContext(),Dictionary.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.settings:

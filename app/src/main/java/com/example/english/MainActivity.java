@@ -1,34 +1,30 @@
 package com.example.english;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.vishnusivadas.advanced_httpurlconnection.FetchData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
 
-@RequiresApi(api = Build.VERSION_CODES.M)
+
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -41,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> keywords6 = new ArrayList<>();
     ArrayList<String> articles = new ArrayList<>();
     ArrayList<String> english_ids = new ArrayList<>();
+    ArrayList<String> levels = new ArrayList<>();
 
 
     String result;
+    String currentlevel ;
+    TextView level;
 
 
 
@@ -89,7 +88,41 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
 
+                FetchData fetchData = new FetchData("http://163.13.201.116:8080/english/currentlevelview.php");
+                if (fetchData.startFetch()) {
+                    if (fetchData.onComplete()) {
+                        result = fetchData.getResult();
+                        //End ProgressBar (Set visibility to GONE)
+                        Log.i("FetchData", result);
+                    }
+                }
+                try {
+
+                    JSONArray userArray = new JSONArray(result);
+
+                    for (int i = 0; i < userArray.length(); i++) {
+
+                        //creating a json object for fetching single data
+                        JSONObject userDetail = userArray.getJSONObject(i);
+                        //Fetching title & tag and storing them in arraylist
+                        currentlevel=userDetail.getString("currentlevel");
+                        Log.i("Currentlevel",currentlevel);
+                        level.setText("Level"+currentlevel);
+
+
+                    }
+                } catch (Exception e) {
+                    result = e.toString();//如果出事，回傳錯誤訊息
+
+                }
+            }
+        });
+        level = findViewById(R.id.level);
 
 
         //Recyclerview
@@ -97,6 +130,59 @@ public class MainActivity extends AppCompatActivity {
         //Recyclerview configuration
 
 
+        Handler handler1 = new Handler();
+        handler1.post(new Runnable() {
+            @Override
+            public void run() {
+
+
+                String h = "http://163.13.201.116:8080/english/level"+currentlevel+".php";
+                Log.i("URL",h);
+                FetchData fetchData = new FetchData(h);
+                if (fetchData.startFetch()) {
+                    if (fetchData.onComplete()) {
+                        result = fetchData.getResult();
+                        //End ProgressBar (Set visibility to GONE)
+                        Log.i("FetchData", result);
+                    }
+                }
+                try {
+
+
+                    JSONArray userArray  = new JSONArray(result);
+                    shuffleJsonArray(userArray);
+
+
+                    for(int i=0;i<userArray.length();i++){
+
+
+                        //creating a json object for fetching single data
+                        JSONObject userDetail = userArray.getJSONObject(i);
+                        //Fetching title & tag and storing them in arraylist
+                        titles.add(userDetail.getString("title"));
+                        articles.add(userDetail.getString("article"));
+                        english_ids.add(userDetail.getString("english_id"));
+                        levels.add(userDetail.getString("level"));
+
+                        JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
+                        keywords1.add(keywordArray.getString(0));
+                        keywords2.add(keywordArray.getString(1));
+                        keywords3.add(keywordArray.getString(2));
+                        keywords4.add(keywordArray.getString(3));
+                        keywords5.add(keywordArray.getString(4));
+                        keywords6.add(keywordArray.getString(5));
+
+                        CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles,english_ids,levels);
+                        recyclerView.setAdapter(customAdapter);
+
+
+                    }
+                }catch (Exception e) {
+                    result = e.toString();//如果出事，回傳錯誤訊息
+
+                }
+            }
+        });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -105,104 +191,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // 宣告按鈕的監聽器監聽按鈕是否被按下
-        // 跟上次在 View 設定的方式並不一樣
-        // 我只是覺得好像應該也教一下這種寫法
-        Thread thread = new Thread(mutiThread);
-        thread.start(); // 開始執行
 
 
 
     }
-    /* ======================================== */
 
-    // 建立一個執行緒執行的事件取得網路資料
-    // Android 有規定，連線網際網路的動作都不能再主線程做執行
-    // 畢竟如果使用者連上網路結果等太久整個系統流程就卡死了
-    private Runnable mutiThread = new Runnable(){
-        public void run()
-        {
-            Bundle bundle = getIntent().getExtras();
-            String h = bundle.getString("key" );
-            try {
-                URL url = new URL(h);
-                // 開始宣告 HTTP 連線需要的物件，這邊通常都是一綑的
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                // 建立 Google 比較挺的 HttpURLConnection 物件
-                connection.setRequestMethod("POST");
-                // 設定連線方式為 POST
-                connection.setDoOutput(true); // 允許輸出
-                connection.setDoInput(true); // 允許讀入
-                connection.setUseCaches(true); // 不使用快取
-                connection.connect(); // 開始連線
-
-                int responseCode =
-                        connection.getResponseCode();
-                // 建立取得回應的物件
-                if(responseCode ==
-                        HttpURLConnection.HTTP_OK){
-                    // 如果 HTTP 回傳狀態是 OK ，而不是 Error
-                    InputStream inputStream =
-                            connection.getInputStream();
-                    // 取得輸入串流
-                    BufferedReader bufReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"), 8);
-                    // 讀取輸入串流的資料
-                    String box = ""; // 宣告存放用字串
-                    String line = null; // 宣告讀取用的字串
-                    while((line = bufReader.readLine()) != null) {
-                        box += line + "\n";
-                        // 每當讀取出一列，就加到存放字串後面
-                    }
-                    inputStream.close();
-                    result = box; // 把存放用字串放到全域變數
-                    // 關閉輸入串流
-                }
-                // 讀取輸入串流並存到字串的部分
-                // 取得資料後想用不同的格式
-                // 例如 Json 等等，都是在這一段做處理
-                JSONArray userArray  = new JSONArray(result);
-                shuffleJsonArray(userArray);
-
-                for(int i=0;i<userArray.length();i++){
-
-
-                    //creating a json object for fetching single data
-                    JSONObject userDetail = userArray.getJSONObject(i);
-                    //Fetching title & tag and storing them in arraylist
-                    titles.add(userDetail.getString("title"));
-                    articles.add(userDetail.getString("article"));
-                    english_ids.add(userDetail.getString("english_id"));
-
-                    JSONArray keywordArray  = new JSONArray(userDetail.getString("keyword"));
-                    keywords1.add(keywordArray.getString(0));
-                    keywords2.add(keywordArray.getString(1));
-                    keywords3.add(keywordArray.getString(2));
-                    keywords4.add(keywordArray.getString(3));
-                    keywords5.add(keywordArray.getString(4));
-                    keywords6.add(keywordArray.getString(5));
-
-
-                }
-
-
-
-            } catch(Exception e) {
-                result = e.toString(); // 如果出事，回傳錯誤訊息
-            }
-
-            // 當這個執行緒完全跑完後執行
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    CustomAdapter customAdapter = new CustomAdapter(titles,keywords1,keywords2,keywords3,keywords4,keywords5,keywords6,articles,english_ids);
-                    recyclerView.setAdapter(customAdapter);
-
-
-                    // 更改顯示文字
-                }
-            });
-
-        }
-    };
     public static JSONArray shuffleJsonArray (JSONArray array) throws JSONException {
         // Implementing Fisher–Yates shuffle
         Random rnd = new Random();
@@ -216,41 +209,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return array;
     }
-    /* ======================================== */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // The activity is about to become visible.
-        Log.d("MainActivity", "onStart");
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // The activity has become visible (it is now "resumed").
-        Log.d("MainActivity", "onResume");
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Another activity is taking focus (this activity is about to be "paused").
-        Log.d("MainActivity", "onPause");
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // The activity is no longer visible (it is now "stopped")
-        Log.d("MainActivity", "onStop");
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // The activity is about to be destroyed.
-        Log.d("MainActivity", "onDestroy");
-    }
-
-
-
-
-
 
 }

@@ -120,8 +120,6 @@ public class Article_heart1 extends AppCompatActivity {
 
         recyclerViewAction(recyclerView,titles,articleAdapter);
 
-
-
     }
     private void recyclerViewAction(RecyclerView recyclerView, final ArrayList<String> choose, final ArticleAdapter articleAdapter){
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.Callback() {

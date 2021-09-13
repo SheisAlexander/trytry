@@ -21,6 +21,18 @@
         app:menu="@menu/menu_navigation"
         android:layout_alignParentBottom="true"
         />
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:gravity="top"
+
+        android:textSize="40dp" />
+
 
 
 
@@ -30,7 +42,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="160dp"
 
         android:orientation="vertical">
 

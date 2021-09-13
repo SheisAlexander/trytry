@@ -36,9 +36,8 @@ import java.util.Locale;
 
 public class articleh extends AppCompatActivity {
 
-    TextView title, article, keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, english_id;
+    TextView title, article, keyword1, english_id;
     TextToSpeech textToSpeech;
-    String english_ids;
     String Word ;
     //ProgressBar progressBar;
 
@@ -59,11 +58,7 @@ public class articleh extends AppCompatActivity {
         title = findViewById(R.id.title02);
         article = findViewById(R.id.article01);
         keyword1 = findViewById(R.id.keyword01);
-        keyword2 = findViewById(R.id.keyword02);
-        keyword3 = findViewById(R.id.keyword03);
-        keyword4 = findViewById(R.id.keyword04);
-        keyword5 = findViewById(R.id.keyword05);
-        keyword6 = findViewById(R.id.keyword06);
+
         english_id = findViewById(R.id.english_id);
 
         Intent i = getIntent();
@@ -72,19 +67,14 @@ public class articleh extends AppCompatActivity {
 
         String article0 = i.getStringExtra("article");
         article.setText(article0);
-
         String keyword01 = i.getStringExtra("keyword1");
-        keyword1.setText(keyword01);
         String keyword02 = i.getStringExtra("keyword2");
-        keyword2.setText(keyword02);
         String keyword03 = i.getStringExtra("keyword3");
-        keyword3.setText(keyword03);
         String keyword04 = i.getStringExtra("keyword4");
-        keyword4.setText(keyword04);
         String keyword05 = i.getStringExtra("keyword5");
-        keyword5.setText(keyword05);
         String keyword06 = i.getStringExtra("keyword6");
-        keyword6.setText(keyword06);
+
+        keyword1.setText(keyword01+" , "+keyword02+" , "+keyword03+" , "+keyword04+" , "+keyword05+" , "+keyword06);
 
 
         //text to speech

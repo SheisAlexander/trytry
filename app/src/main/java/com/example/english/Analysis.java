@@ -36,22 +36,20 @@ public class Analysis extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.home:
-                        Intent intent = new Intent(Analysis.this,MainActivity.class);
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         overridePendingTransition(0,0);
-                        finish();
                         return true;
+
                     case R.id.analysis:
                         return true;
 
                     case R.id.dictionary:
                         startActivity(new Intent(getApplicationContext(),Dictionary.class));
                         overridePendingTransition(0,0);
-                        finish();
                         return true;
                     case R.id.settings:
                         startActivity(new Intent(getApplicationContext(),Settings.class));
-                        overridePendingTransition(0, 0);
-                        finish();
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

@@ -24,12 +24,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     ArrayList<String> keywords6;
     ArrayList<String> articles;
     ArrayList<String> english_ids;
+    ArrayList<String> levels;
 
 
     //constructor
 
 
-    public CustomAdapter(ArrayList<String> titles, ArrayList<String> keywords1, ArrayList<String> keywords2, ArrayList<String> keywords3, ArrayList<String> keywords4, ArrayList<String> keywords5, ArrayList<String> keywords6, ArrayList<String> articles, ArrayList<String> english_ids) {
+    public CustomAdapter(ArrayList<String> titles, ArrayList<String> keywords1, ArrayList<String> keywords2, ArrayList<String> keywords3, ArrayList<String> keywords4, ArrayList<String> keywords5, ArrayList<String> keywords6, ArrayList<String> articles, ArrayList<String> english_ids, ArrayList<String> levels) {
         this.titles = titles;
         this.keywords1 = keywords1;
         this.keywords2 = keywords2;
@@ -39,7 +40,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.keywords6 = keywords6;
         this.articles = articles;
         this.english_ids = english_ids;
+        this.levels = levels;
     }
+
 
     // ViewHolders
     @NotNull
@@ -55,10 +58,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder,final int position) {
         //set the data in items
         holder.title.setText(titles.get(position));
-
-
-
-
 
     }
 
@@ -90,6 +89,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                     i.putExtra("keyword5",keywords5.get(getAdapterPosition()));
                     i.putExtra("keyword6",keywords6.get(getAdapterPosition()));
                     i.putExtra("english_id",english_ids.get(getAdapterPosition()));
+                    i.putExtra("level",levels.get(getAdapterPosition()));
 
                     //starting next activity from view "v"
                     v.getContext().startActivity(i);
