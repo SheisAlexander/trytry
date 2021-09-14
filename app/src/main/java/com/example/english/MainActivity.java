@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setAdapter(customAdapter);
 
 
+
                     }
                 }catch (Exception e) {
                     result = e.toString();//如果出事，回傳錯誤訊息
@@ -186,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+
 
 
 
@@ -209,5 +211,45 @@ public class MainActivity extends AppCompatActivity {
         }
         return array;
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+        //if( textToSpeech != null ) textToSpeech.shutdown();
+        Log.d("MainActivity", "onStart");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+
+
+        Log.d("MainActivity", "onResume");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+        Log.d("MainActivity", "onPause");
+    }
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+
+        // The activity is no longer visible (it is now "stopped")
+        Log.d("MainActivity", "onStop");
+    }
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
+        // The activity is about to be destroyed.
+        Log.d("MainActivity", "onDestroy");
+    }
+
+
+
+
 
 }

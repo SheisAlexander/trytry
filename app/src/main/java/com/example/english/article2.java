@@ -64,6 +64,7 @@ public class article2 extends AppCompatActivity {
 
                 Bundle bundle = getIntent().getExtras();
                 String h = bundle.getString("url");
+                Log.i("geturl", h);
                 FetchData fetchData = new FetchData(h);
                 if (fetchData.startFetch()) {
                     if (fetchData.onComplete()) {
@@ -73,8 +74,6 @@ public class article2 extends AppCompatActivity {
                     }
                 }
                 try {
-
-
 
                     JSONArray userArray = new JSONArray(result);
 
@@ -144,7 +143,7 @@ public class article2 extends AppCompatActivity {
             public void run() {
                 String[] field = new String[2];
                 field[0] = "username";
-                field[1] = "english_id";
+                field[1] = "currentlevel";
 
 
                 String[] data = new String[2];
@@ -230,10 +229,11 @@ public class article2 extends AppCompatActivity {
 
         //使用者選擇
         RadioGroup radgroup = (RadioGroup) findViewById(R.id.radioGroup);
-        int id = radgroup.getCheckedRadioButtonId();
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int id = radgroup.getCheckedRadioButtonId();
 
                 switch (id) {
                     case R.id.interesting:

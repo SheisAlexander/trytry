@@ -99,15 +99,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 }
             });
 
-
-
             title = itemView.findViewById(R.id.title01);
-
-
-
-
 
         }
     }
+
 
 }

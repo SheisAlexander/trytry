@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/home"
-        android:title="首頁"
+        android:title="文章"
         android:icon="@drawable/ic_home"/>
 
     <item
         android:id="@+id/analysis"
-        android:title = "紀錄"
+        android:title = "資料集"
         android:icon="@drawable/ic_analytics"/>
 
     <item

@@ -120,7 +120,7 @@ public class article extends AppCompatActivity {
             public void run() {
                 String[] field = new String[2];
                 field[0] = "username";
-                field[1] = "english_id";
+                field[1] = "currentlevel";
 
 
                 String[] data = new String[2];
@@ -227,10 +227,12 @@ public class article extends AppCompatActivity {
 
     //使用者選擇
         RadioGroup radgroup = (RadioGroup) findViewById(R.id.radioGroup);
-        int id = radgroup.getCheckedRadioButtonId();
+
         next.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                int id = radgroup.getCheckedRadioButtonId();
 
                     switch (id) {
                         case R.id.interesting:
@@ -528,7 +530,7 @@ public class article extends AppCompatActivity {
 
 
 
-    /*
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -563,7 +565,7 @@ public class article extends AppCompatActivity {
         Log.d("article", "onDestroy");
     }
 
-     */
+
 
 
 
