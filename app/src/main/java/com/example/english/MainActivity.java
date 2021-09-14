@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
         getSupportActionBar().hide(); // hide the title bar
         Log.d("MainActivity", "onCreate");
-
         setContentView(R.layout.activity_main);
+
 
         //Initialize and Assign Variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // The activity is about to become visible.
         //if( textToSpeech != null ) textToSpeech.shutdown();
+
         Log.d("MainActivity", "onStart");
     }
     @Override
@@ -224,11 +225,14 @@ public class MainActivity extends AppCompatActivity {
         // The activity has become visible (it is now "resumed").
 
 
+
         Log.d("MainActivity", "onResume");
     }
     @Override
     protected void onPause() {
         super.onPause();
+
+
         // Another activity is taking focus (this activity is about to be "paused").
         Log.d("MainActivity", "onPause");
     }
@@ -236,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
 
         super.onStop();
+
 
         // The activity is no longer visible (it is now "stopped")
         Log.d("MainActivity", "onStop");
@@ -247,6 +252,18 @@ public class MainActivity extends AppCompatActivity {
         // The activity is about to be destroyed.
         Log.d("MainActivity", "onDestroy");
     }
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+
+        finish();
+        startActivity(getIntent());
+        Log.d("MainActivity", "onRestart");
+    }
+
+
+
 
 
 
