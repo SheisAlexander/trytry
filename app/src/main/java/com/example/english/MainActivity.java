@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
         finish();
         startActivity(getIntent());
-        Log.d("MainActivity", "onRestart");
+        Log.d("MainActivity", "onRestart()");
     }
 
 

@@ -47,7 +47,6 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:backgroundTint="@color/primary_green"
-                            android:src="@drawable/ic_baseline_favorite_border_24"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <ImageButton

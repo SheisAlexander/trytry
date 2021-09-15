@@ -118,7 +118,7 @@ public class Article_heart1 extends AppCompatActivity {
         recyclerView.setAdapter(articleAdapter);
 
 
-        recyclerViewAction(recyclerView,titles,articleAdapter);
+        recyclerViewAction(recyclerView,english_ids,articleAdapter);
 
     }
     private void recyclerViewAction(RecyclerView recyclerView, final ArrayList<String> choose, final ArticleAdapter articleAdapter){
@@ -153,11 +153,12 @@ public class Article_heart1 extends AppCompatActivity {
                             public void run() {
                                 String[] field = new String[2];
                                 field[0] = "user_id";
-                                field[1] = "word";
+                                field[1] = "english_id";
                                 String[] data = new String[2];
                                 data[0] = "12";
                                 data[1] = choose.get(position);
-                                PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                                Log.i("Currentid", choose.get(position));
+                                PutData putData = new PutData("http://163.13.201.116:8080/english/deletearticle.php", "POST", field, data);
                                 if (putData.startPut()) {
                                     if (putData.onComplete()) {
                                         //progressBar.setVisibility(View.GONE);

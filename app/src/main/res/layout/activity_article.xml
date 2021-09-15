@@ -31,29 +31,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="right">
+                android:gravity="right"
+                android:layout_marginTop="10dp">
     <ImageButton
         android:id="@+id/soundbutton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@color/white"
-        android:src="@drawable/ic_baseline_volume_up_24"
+        android:layout_marginRight="10dp"
+
         />
 
      <ImageButton
          android:id="@+id/stopbutton"
-         android:layout_width="60dp"
-         android:layout_height="60dp"
+         android:layout_width="30dp"
+         android:layout_height="30dp"
          android:background="@color/white"
-         android:src="@drawable/ic_baseline_stop_24"
+         android:layout_marginRight="10dp"
+
          />
 
     <ImageButton
         android:id="@+id/heartbutton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@color/white"
-        android:src="@drawable/ic_baseline_favorite_border_24"
+
+
         android:layout_gravity="right"
         />
             </LinearLayout>

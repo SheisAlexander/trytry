@@ -44,6 +44,7 @@ public class article extends AppCompatActivity {
     TextToSpeech textToSpeech;
     String english_ids,levels;
     String Word ;
+    int flag = 0;
     //ProgressBar progressBar;
 
     ImageButton sound,stop,article_heart;
@@ -145,45 +146,91 @@ public class article extends AppCompatActivity {
         //text to speech
 
         sound = findViewById(R.id.soundbutton);
+        sound.setBackgroundResource(R.drawable.ic_baseline_volume_up_24);
         stop = findViewById(R.id.stopbutton);
+        stop.setBackgroundResource(R.drawable.ic_baseline_stop_24);
         article_heart = findViewById(R.id.heartbutton);
+        article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
         article_heart.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Handler handler = new Handler();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] field = new String[2];
-                        field[0] = "user_id";
-                        field[1] = "english_id";
+
+                // IB_PullDown.setBackgroundResource(R.drawable.pulldown_button_image);
+                if (flag == 0) {
+                    // TODO Auto-generated method stub
+                    article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                   // ll_AirItem.setVisibility(View.VISIBLE);
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] field = new String[2];
+                            field[0] = "user_id";
+                            field[1] = "english_id";
 
 
-                        String[] data = new String[2];
-                        data[0] = "12";
-                        data[1] = english_ids;
+                            String[] data = new String[2];
+                            data[0] = "12";
+                            data[1] = english_ids;
 
 
-                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectarticle.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                //progressBar.setVisibility(View.GONE);
-                                String result = putData.getResult();
-                                if (result.equals("儲存成功")) {
-                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    finish();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                            PutData putData = new PutData("http://163.13.201.116:8080/english/collectarticle.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    //progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("儲存成功")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }
+                            //End Write and Read data with URL
                         }
-                        //End Write and Read data with URL
-                    }
-                });
+                    });
+                    flag = 1;
+                } else {
+                    article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                    ///ll_AirItem.setVisibility(View.GONE);
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] field = new String[2];
+                            field[0] = "user_id";
+                            field[1] = "english_id";
+                            String[] data = new String[2];
+                            data[0] = "12";
+                            data[1] =  english_ids;
+                            PutData putData = new PutData("http://163.13.201.116:8080/english/deletearticle.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    //progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("刪除成功")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
 
-
+                            //End Write and Read data with URL
+                        }
+                    });
+                    flag = 0;
+                }
             }
+
         });
+
+
+
+
         // create an object textToSpeech and adding features into it
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
@@ -317,8 +364,10 @@ public class article extends AppCompatActivity {
                         builder.setView(v);
                         ImageButton close = v.findViewById(R.id.closebutton);
                         ImageButton heart  = v.findViewById(R.id.heartbutton1);
+
                         AlertDialog dialog = builder.create();
                         TextView dicText2 = v.findViewById(R.id.textView80);
+
 
                         // Instantiate the RequestQueue.
                         RequestQueue queue = Volley.newRequestQueue(article.this);
@@ -366,7 +415,74 @@ public class article extends AppCompatActivity {
                         close.setOnClickListener((v1 -> {
                             dialog.dismiss();
                         }));
+
                         heart.setOnClickListener((v1 -> {
+                            if (flag == 0) {
+                                ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                                article.setText(ssb);
+                                // TODO Auto-generated method stub
+                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                                // ll_AirItem.setVisibility(View.VISIBLE);
+                                Handler handler = new Handler();
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String[] field = new String[2];
+                                        field[0] = "user_id";
+                                        field[1] = "word";
+                                        String[] data = new String[2];
+                                        data[0] = "12";
+                                        data[1] = Word;
+                                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
+                                        if (putData.startPut()) {
+                                            if (putData.onComplete()) {
+                                                //progressBar.setVisibility(View.GONE);
+                                                String result = putData.getResult();
+                                                if (result.equals("儲存成功")) {
+                                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+                                        //End Write and Read data with URL
+                                    }
+                                });
+                                flag = 1;
+                            } else {
+                               heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                                ///ll_AirItem.setVisibility(View.GONE);
+                                Handler handler = new Handler();
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String[] field = new String[2];
+                                        field[0] = "user_id";
+                                        field[1] = "word";
+                                        String[] data = new String[2];
+                                        data[0] = "12";
+                                        data[1] =  Word;
+                                        PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                                        if (putData.startPut()) {
+                                            if (putData.onComplete()) {
+                                                //progressBar.setVisibility(View.GONE);
+                                                String result = putData.getResult();
+                                                if (result.equals("刪除成功")) {
+                                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+
+                                        //End Write and Read data with URL
+                                    }
+                                });
+                                flag = 0;
+                            }
+                            /*
                             ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
                             article.setText(ssb);
                             //儲存至資料庫
@@ -396,6 +512,8 @@ public class article extends AppCompatActivity {
                                     //End Write and Read data with URL
                                 }
                             });
+
+                             */
                             dialog.dismiss();
 
                         }));

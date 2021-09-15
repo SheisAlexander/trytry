@@ -46,9 +46,10 @@ public class article2 extends AppCompatActivity {
     String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s,levels;
 
     String Word  ;
-    ImageButton article_heart;
+    ImageButton sound,stop,article_heart;
     Button next;
     RadioButton interesting,easy,boring,difficult;
+    int flag = 0;
 
 
     @Override
@@ -174,51 +175,93 @@ public class article2 extends AppCompatActivity {
 
 
 
-
+        sound = findViewById(R.id.soundbutton);
+        sound.setBackgroundResource(R.drawable.ic_baseline_volume_up_24);
+        stop = findViewById(R.id.stopbutton);
+        stop.setBackgroundResource(R.drawable.ic_baseline_stop_24);
 
 
 
 
         article_heart = findViewById(R.id.heartbutton);
+        article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
         article_heart.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Handler handler = new Handler();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] field = new String[2];
-                        field[0] = "user_id";
-                        field[1] = "english_id";
+
+                // IB_PullDown.setBackgroundResource(R.drawable.pulldown_button_image);
+                if (flag == 0) {
+                    // TODO Auto-generated method stub
+                    article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                    // ll_AirItem.setVisibility(View.VISIBLE);
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] field = new String[2];
+                            field[0] = "user_id";
+                            field[1] = "english_id";
 
 
-                        String[] data = new String[2];
-                        data[0] = "12";
-                        data[1] = english_ids;
+                            String[] data = new String[2];
+                            data[0] = "12";
+                            data[1] = english_ids;
 
 
-                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectarticle.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                //progressBar.setVisibility(View.GONE);
-                                String result = putData.getResult();
-                                if (result.equals("儲存成功")) {
-                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    finish();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                            PutData putData = new PutData("http://163.13.201.116:8080/english/collectarticle.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    //progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("儲存成功")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }
+                            //End Write and Read data with URL
                         }
-                        //End Write and Read data with URL
-                    }
-                });
+                    });
+                    flag = 1;
+                } else {
+                    article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                    ///ll_AirItem.setVisibility(View.GONE);
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] field = new String[2];
+                            field[0] = "user_id";
+                            field[1] = "english_id";
+                            String[] data = new String[2];
+                            data[0] = "12";
+                            data[1] =  english_ids;
+                            PutData putData = new PutData("http://163.13.201.116:8080/english/deletearticle.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    //progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("刪除成功")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
 
-
-
-
+                            //End Write and Read data with URL
+                        }
+                    });
+                    flag = 0;
+                }
             }
+
         });
+
 
         //選擇喜好
         interesting=findViewById(R.id.interesting);
