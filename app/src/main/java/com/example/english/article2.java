@@ -359,8 +359,12 @@ public class article2 extends AppCompatActivity {
                         builder.setView(v);
                         ImageButton close = v.findViewById(R.id.closebutton);
                         ImageButton heart  = v.findViewById(R.id.heartbutton1);
+                        heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                        close.setBackgroundResource(R.drawable.ic_baseline_highlight_off_24);
+
                         AlertDialog dialog = builder.create();
                         TextView dicText2 = v.findViewById(R.id.textView80);
+
 
                         // Instantiate the RequestQueue.
                         RequestQueue queue = Volley.newRequestQueue(article2.this);
@@ -408,37 +412,75 @@ public class article2 extends AppCompatActivity {
                         close.setOnClickListener((v1 -> {
                             dialog.dismiss();
                         }));
+
                         heart.setOnClickListener((v1 -> {
-                            ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
-                            article.setText(ssb);
-                            //儲存至資料庫
-                            Handler handler = new Handler();
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    String[] field = new String[2];
-                                    field[0] = "user_id";
-                                    field[1] = "word";
-                                    String[] data = new String[2];
-                                    data[0] = "12";
-                                    data[1] = Word;
-                                    PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
-                                    if (putData.startPut()) {
-                                        if (putData.onComplete()) {
-                                            //progressBar.setVisibility(View.GONE);
-                                            String result = putData.getResult();
-                                            if (result.equals("儲存成功")) {
-                                                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                                finish();
-                                            } else {
-                                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                            if (flag == 0) {
+                                ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                                article.setText(ssb);
+                                // TODO Auto-generated method stub
+                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                                // ll_AirItem.setVisibility(View.VISIBLE);
+                                Handler handler = new Handler();
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String[] field = new String[2];
+                                        field[0] = "user_id";
+                                        field[1] = "word";
+                                        String[] data = new String[2];
+                                        data[0] = "12";
+                                        data[1] = Word;
+                                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
+                                        if (putData.startPut()) {
+                                            if (putData.onComplete()) {
+                                                //progressBar.setVisibility(View.GONE);
+                                                String result = putData.getResult();
+                                                if (result.equals("儲存成功")) {
+                                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                }
                                             }
                                         }
+                                        //End Write and Read data with URL
                                     }
-                                    //End Write and Read data with URL
-                                }
-                            });
-                            dialog.dismiss();
+                                });
+                                flag = 1;
+                            } else {
+                                ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
+                                article.setText(ssb);
+                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                                ///ll_AirItem.setVisibility(View.GONE);
+                                Handler handler = new Handler();
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String[] field = new String[2];
+                                        field[0] = "user_id";
+                                        field[1] = "word";
+                                        String[] data = new String[2];
+                                        data[0] = "12";
+                                        data[1] =  Word;
+                                        PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                                        if (putData.startPut()) {
+                                            if (putData.onComplete()) {
+                                                //progressBar.setVisibility(View.GONE);
+                                                String result = putData.getResult();
+                                                if (result.equals("刪除成功")) {
+                                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+
+                                        //End Write and Read data with URL
+                                    }
+                                });
+                                flag = 0;
+                            }
 
                         }));
                         mode.finish();//收起menu
@@ -506,6 +548,57 @@ public class article2 extends AppCompatActivity {
                         Toast.makeText(article2.this, "取消螢光筆", Toast.LENGTH_SHORT).show();
                         ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                         article.setText(ssb);
+                        RequestQueue queue3 = Volley.newRequestQueue(article2.this);
+
+                        String url3 ="https://api.dictionaryapi.dev/api/v2/entries/en/" + selectedText;
+
+                        JsonArrayRequest request3 = new JsonArrayRequest(Request.Method.GET,url3,null,new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+
+                                try {
+                                    //第一層
+                                    JSONObject wordInfo = response.getJSONObject(0);
+
+                                    Word = wordInfo.getString("word");
+                                    Handler handler = new Handler();
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String[] field = new String[2];
+                                            field[0] = "user_id";
+                                            field[1] = "word";
+                                            String[] data = new String[2];
+                                            data[0] = "12";
+                                            data[1] = Word;
+                                            PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                                            if (putData.startPut()) {
+                                                if (putData.onComplete()) {
+                                                    //progressBar.setVisibility(View.GONE);
+                                                    String result = putData.getResult();
+                                                    if (result.equals("刪除成功")) {
+                                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                                        finish();
+                                                    } else {
+                                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            }
+                                            //End Write and Read data with URL
+                                        }
+                                    });
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(article2.this, "Wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        queue3.add(request3);
                         mode.finish();
                         break;
                 }

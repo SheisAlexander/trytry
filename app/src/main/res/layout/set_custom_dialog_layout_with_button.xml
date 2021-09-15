@@ -40,21 +40,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
 
                         <ImageButton
                             android:id="@+id/heartbutton1"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/primary_green"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@color/primary_green"
+                            tools:ignore="SpeakableTextPresentCheck"
+                            android:layout_marginRight="10dp"/>
 
                         <ImageButton
                             android:id="@+id/closebutton"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/primary_green"
-                            android:src="@drawable/ic_baseline_highlight_off_24"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@color/primary_green"
+                            android:layout_marginRight="10dp"
+
                             tools:ignore="SpeakableTextPresentCheck" />
                     </LinearLayout>
 
