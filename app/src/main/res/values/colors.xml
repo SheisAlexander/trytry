@@ -25,4 +25,16 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark_gray">#FFC4C4C4</color>
     <color name="transparent">#00000000</color>
+    <color name="milktea"> #FAEBD7</color>
+
+    <color name="milkwhite"> #F5F5EF</color>
+    <color name="milkgreen"> #A6B5C99A</color>
+
+    <color name="klg"> #A1A499</color>
+    <color name="kdg"> #717C74</color>
+    <color name="km"> #FFFFFB</color>
+
+
+
+
 </resources>

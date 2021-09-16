@@ -52,7 +52,7 @@
 
         <Button
             android:id="@+id/DictionaryButton"
-            android:onClick="sendRequestOnClick"
+
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginRight="50dp"
@@ -92,23 +92,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
 
                         <ImageButton
                             android:id="@+id/heartButton"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/primary_green"
-                            android:src="@drawable/ic_baseline_favorite_border_24"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@color/primary_green"
+                            tools:ignore="SpeakableTextPresentCheck"
+                            android:layout_marginRight="10dp"/>
 
                         <ImageButton
                             android:id="@+id/soundButton"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/primary_green"
-                            android:src="@drawable/ic_baseline_volume_up_24"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@color/primary_green"
+                            tools:ignore="SpeakableTextPresentCheck"
+                            android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
                     <TextView

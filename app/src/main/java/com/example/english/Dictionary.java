@@ -38,12 +38,12 @@ public class Dictionary extends AppCompatActivity {
     EditText wordText;
     TextView dicText;
     ImageButton d_like;
-
-    String url;
+    int flag =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_dictionary);
 
         //Initialize and Assign Variable
@@ -56,8 +56,9 @@ public class Dictionary extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        Intent intent = new Intent(Dictionary.this,MainActivity.class);
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                     case R.id.analysis:
                         startActivity(new Intent(getApplicationContext(),Analysis.class));
@@ -67,8 +68,8 @@ public class Dictionary extends AppCompatActivity {
                     case R.id.dictionary:
                         return true;
                     case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(),Settings.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -80,10 +81,61 @@ public class Dictionary extends AppCompatActivity {
         dicText     = findViewById(R.id.DictionaryText);
         soundButton = findViewById(R.id.soundButton);
         d_like = findViewById(R.id.heartButton);
+        d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+        soundButton .setBackgroundResource(R.drawable.ic_baseline_volume_up_24);
+        dicButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dicText.setText("");
 
-        url = dictionaryEntries();
+
+                final TextView textView = (TextView) findViewById(R.id.text);
+
+                // Instantiate the RequestQueue.
+                RequestQueue queue = Volley.newRequestQueue(Dictionary.this);
+                String url ="https://api.dictionaryapi.dev/api/v2/entries/en/" + wordText.getText().toString();
+
+                JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url,null,new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        String worddef = "";
+                        String wordpos = "";
+                        try {
+                            //第一層
+                            JSONObject wordInfo = response.getJSONObject(0);
+                            JSONArray word = wordInfo.getJSONArray("meanings");
+                            //第二層
+                            JSONObject meanings = word.getJSONObject(0);
+
+                            //JSONObject wordmeanp = meanings.getJSONObject("partOfSpeech");
+                            wordpos = meanings.getString("partOfSpeech");
+
+                            JSONArray wordmean = meanings.getJSONArray("definitions");
+
+                            //第三層
+                            JSONObject worddefs = wordmean.getJSONObject(0);
+                            worddef = worddefs.getString("definition");
+
+                            //worddef = wordInfo.getString("meanings");
 
 
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        dicText.append("詞性: "+"\n"+wordpos+"\n"+"意思: "+"\n"+worddef);
+
+                        //Toast.makeText(Dictionary.this, "Mean: "+worddef, Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Dictionary.this, "Wrong", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                queue.add(request);
+            }
+        });
 
         soundButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,60 +192,80 @@ public class Dictionary extends AppCompatActivity {
             }
         });
 
+
         d_like.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Handler handler = new Handler();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] field = new String[2];
-                        field[0] = "user_id";
-                        field[1] = "word";
-                        String[] data = new String[2];
-                        data[0] = "12";
-                        data[1] = wordText.getText().toString();
-                        PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                //progressBar.setVisibility(View.GONE);
-                                String result = putData.getResult();
-                                if (result.equals("儲存成功")) {
-                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    finish();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+
+                // IB_PullDown.setBackgroundResource(R.drawable.pulldown_button_image);
+                if (flag == 0) {
+                    // TODO Auto-generated method stub
+                    d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                    // ll_AirItem.setVisibility(View.VISIBLE);
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] field = new String[2];
+                            field[0] = "user_id";
+                            field[1] = "word";
+                            String[] data = new String[2];
+                            data[0] = "12";
+                            data[1] = wordText.getText().toString();
+                            PutData putData = new PutData("http://163.13.201.116:8080/english/collectword.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    //progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("儲存成功")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }
+                            //End Write and Read data with URL
                         }
-                        //End Write and Read data with URL
-                    }
-                });
+                    });
+                    flag = 1;
+                } else {
+                    d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                    ///ll_AirItem.setVisibility(View.GONE);
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] field = new String[2];
+                            field[0] = "user_id";
+                            field[1] = "word";
+                            String[] data = new String[2];
+                            data[0] = "12";
+                            data[1] = wordText.getText().toString();;
+                            PutData putData = new PutData("http://163.13.201.116:8080/english/delete.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    //progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("刪除成功")) {
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+
+                            //End Write and Read data with URL
+                        }
+                    });
+                    flag = 0;
+                }
             }
 
         });
 
-
-    }
-
-//    public void requestApiButtonClick(View v){
-//        MyDictionaryRequest myDictionaryRequest = new MyDictionaryRequest(this,dicText);
-//        myDictionaryRequest.execute(url);
-//    }
-
-    private String dictionaryEntries() {
-        final String language = "en-gb";
-        final String word = wordText.getText().toString();  //wordText.getText().toString()
-        final String fields = "definitions";//definitions pronunciations
-        final String strictMatch = "false";
-        final String word_id = word.toLowerCase();
-        return "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id + "?" + "fields=" + fields + "&strictMatch=" + strictMatch;
-    }
-
-    public void sendRequestOnClick(View v){
-        MyDictionaryRequest dR = new MyDictionaryRequest(this,dicText);
-        url = dictionaryEntries();
-        dR.execute(url);
     }
 
 }

@@ -30,18 +30,62 @@ public class YourLevel extends AppCompatActivity {
 
 
 
-        seekbar = (SeekBar)findViewById(R.id.SeekBar);
-        sorttextview = (TextView)findViewById(R.id.SortTextView);
-        sortbutton = (Button)findViewById(R.id.Sortbutton);
+        seekbar = findViewById(R.id.SeekBar);
+        sorttextview = findViewById(R.id.SortTextView);
+        sortbutton =findViewById(R.id.Sortbutton);
 
         seekbar.setMax(8);
         seekbar.setProgress(0);
+        sorttextview.setText("The boy hears a sound. He looks up. He sees an airplane. The airplane is in the sky. It is a silver airplane. It has two wings. It has a tail. It has two jet engines. There is a pilot on the airplane. He flies the airplane. He lands the airplane.\n");
+        sortbutton.setText("Choose Level1");
+        sortbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[2];
+                        field[0] = "username";
+                        field[1] = "currentlevel";
+
+
+                        String[] data = new String[2];
+                        data[0] = "A";
+                        data[1] = "1";
+
+
+                        PutData putData = new PutData("http://163.13.201.116:8080/english/currentlevel.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                //progressBar.setVisibility(View.GONE);
+                                String result = putData.getResult();
+                                if (result.equals("儲存成功")) {
+                                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                        //End Write and Read data with URL
+                    }
+                });
+                Intent intent = new Intent();
+                intent.setClass(YourLevel.this,MainActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
 
 
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+
                 if(progress == 0){
                     sorttextview.setText("The boy hears a sound. He looks up. He sees an airplane. The airplane is in the sky. It is a silver airplane. It has two wings. It has a tail. It has two jet engines. There is a pilot on the airplane. He flies the airplane. He lands the airplane.\n");
                     sortbutton.setText("Choose Level1");
@@ -387,6 +431,7 @@ public class YourLevel extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+
 
                 }
             }

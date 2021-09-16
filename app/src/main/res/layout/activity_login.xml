@@ -20,7 +20,7 @@
         android:text="LearnEng"
         android:gravity="center"
         android:fontFamily="@font/poppinsbold"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
       />
 
     <TextView
@@ -35,7 +35,7 @@
         android:text="@string/login"
         android:gravity="center"
         android:fontFamily="@font/poppinsbold"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/textView"/>
 
 
