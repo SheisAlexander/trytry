@@ -170,7 +170,7 @@ public class Vocabulary_heart1 extends AppCompatActivity {
                         View v = getLayoutInflater().inflate(R.layout.set_vocab_dialog_layout,null);
                         builder.setView(v);
                         ImageButton close = v.findViewById(R.id.closebutton);
-                        ImageButton heart  = v.findViewById(R.id.heartbutton1);
+                       close.setBackgroundResource(R.drawable.ic_baseline_highlight_off_24);
                         AlertDialog dialog = builder.create();
                         TextView dicText2 = v.findViewById(R.id.textView80);
 

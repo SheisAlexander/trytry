@@ -8,49 +8,58 @@
 
     <!--頂部設定，icon+標題-->
 
+
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="200dp"
+        android:fillViewport="true"
+        android:layout_marginBottom="170dp"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:orientation="vertical"
         android:gravity="center"
+
         >
 
 
 
 
-            <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/km">
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/km">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+
+
+                    <ImageButton
+                        android:id="@+id/closebutton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@color/km"
+                        android:layout_marginRight="10dp"
+
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:orientation="horizontal">
-
-
-                        <ImageButton
-                            android:id="@+id/closebutton"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/km"
-                            android:src="@drawable/ic_baseline_highlight_off_24"
-                            tools:ignore="SpeakableTextPresentCheck" />
-                    </LinearLayout>
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fillViewport="true">
+                    >
 
                     <TextView
                         android:id="@+id/textView80"
@@ -61,12 +70,12 @@
                         android:textSize="@dimen/word_24"
                         android:gravity="center"
                         />
-                    </ScrollView>
-                </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
 
 </RelativeLayout>
