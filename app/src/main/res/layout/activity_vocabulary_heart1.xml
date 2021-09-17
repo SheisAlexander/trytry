@@ -23,13 +23,12 @@ android:background="@color/kdg"
 
 
 <LinearLayout
-    android:layout_width="398dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_marginStart="26dp"
     android:layout_marginLeft="26dp"
     android:layout_marginTop="130dp"
-    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
 
