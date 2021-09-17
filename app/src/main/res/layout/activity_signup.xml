@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/kdg"
+        android:textColor="@color/klg"
         android:textSize="30sp"
         android:text="@string/Signup"
         android:gravity="center"

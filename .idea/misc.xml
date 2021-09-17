@@ -21,8 +21,10 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_highlight_off_24.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.15472972972972973" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_radio_button_checked_24.xml" value="0.19953703703703704" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_stop_24.xml" value="0.15472972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_volume_up_24.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_volume_up_24_dark.xml" value="0.19953703703703704" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_zoom_in_24.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_dictionary.xml" value="0.11722972972972973" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_email.xml" value="0.11722972972972973" />
@@ -35,11 +37,13 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/rectangle.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/rectangle_shape_big.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/rectangle_shape_small_2.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/seekbar_light.xml" value="0.19953703703703704" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/seekbar_thumb.xml" value="0.19953703703703704" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/shape_text_wordbox.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/vocabadapter.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_analysis.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article.xml" value="0.1" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article_heart1.xml" value="0.10675675675675676" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article_heart1.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article_view.xml" value="0.25104166666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_articleh.xml" value="0.11684782608695653" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_dictionary.xml" value="0.1" />

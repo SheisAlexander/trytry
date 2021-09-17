@@ -65,7 +65,7 @@ public class YourLevel extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+
                                 }
                             }
                         }
@@ -116,7 +116,7 @@ public class YourLevel extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                                 finish();
                                             } else {
-                                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+
                                             }
                                         }
                                     }

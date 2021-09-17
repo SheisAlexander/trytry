@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textIsSelectable="true"
 
             android:background="@color/kdg"
             android:gravity="center"
@@ -104,7 +105,8 @@
                 android:text="Keywords:"
                 android:textColor="@color/kdg"
                 android:textSize="@dimen/word_24"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:textIsSelectable="true"/>
 
             <TextView
                 android:id="@+id/keyword01"
@@ -164,15 +166,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/next"
                     android:text="下一篇文章"
+                    android:layout_marginBottom="10dp"
                     />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/english_id"
 
-                android:textSize="@dimen/word_24"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"/>
 
 
 

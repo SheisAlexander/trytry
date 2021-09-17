@@ -36,7 +36,7 @@ import java.util.Locale;
 
 public class articleh extends AppCompatActivity {
 
-    TextView title, article, keyword1, english_id;
+    TextView title, article, keyword1;
     TextToSpeech textToSpeech;
     String Word ;
     //ProgressBar progressBar;
@@ -59,7 +59,6 @@ public class articleh extends AppCompatActivity {
         article = findViewById(R.id.article01);
         keyword1 = findViewById(R.id.keyword01);
 
-        english_id = findViewById(R.id.english_id);
 
         Intent i = getIntent();
         String title0 = i.getStringExtra("title");

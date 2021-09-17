@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/some_id"
-        android:layout_width="107dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="30dp"
         android:layout_alignParentTop="true"
@@ -20,7 +20,7 @@
         android:textSize="40dp"
         android:gravity="top"
         android:textColor="@color/km"
-        android:padding="5dp"
+
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -58,9 +58,9 @@
         <Button
             android:id="@+id/DictionaryButton"
             android:backgroundTint="@color/km"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="25dp"
             android:text="Go"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -96,25 +96,25 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:gravity="right"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:orientation="horizontal">
 
                         <ImageButton
                             android:id="@+id/heartButton"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            android:layout_marginRight="10dp"
                             android:background="@color/km"
-                            tools:ignore="SpeakableTextPresentCheck"
-                            android:layout_marginRight="10dp"/>
+                            tools:ignore="SpeakableTextPresentCheck" />
 
                         <ImageButton
                             android:id="@+id/soundButton"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            android:layout_marginRight="10dp"
                             android:background="@color/km"
-                            tools:ignore="SpeakableTextPresentCheck"
-                            android:layout_marginRight="10dp"/>
+                            tools:ignore="SpeakableTextPresentCheck" />
                     </LinearLayout>
 
                     <TextView
@@ -122,12 +122,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/km"
+                        android:padding="5dp"
                         android:textColor="@color/black"
                         android:textColorHighlight="#ffee32"
                         android:textIsSelectable="true"
                         android:textSize="@dimen/word_24"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        android:padding="5dp"/>
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="根據文章選擇你的程度"
+            android:text="滑動滾輪根據文章選擇你的程度"
             android:textSize="24sp"
             android:layout_marginTop="15dp"
             android:textColor="@color/km"
@@ -63,10 +63,15 @@
 
     <SeekBar
         android:id="@+id/SeekBar"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="310dp"
+        android:layout_height="20dp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
+        android:maxHeight="5dp"
+        android:minHeight="5dp"
+
+        android:progressDrawable="@drawable/seekbar_light"
+        android:thumb="@drawable/seekbar_thumb"
 
 
 

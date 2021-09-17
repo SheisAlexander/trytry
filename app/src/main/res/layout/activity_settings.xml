@@ -24,21 +24,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
 
 
         <TextView
             android:id="@+id/some_id"
-            android:layout_width="155dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
             android:gravity="top"
             android:text="設定"
             android:textColor="@color/km"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:layout_marginLeft="5dp"
+            />
 
 
         <androidx.cardview.widget.CardView

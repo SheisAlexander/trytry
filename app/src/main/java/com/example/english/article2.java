@@ -43,7 +43,7 @@ import java.util.Random;
 
 public class article2 extends AppCompatActivity {
 
-    TextView title, article, keyword1, english_id;
+    TextView title, article, keyword1;
     String result;
     String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s,levels;
     TextToSpeech textToSpeech;
@@ -105,7 +105,7 @@ public class article2 extends AppCompatActivity {
 
                         title.setText(titles);
                         article.setText(articles);
-                        english_id.setText(english_ids);
+                        Log.i("english_id", english_ids);
 
                         keyword1.setText(keywords1s+" , "+keywords2s+" , "+keywords3s+" , "+keywords4s+" , "+keywords5s+" , "+keywords6s);
 
@@ -173,7 +173,7 @@ public class article2 extends AppCompatActivity {
         article = findViewById(R.id.article01);
         keyword1 = findViewById(R.id.keyword01);
 
-        english_id = findViewById(R.id.english_id);
+
 
 
 

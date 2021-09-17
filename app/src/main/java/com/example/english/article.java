@@ -40,7 +40,7 @@ import java.util.Locale;
 
 public class article extends AppCompatActivity {
 
-    TextView title, article, keyword1,english_id;
+    TextView title, article, keyword1;
     TextToSpeech textToSpeech;
     String english_ids,levels;
     String Word ;
@@ -92,7 +92,7 @@ public class article extends AppCompatActivity {
         title = findViewById(R.id.title02);
         article = findViewById(R.id.article01);
         keyword1 = findViewById(R.id.keyword01);
-        english_id = findViewById(R.id.english_id);
+
 
 
         Intent i = getIntent();
@@ -114,7 +114,7 @@ public class article extends AppCompatActivity {
         keyword1.setText(keyword01+" , "+keyword02+" , "+keyword03+" , "+keyword04+" , "+keyword05+" , "+keyword06);
 
         english_ids = i.getStringExtra("english_id");
-        english_id.setText(english_ids);
+        Log.i("english_id", english_ids);
 
         Handler handler1 = new Handler();
         handler1.post(new Runnable() {
