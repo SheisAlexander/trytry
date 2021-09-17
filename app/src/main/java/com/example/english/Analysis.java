@@ -144,8 +144,8 @@ public class Analysis extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(Analysis.this,Vocabulary_level.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("title","Level");
-                bundle.putString("url","http://163.13.201.116:8080/english/leve61word.php");
+                bundle.putString("title","Level6");
+                bundle.putString("url","http://163.13.201.116:8080/english/level6word.php");
                 intent.putExtras(bundle);   // 記得put進去，不然資料不會帶過去哦
                 startActivity(intent);
 
