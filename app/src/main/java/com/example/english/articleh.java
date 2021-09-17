@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.SpannableStringBuilder;
 import android.text.style.BackgroundColorSpan;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -363,7 +364,9 @@ public class articleh extends AppCompatActivity {
         });
 
     }
-    /*
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -398,7 +401,6 @@ public class articleh extends AppCompatActivity {
         Log.d("article", "onDestroy");
     }
 
-     */
 
 
 
