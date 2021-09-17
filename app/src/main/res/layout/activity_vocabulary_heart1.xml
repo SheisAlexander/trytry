@@ -6,7 +6,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".Vocabulary_heart1"
-android:background="@color/white"
+android:background="@color/kdg"
     >
 
 
@@ -18,7 +18,8 @@ android:background="@color/white"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:gravity="top"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textColor="@color/km"/>
 
 
 <LinearLayout

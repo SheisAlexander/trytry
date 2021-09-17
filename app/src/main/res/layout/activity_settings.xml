@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Settings"
-    android:background="@color/green_a4">
+    android:background="@color/kdg">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
-        app:itemBackground="@color/white"
+        app:itemBackground="@color/km"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
@@ -29,24 +29,23 @@
 
         <TextView
             android:id="@+id/some_id"
-            android:layout_width="107dp"
-            android:layout_height="57dp"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
-            android:text="設定"
-            android:textSize="40dp"
             android:gravity="top"
-            />
+            android:text="設定"
+            android:textColor="@color/km"
+            android:textSize="40dp" />
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
             android:layout_marginTop="30dp"
+            android:backgroundTint="@color/km"
             app:cardCornerRadius="@dimen/buttonS_20">
 
             <LinearLayout
@@ -60,16 +59,10 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
+                    android:background="@color/km"
                     android:text="更改文章程度"
-                    android:textColor="@color/green_a1"
+                    android:textColor="@color/black"
                     android:textSize="30sp" />
-
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/spacing_10"
-                    />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -81,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
-
+            android:backgroundTint="@color/km"
             app:cardCornerRadius="@dimen/buttonS_20">
 
             <LinearLayout
@@ -94,10 +87,10 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
+                    android:background="@color/km"
                     android:text="登出"
-                    android:textColor="@color/green_a1"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
 
 
             </LinearLayout>

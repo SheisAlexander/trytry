@@ -19,17 +19,13 @@
         android:gravity="center"
         >
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
 
-            android:fillViewport="true">
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/primary_green">
+                android:backgroundTint="@color/km">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -47,25 +43,30 @@
                             android:id="@+id/closebutton"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:backgroundTint="@color/primary_green"
+                            android:backgroundTint="@color/km"
                             android:src="@drawable/ic_baseline_highlight_off_24"
                             tools:ignore="SpeakableTextPresentCheck" />
                     </LinearLayout>
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true">
 
                     <TextView
                         android:id="@+id/textView80"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/primary_green"
+                        android:background="@color/km"
                         android:textColor="@color/black"
                         android:textSize="@dimen/word_24"
                         android:gravity="center"
                         />
+                    </ScrollView>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-        </ScrollView>
+
     </LinearLayout>
 
 </RelativeLayout>

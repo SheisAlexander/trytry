@@ -1,42 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".YourLevel">
+    tools:context=".YourLevel"
+    android:background="@color/kdg">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
         <TextView
 
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="滑動滾輪挑選符合你程度的文章"
-            android:textSize="@dimen/word_24"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_gravity="center"
+            android:text="根據文章選擇你的程度"
+            android:textSize="24sp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/km"
             android:id="@+id/textView"
             />
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/km"
+        android:id="@+id/level"
+
+        />
 
 
     <ScrollView
         android:layout_width="333dp"
-        android:layout_height="506dp"
-        app:layout_constraintBottom_toTopOf="@+id/SeekBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="65dp">
+        android:layout_height="380dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:background="@color/km"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp"
+            >
 
             <TextView
                 android:id="@+id/SortTextView"
@@ -51,25 +65,27 @@
         android:id="@+id/SeekBar"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/Sortbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+
+
+
+   />
 
     <Button
         android:id="@+id/Sortbutton"
         android:layout_width="200dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:textColor="@color/dark_green"
-        app:backgroundTint="@color/primary_green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/black"
+        app:backgroundTint="@color/km"
+        android:text="Select"
+
+        />
+</LinearLayout>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/white"
+    android:background="@color/kdg"
     >
 
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
-        app:itemBackground="@color/white"
+        app:itemBackground="@color/km"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
@@ -30,7 +30,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:gravity="top"
-
+        android:textColor="@color/km"
         android:textSize="40dp" />
 
 
@@ -50,6 +50,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fillViewport="true"
 
             />
 

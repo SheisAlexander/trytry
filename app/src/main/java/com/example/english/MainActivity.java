@@ -72,15 +72,18 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.analysis:
                         startActivity(new Intent(getApplicationContext(), Analysis.class));
                         overridePendingTransition(0, 0);
+
                         return true;
                     case R.id.dictionary:
                         startActivity(new Intent(getApplicationContext(), Dictionary.class));
                         overridePendingTransition(0, 0);
+
                         return true;
 
                     case R.id.settings:
                         startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
+                
                         return true;
                 }
                 return false;

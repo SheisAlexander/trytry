@@ -63,6 +63,7 @@ public class Dictionary extends AppCompatActivity {
                     case R.id.analysis:
                         startActivity(new Intent(getApplicationContext(),Analysis.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.dictionary:
@@ -70,6 +71,7 @@ public class Dictionary extends AppCompatActivity {
                     case R.id.settings:
                         startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
+                        finish();
                         return true;
                 }
                 return false;
@@ -81,8 +83,8 @@ public class Dictionary extends AppCompatActivity {
         dicText     = findViewById(R.id.DictionaryText);
         soundButton = findViewById(R.id.soundButton);
         d_like = findViewById(R.id.heartButton);
-        d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
-        soundButton .setBackgroundResource(R.drawable.ic_baseline_volume_up_24);
+        d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24_dark);
+        soundButton .setBackgroundResource(R.drawable.ic_baseline_volume_up_24_dark);
         dicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,7 +203,7 @@ public class Dictionary extends AppCompatActivity {
                 // IB_PullDown.setBackgroundResource(R.drawable.pulldown_button_image);
                 if (flag == 0) {
                     // TODO Auto-generated method stub
-                    d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                    d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_24_dark);
                     // ll_AirItem.setVisibility(View.VISIBLE);
                     Handler handler = new Handler();
                     handler.post(new Runnable() {
@@ -231,7 +233,7 @@ public class Dictionary extends AppCompatActivity {
                     });
                     flag = 1;
                 } else {
-                    d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                    d_like.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24_dark);
                     ///ll_AirItem.setVisibility(View.GONE);
                     Handler handler = new Handler();
                     handler.post(new Runnable() {

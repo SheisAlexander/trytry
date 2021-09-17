@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.speech.tts.TextToSpeech;
 import android.text.SpannableStringBuilder;
 import android.text.style.BackgroundColorSpan;
 import android.util.Log;
@@ -37,6 +38,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class article2 extends AppCompatActivity {
@@ -44,12 +46,14 @@ public class article2 extends AppCompatActivity {
     TextView title, article, keyword1, english_id;
     String result;
     String titles,articles,english_ids,keywords1s,keywords2s,keywords3s,keywords4s,keywords5s,keywords6s,levels;
+    TextToSpeech textToSpeech;
 
     String Word  ;
     ImageButton sound,stop,article_heart;
     Button next;
     RadioButton interesting,easy,boring,difficult;
     int flag = 0;
+    int highlight = 0xffF7C242;
 
 
     @Override
@@ -261,6 +265,39 @@ public class article2 extends AppCompatActivity {
             }
 
         });
+        // create an object textToSpeech and adding features into it
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+            @Override
+            public void onInit(int i) {
+
+                // if No error is found then only it will run
+                if (i != TextToSpeech.ERROR) {
+                    // To Choose language of speech
+                    textToSpeech.setLanguage(Locale.US);
+
+                }
+            }
+        });
+
+        // Adding OnClickListener
+        sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textToSpeech.speak(articles, TextToSpeech.QUEUE_FLUSH, null);
+
+            }
+        });
+
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                textToSpeech.stop();
+                textToSpeech.shutdown();
+
+            }
+        });
 
 
         //選擇喜好
@@ -359,7 +396,7 @@ public class article2 extends AppCompatActivity {
                         builder.setView(v);
                         ImageButton close = v.findViewById(R.id.closebutton);
                         ImageButton heart  = v.findViewById(R.id.heartbutton1);
-                        heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                        heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24_dark);
                         close.setBackgroundResource(R.drawable.ic_baseline_highlight_off_24);
 
                         AlertDialog dialog = builder.create();
@@ -415,10 +452,10 @@ public class article2 extends AppCompatActivity {
 
                         heart.setOnClickListener((v1 -> {
                             if (flag == 0) {
-                                ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                                ssb.setSpan(new BackgroundColorSpan(highlight),start,end,1);
                                 article.setText(ssb);
                                 // TODO Auto-generated method stub
-                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24_dark);
                                 // ll_AirItem.setVisibility(View.VISIBLE);
                                 Handler handler = new Handler();
                                 handler.post(new Runnable() {
@@ -450,7 +487,7 @@ public class article2 extends AppCompatActivity {
                             } else {
                                 ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                                 article.setText(ssb);
-                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24_dark);
                                 ///ll_AirItem.setVisibility(View.GONE);
                                 Handler handler = new Handler();
                                 handler.post(new Runnable() {
@@ -487,7 +524,7 @@ public class article2 extends AppCompatActivity {
                         break;
                     case R.id.highlight:
                         //Toast.makeText(article.this, "螢光筆", Toast.LENGTH_SHORT).show();
-                        ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                        ssb.setSpan(new BackgroundColorSpan(highlight),start,end,1);
                         article.setText(ssb);
                         RequestQueue queue2 = Volley.newRequestQueue(article2.this);
 
@@ -613,38 +650,41 @@ public class article2 extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
         // The activity is about to become visible.
-        Log.d("article2", "onStart");
+        //if( textToSpeech != null ) textToSpeech.shutdown();
+        Log.d("article", "onStart");
     }
     @Override
     protected void onResume() {
         super.onResume();
         // The activity has become visible (it is now "resumed").
-        Log.d("article2", "onResume");
+        Log.d("article", "onResume");
     }
     @Override
     protected void onPause() {
         super.onPause();
-
         // Another activity is taking focus (this activity is about to be "paused").
-        Log.d("article2", "onPause");
-
+        Log.d("article", "onPause");
     }
     @Override
     protected void onStop() {
+        if( textToSpeech!= null ) textToSpeech.shutdown();
         super.onStop();
         // The activity is no longer visible (it is now "stopped")
-        Log.d("article2", "onStop");
+        Log.d("article", "onStop");
     }
     @Override
     protected void onDestroy() {
+        if( textToSpeech!= null ) textToSpeech.shutdown();
         super.onDestroy();
         // The activity is about to be destroyed.
-        Log.d("article2", "onDestroy");
+        Log.d("article", "onDestroy");
     }
+
 
 
 

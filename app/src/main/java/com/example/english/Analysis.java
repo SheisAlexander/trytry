@@ -38,6 +38,7 @@ public class Analysis extends AppCompatActivity {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.analysis:
@@ -46,10 +47,12 @@ public class Analysis extends AppCompatActivity {
                     case R.id.dictionary:
                         startActivity(new Intent(getApplicationContext(),Dictionary.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                     case R.id.settings:
                         startActivity(new Intent(getApplicationContext(),Settings.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                 }
                 return false;

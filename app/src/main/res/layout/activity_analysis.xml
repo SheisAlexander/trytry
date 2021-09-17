@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Analysis">
+    tools:context=".Analysis"
+    android:background="@color/kdg">
 
     <TextView
         android:id="@+id/some_id"
@@ -17,6 +18,7 @@
         android:layout_marginTop="25dp"
         android:gravity="top"
         android:text="資料集"
+        android:textColor="@color/km"
         android:textSize="40dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -24,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
-        app:itemBackground="@color/white"
+        app:itemBackground="@color/km"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
@@ -53,9 +55,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,9 +74,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,9 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -109,9 +114,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,9 +133,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -145,9 +152,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -163,9 +171,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -181,9 +190,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                app:cardBackgroundColor="@color/primary_green"
+                app:cardBackgroundColor="@color/km"
                 app:cardCornerRadius="15dp"
-                app:contentPadding="10dp">
+                app:contentPadding="10dp"
+                android:backgroundTint="@color/km">
 
                 <TextView
                     android:layout_width="wrap_content"

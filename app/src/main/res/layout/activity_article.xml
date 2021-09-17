@@ -5,11 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:rotation="0"
-    tools:context=".article">
+    tools:context=".article"
+    android:background="@color/km">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/kdg"
+        android:id="@+id/cardview"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,9 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
 
-            android:background="@color/white"
+            android:background="@color/kdg"
             android:gravity="center"
-            android:textColor="@color/green_c1"
+            android:textColor="@color/km"
             android:textSize="@dimen/word_30"
             android:textStyle="bold" />
             <LinearLayout
@@ -37,7 +44,7 @@
         android:id="@+id/soundbutton"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@color/white"
+        android:background="@color/kdg"
         android:layout_marginRight="10dp"
 
         />
@@ -46,7 +53,7 @@
          android:id="@+id/stopbutton"
          android:layout_width="30dp"
          android:layout_height="30dp"
-         android:background="@color/white"
+         android:background="@color/kdg"
          android:layout_marginRight="10dp"
 
          />
@@ -55,9 +62,7 @@
         android:id="@+id/heartbutton"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@color/white"
-
-
+        android:background="@color/kdg"
         android:layout_gravity="right"
         />
             </LinearLayout>
@@ -70,10 +75,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="542dp"
-        android:layout_marginTop="170dp"
+        android:layout_height="match_parent"
+
+        android:layout_marginTop="5dp"
         android:fillViewport="true"
-        android:tint="#52503A">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Keywords:"
-                android:textColor="@color/green_a1"
+                android:textColor="@color/kdg"
                 android:textSize="@dimen/word_24"
                 android:layout_marginTop="10dp"/>
 
@@ -104,7 +110,7 @@
                 android:id="@+id/keyword01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green_a1"
+                android:textColor="@color/kdg"
                 android:textSize="@dimen/word_24" />
 
             <TextView
@@ -112,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="你覺得這篇文章"
                 android:textSize="@dimen/word_24"
+                android:textColor="@color/black"
                 android:layout_marginTop="15dp"/>
 
             <LinearLayout
@@ -141,7 +148,7 @@
                         android:id="@+id/boring"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="無聊"/>
+                        android:text="不感興趣"/>
 
                     <RadioButton
                         android:id="@+id/difficult"
@@ -164,7 +171,8 @@
                 android:id="@+id/english_id"
 
                 android:textSize="@dimen/word_24"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
 
 
 
@@ -173,6 +181,7 @@
 
 
     </ScrollView>
+    </LinearLayout>
 
 </RelativeLayout>
 

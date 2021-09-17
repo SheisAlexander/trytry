@@ -50,6 +50,7 @@ public class article extends AppCompatActivity {
     ImageButton sound,stop,article_heart;
     Button next;
     RadioButton interesting,easy,boring,difficult;
+    int highlight = 0xffF7C242;
 
 
     @Override
@@ -364,7 +365,7 @@ public class article extends AppCompatActivity {
                         builder.setView(v);
                         ImageButton close = v.findViewById(R.id.closebutton);
                         ImageButton heart  = v.findViewById(R.id.heartbutton1);
-                        heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                        heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24_dark);
                         close.setBackgroundResource(R.drawable.ic_baseline_highlight_off_24);
 
                         AlertDialog dialog = builder.create();
@@ -420,10 +421,10 @@ public class article extends AppCompatActivity {
 
                         heart.setOnClickListener((v1 -> {
                             if (flag == 0) {
-                                ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                                ssb.setSpan(new BackgroundColorSpan(highlight),start,end,1);
                                 article.setText(ssb);
                                 // TODO Auto-generated method stub
-                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                                heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24_dark);
                                 // ll_AirItem.setVisibility(View.VISIBLE);
                                 Handler handler = new Handler();
                                 handler.post(new Runnable() {
@@ -455,7 +456,7 @@ public class article extends AppCompatActivity {
                             } else {
                                 ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                                 article.setText(ssb);
-                               heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                               heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24_dark);
                                 ///ll_AirItem.setVisibility(View.GONE);
                                 Handler handler = new Handler();
                                 handler.post(new Runnable() {
@@ -492,7 +493,7 @@ public class article extends AppCompatActivity {
                         break;
                     case R.id.highlight:
                         //Toast.makeText(article.this, "螢光筆", Toast.LENGTH_SHORT).show();
-                        ssb.setSpan(new BackgroundColorSpan(Color.YELLOW),start,end,1);
+                        ssb.setSpan(new BackgroundColorSpan(highlight),start,end,1);
                         article.setText(ssb);
                         RequestQueue queue2 = Volley.newRequestQueue(article.this);
 

@@ -40,14 +40,17 @@ public class Settings extends AppCompatActivity {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                     case R.id.analysis:
                         startActivity(new Intent(getApplicationContext(),Analysis.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                     case R.id.dictionary:
                         startActivity(new Intent(getApplicationContext(),Dictionary.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.settings:
