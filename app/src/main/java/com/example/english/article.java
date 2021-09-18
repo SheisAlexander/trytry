@@ -36,6 +36,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class article extends AppCompatActivity {
@@ -51,6 +52,9 @@ public class article extends AppCompatActivity {
     Button next;
     RadioButton interesting,easy,boring,difficult;
     int highlight = 0xffF7C242;
+    //
+    String result;
+    ArrayList<String> vocabulary = new ArrayList<>();
 
 
     @Override
@@ -111,7 +115,7 @@ public class article extends AppCompatActivity {
         String level0 = i.getStringExtra("level");
 
 
-        keyword1.setText(keyword01+" , "+keyword02+" , "+keyword03+" , "+keyword04+" , "+keyword05+" , "+keyword06);
+        keyword1.setText(keyword01+"  "+keyword02+"  "+keyword03+"  "+keyword04+"  "+keyword05+"  "+keyword06);
 
         english_ids = i.getStringExtra("english_id");
         Log.i("english_id", english_ids);
@@ -261,7 +265,7 @@ public class article extends AppCompatActivity {
             public void onClick(View v) {
 
                 textToSpeech.stop();
-                textToSpeech.shutdown();
+
 
             }
         });
@@ -280,6 +284,14 @@ public class article extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //
+
+
+
+
+
+
+                //
                 int id = radgroup.getCheckedRadioButtonId();
 
                     switch (id) {
@@ -654,8 +666,6 @@ public class article extends AppCompatActivity {
         // The activity is about to be destroyed.
         Log.d("article", "onDestroy");
     }
-
-
 
 
 

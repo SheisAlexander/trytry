@@ -88,9 +88,9 @@ public class Dictionary extends AppCompatActivity {
         dicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 dicText.setText("");
-
-
                 final TextView textView = (TextView) findViewById(R.id.text);
 
                 // Instantiate the RequestQueue.

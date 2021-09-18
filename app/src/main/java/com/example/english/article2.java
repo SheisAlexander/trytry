@@ -107,7 +107,7 @@ public class article2 extends AppCompatActivity {
                         article.setText(articles);
                         Log.i("english_id", english_ids);
 
-                        keyword1.setText(keywords1s+" , "+keywords2s+" , "+keywords3s+" , "+keywords4s+" , "+keywords5s+" , "+keywords6s);
+                        keyword1.setText(keywords1s+"  "+keywords2s+"  "+keywords3s+"  "+keywords4s+"  "+keywords5s+"  "+keywords6s);
 
                     }
                 }catch (Exception e) {
@@ -294,7 +294,7 @@ public class article2 extends AppCompatActivity {
             public void onClick(View v) {
 
                 textToSpeech.stop();
-                textToSpeech.shutdown();
+
 
             }
         });

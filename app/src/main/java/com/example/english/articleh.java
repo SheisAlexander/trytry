@@ -74,7 +74,7 @@ public class articleh extends AppCompatActivity {
         String keyword05 = i.getStringExtra("keyword5");
         String keyword06 = i.getStringExtra("keyword6");
 
-        keyword1.setText(keyword01+" , "+keyword02+" , "+keyword03+" , "+keyword04+" , "+keyword05+" , "+keyword06);
+        keyword1.setText(keyword01+"  "+keyword02+"  "+keyword03+"  "+keyword04+"  "+keyword05+"  "+keyword06);
 
 
         //text to speech
@@ -111,7 +111,7 @@ public class articleh extends AppCompatActivity {
             public void onClick(View v) {
 
                 textToSpeech.stop();
-                textToSpeech.shutdown();
+
 
             }
         });

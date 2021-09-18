@@ -43,9 +43,10 @@ public class Vocabulary_heart1 extends AppCompatActivity {
     RecyclerView recyclerView;
     String result;
     ArrayList<String> vocabulary = new ArrayList<>();
+    ArrayList<String> synonyms = new ArrayList<>();
     VocabAdapter vocabAdapter;
     TextView title;
-    String Word ;
+    String Word;
 
 
     @Override
@@ -83,6 +84,7 @@ public class Vocabulary_heart1 extends AppCompatActivity {
                         JSONObject userDetail = userArray.getJSONObject(i);
                         //Fetching title & tag and storing them in arraylist
                         vocabulary.add(userDetail.getString("word"));
+
 
                     }
                 }catch (Exception e) {

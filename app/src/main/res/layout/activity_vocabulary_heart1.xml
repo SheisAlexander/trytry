@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".Vocabulary_heart1"
-android:background="@color/kdg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Article_heart1"
+    android:background="@color/kdg"
     >
-
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="175dp"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:gravity="top"
-        android:textSize="40sp"
-        android:textColor="@color/km"/>
+        android:textColor="@color/km"
+        android:textSize="40sp" />
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_centerInParent="true"
-    android:layout_marginStart="26dp"
-    android:layout_marginLeft="26dp"
-    android:layout_marginTop="130dp"
-    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:fadeScrollbars="false"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        />
+            />
 
 
-</LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
