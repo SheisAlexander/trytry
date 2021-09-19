@@ -53,18 +53,25 @@
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="TouchTargetSizeCheck"
-            android:background="@color/km"/>
+            android:background="@color/km"
+            />
 
-        <Button
+        <TextView
             android:id="@+id/DictionaryButton"
             android:backgroundTint="@color/km"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="25dp"
             android:text="Go"
-            android:textColor="@color/black"
-            android:textSize="18dp"
+            android:background="@color/km"
+            android:textColor="@color/kdg"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textStyle="bold"
             />
+
+
     </LinearLayout>
 
     <LinearLayout

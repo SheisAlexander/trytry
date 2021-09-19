@@ -3,12 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_favorite_24_dark.xml" value="0.22685185185185186" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_favorite_border_24_dark.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_highlight_off_24.xml" value="0.22685185185185186" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_baseline_volume_up_24.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/drawable/ic_user.xml" value="0.22685185185185186" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_analysis.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_article_view.xml" value="0.25104166666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_dictionary.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_dictionary.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_level1.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/activity_login.xml" value="0.1" />
@@ -27,7 +33,10 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/fragment_article__history.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/fragment_vocabulary_heart.xml" value="0.27898550724637683" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/fragment_vocabulary_history.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/rowlayout.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/set_custom_dialog_layout_with_button.xml" value="0.10472972972972973" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/set_vocab_dialog_layout.xml" value="0.1286231884057971" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/English/app/src/main/res/layout/vocablayout.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/drawable/background.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/WinnieLiao/AndroidStudioProjects/trytry/app/src/main/res/drawable/button_mid.xml" value="0.17135416666666667" />

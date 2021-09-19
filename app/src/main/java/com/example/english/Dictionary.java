@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -33,7 +32,7 @@ import java.io.IOException;
 
 public class Dictionary extends AppCompatActivity {
 
-    Button dicButton;
+    TextView dicButton;
     ImageButton soundButton;
     EditText wordText;
     TextView dicText;

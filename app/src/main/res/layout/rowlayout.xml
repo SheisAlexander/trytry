@@ -19,6 +19,7 @@
             android:id="@+id/title01"
             android:textColor="@color/black"
             android:textSize="@dimen/word_24"
+            
            />
 
 

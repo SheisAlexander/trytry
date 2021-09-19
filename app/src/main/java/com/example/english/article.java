@@ -55,6 +55,9 @@ public class article extends AppCompatActivity {
     //
     String result;
     ArrayList<String> vocabulary = new ArrayList<>();
+    String vocabularysingle ="";
+    String vocabularyall;
+
 
 
     @Override
@@ -284,11 +287,6 @@ public class article extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                //
-
-
-
-
 
 
                 //
@@ -629,6 +627,7 @@ public class article extends AppCompatActivity {
         });
 
     }
+
 
 
 
