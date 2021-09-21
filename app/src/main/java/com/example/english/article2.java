@@ -53,6 +53,7 @@ public class article2 extends AppCompatActivity {
     Button next;
     RadioButton interesting,easy,boring,difficult;
     int flag = 0;
+    int flag1 =0;
     int highlight = 0xffF7C242;
 
 
@@ -195,7 +196,7 @@ public class article2 extends AppCompatActivity {
             public void onClick(View v) {
 
                 // IB_PullDown.setBackgroundResource(R.drawable.pulldown_button_image);
-                if (flag == 0) {
+                if (flag1 == 0) {
                     // TODO Auto-generated method stub
                     article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                     // ll_AirItem.setVisibility(View.VISIBLE);
@@ -229,7 +230,7 @@ public class article2 extends AppCompatActivity {
                             //End Write and Read data with URL
                         }
                     });
-                    flag = 1;
+                    flag1 = 1;
                 } else {
                     article_heart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                     ///ll_AirItem.setVisibility(View.GONE);
@@ -260,7 +261,7 @@ public class article2 extends AppCompatActivity {
                             //End Write and Read data with URL
                         }
                     });
-                    flag = 0;
+                    flag1 = 0;
                 }
             }
 

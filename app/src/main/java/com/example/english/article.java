@@ -46,6 +46,7 @@ public class article extends AppCompatActivity {
     String english_ids,levels;
     String Word ;
     int flag = 0;
+    int flag1 =0;
     //ProgressBar progressBar;
 
     ImageButton sound,stop,article_heart;
@@ -430,7 +431,7 @@ public class article extends AppCompatActivity {
                         }));
 
                         heart.setOnClickListener((v1 -> {
-                            if (flag == 0) {
+                            if (flag1 == 0) {
                                 ssb.setSpan(new BackgroundColorSpan(highlight),start,end,1);
                                 article.setText(ssb);
                                 // TODO Auto-generated method stub
@@ -462,7 +463,7 @@ public class article extends AppCompatActivity {
                                         //End Write and Read data with URL
                                     }
                                 });
-                                flag = 1;
+                                flag1 = 1;
                             } else {
                                 ssb.setSpan(new BackgroundColorSpan(Color.TRANSPARENT),start,end,1);
                                 article.setText(ssb);
@@ -495,7 +496,7 @@ public class article extends AppCompatActivity {
                                         //End Write and Read data with URL
                                     }
                                 });
-                                flag = 0;
+                                flag1 = 0;
                             }
 
                         }));
